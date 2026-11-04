@@ -43,12 +43,12 @@
   background: #145BD7;
 }
 
-/* Glass & Prismatic Utility Classes */
+/* Glass & Prismatic Standard Utility Classes */
 .glass-panel {
   background: rgba(11, 32, 68, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(22, 217, 245, 0.25);
+  border: 1px solid rgba(22, 217, 245, 0.22);
 }
 
 .gold-glass-panel {
@@ -56,6 +56,43 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(217, 168, 63, 0.3);
+}
+
+.pids-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .pids-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pids-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.pids-card {
+  border-radius: 1rem;
+  background-color: rgba(11, 32, 68, 0.7);
+  border: 1px solid rgba(22, 217, 245, 0.18);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+.pids-card:hover {
+  border-color: rgba(22, 217, 245, 0.45);
+  box-shadow: 0 10px 30px -5px rgba(7, 22, 47, 0.7);
+  transform: translateY(-2px);
 }
 
 /* Reduced Motion Safety */
@@ -67,4 +104,3 @@
     scroll-behavior: auto !important;
   }
 }
-

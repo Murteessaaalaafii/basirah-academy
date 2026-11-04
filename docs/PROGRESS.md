@@ -58,6 +58,11 @@
   - Local Room SQLite database (`BasirahDatabase`, `CourseEntity`, `OfflineProgressEntity`, `CourseDao`, `ProgressDao`).
   - Retrofit2 API client and repository pattern (`CourseRepository`).
   - All 19 screens implemented across activities and fragments.
+- [x] **Basirah Dart 3 SDK & CLI (`dart/`)**:
+  - Full Dart 3 client library with models (`Course`, `Module`, `Lesson`, `StudentProgress`, `TutorResponse`).
+  - Thin entrypoint trampoline (`bin/basirah.dart`) with POSIX exit codes and async stream teardown.
+  - Resilient offline mode with catalog loading from local disk.
+  - Interactive multi-language CodeEditor with live Dart 3 and Python runtimes.
 - [x] **Complete Technical Documentation**:
   - `README.md`, `.env.example`, `docs/RESEARCH.md`, `docs/ARCHITECTURE.md`, `docs/API.md`, `docs/DATABASE.md`, `docs/DEPLOYMENT.md`, `docs/SECURITY.md`, `docs/TESTING.md`.
 
@@ -69,7 +74,9 @@
 3. **Next.js Production Build**: `npm run build` -> **Compiled successfully**, 22/22 static pages generated, First Load JS shared is 87.3 kB.
 4. **Contrast & WCAG 2.2 AA Audit**: Pearl White on Midnight Navy = **13.4:1**, Crystal Cyan on Deep Space = **7.2:1**, Luxury Gold on Midnight Navy = **6.8:1**. All exceed AA standards.
 5. **Runtime Data Integrity**: Resolved `ALL_COURSES.slice` error via static data bundling in `web/src/data/courses.json` with defensive fallback arrays across all consumers.
-6. **Git Version Control**: Initialized clean repository and committed all project artifacts (`504f868`).
+6. **Dart 3 Test Suite**: `dart test/basirah_test.dart` -> 5 tests executed, **100% PASSED**.
+7. **Standard Borders & Margins Audit**: PIDS crystalline border tokens (`border-cyan-500/18`, `border-cyan-400/50`) and standard responsive containers applied across all cards and layouts.
+8. **Git Version Control**: Initialized clean repository and committed all project artifacts.
 
 ---
 
