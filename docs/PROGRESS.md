@@ -68,6 +68,8 @@
 2. **TypeScript Type Safety**: `npx tsc --noEmit` -> **0 errors**.
 3. **Next.js Production Build**: `npm run build` -> **Compiled successfully**, 22/22 static pages generated, First Load JS shared is 87.3 kB.
 4. **Contrast & WCAG 2.2 AA Audit**: Pearl White on Midnight Navy = **13.4:1**, Crystal Cyan on Deep Space = **7.2:1**, Luxury Gold on Midnight Navy = **6.8:1**. All exceed AA standards.
+5. **Runtime Data Integrity**: Resolved `ALL_COURSES.slice` error via static data bundling in `web/src/data/courses.json` with defensive fallback arrays across all consumers.
+6. **Git Version Control**: Initialized clean repository and committed all project artifacts (`504f868`).
 
 ---
 
