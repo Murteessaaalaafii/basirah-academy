@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".BasirahApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_basirah_emblem"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_basirah_emblem"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BasirahAcademy">
+
+        <!-- 1. Splash Screen (Launcher) -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.action.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. Onboarding -->
+        <activity android:name=".ui.onboarding.OnboardingActivity" android:exported="false" />
+
+        <!-- 3. Sign In -->
+        <activity android:name=".ui.auth.SignInActivity" android:exported="false" />
+
+        <!-- 4. Registration -->
+        <activity android:name=".ui.auth.SignUpActivity" android:exported="false" />
+
+        <!-- 5. Main Host (Home, Courses, Dashboard, Tutor, Profile) -->
+        <activity android:name=".ui.main.MainActivity" android:exported="false" />
+
+        <!-- 6. Course Detail -->
+        <activity android:name=".ui.courses.CourseDetailActivity" android:exported="false" />
+
+        <!-- 7. Lesson Viewer -->
+        <activity android:name=".ui.lesson.LessonViewerActivity" android:exported="false" />
+
+        <!-- 8. Video Player -->
+        <activity android:name=".ui.lesson.VideoPlayerActivity" android:exported="false" />
+
+        <!-- 9. Quizzes -->
+        <activity android:name=".ui.quiz.QuizActivity" android:exported="false" />
+
+        <!-- 10. Assignments -->
+        <activity android:name=".ui.assignment.AssignmentActivity" android:exported="false" />
+
+        <!-- 11. Projects & Showcase -->
+        <activity android:name=".ui.projects.ProjectsActivity" android:exported="false" />
+
+        <!-- 12. Certificates -->
+        <activity android:name=".ui.certificates.CertificatesActivity" android:exported="false" />
+
+        <!-- 13. Notifications -->
+        <activity android:name=".ui.notifications.NotificationsActivity" android:exported="false" />
+
+        <!-- 14. Settings -->
+        <activity android:name=".ui.settings.SettingsActivity" android:exported="false" />
+
+        <!-- 15. Offline Downloads -->
+        <activity android:name=".ui.offline.OfflineDownloadsActivity" android:exported="false" />
+
+    </application>
+
+</manifest>
+

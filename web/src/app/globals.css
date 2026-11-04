@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #07162F;
+    --text-primary: #F4F7FC;
+    --accent-cyan: #16D9F5;
+    --accent-gold: #D9A83F;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #16D9F5;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom Crystalline Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07162F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0B2044;
+  border-radius: 4px;
+  border: 1px solid rgba(22, 217, 245, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #145BD7;
+}
+
+/* Glass & Prismatic Utility Classes */
+.glass-panel {
+  background: rgba(11, 32, 68, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(22, 217, 245, 0.25);
+}
+
+.gold-glass-panel {
+  background: rgba(11, 32, 68, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 168, 63, 0.3);
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

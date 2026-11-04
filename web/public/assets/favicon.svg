@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07162F" />
+      <stop offset="100%" stop-color="#0B2044" />
+    </linearGradient>
+    <linearGradient id="favCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#287BFF" />
+      <stop offset="100%" stop-color="#16D9F5" />
+    </linearGradient>
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D18B" />
+      <stop offset="100%" stop-color="#D9A83F" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#favBg)" stroke="#16D9F5" stroke-width="1.5" stroke-opacity="0.4" />
+  <g transform="translate(4, 4) scale(0.467)">
+    <polygon points="28,24 44,24 44,60 28,60" fill="#145BD7" />
+    <polygon points="28,60 44,60 44,96 28,96" fill="#07162F" />
+    <polygon points="44,24 76,24 88,38 76,56 44,56" fill="url(#favCyan)" />
+    <polygon points="44,56 78,56 94,72 82,96 44,96" fill="#145BD7" />
+    <polygon points="44,52 64,44 76,56 64,68 44,60" fill="url(#favGold)" />
+    <circle cx="60" cy="56" r="3.5" fill="#FFFFFF" />
+  </g>
+</svg>

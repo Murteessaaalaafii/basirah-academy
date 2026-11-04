@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Basirah Academy</string>
+    <string name="tagline">Learn • Build • Innovate</string>
+    <string name="mission_statement">Make artificial intelligence understandable, practical, and buildable for everyone.</string>
+    
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Home</string>
+    <string name="nav_courses">Courses</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_tutor">AI Tutor</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Actions -->
+    <string name="btn_start_learning">Start Learning</string>
+    <string name="btn_explore_courses">Explore Courses</string>
+    <string name="btn_continue_journey">Continue Journey</string>
+    <string name="btn_open_tutor">Open AI Tutor</string>
+    <string name="btn_download_offline">Download for Offline</string>
+    <string name="btn_submit_lab">Submit Laboratory</string>
+    <string name="btn_verify_certificate">Verify Credential</string>
+
+    <!-- Offline Sync -->
+    <string name="sync_status_online">Connected &amp; Synced</string>
+    <string name="sync_status_offline">Offline Mode Active</string>
+    <string name="sync_status_syncing">Syncing Progress...</string>
+</resources>
+

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/midnight_navy"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="CONFIGURATION &amp; PRIVACY"
+        android:textColor="@color/crystal_cyan"
+        android:textSize="11sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Application Settings"
+        android:textColor="@color/pearl_white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/deep_space"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Switch 1: Auto Sync -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchAutoSync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Automatic Background Sync"
+                android:textColor="@color/pearl_white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Sync progress and quiz attempts when connection resumes."
+                android:textColor="@color/soft_slate"
+                android:textSize="11sp" />
+
+            <!-- Switch 2: Download on Wi-Fi Only -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchWifiOnly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Download over Wi-Fi Only"
+                android:textColor="@color/pearl_white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Save cellular mobile data when caching lessons and docs."
+                android:textColor="@color/soft_slate"
+                android:textSize="11sp" />
+
+            <!-- Switch 3: Socratic Thinking Verbosity -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchSocraticVerbosity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Deep Socratic Reasoning"
+                android:textColor="@color/pearl_white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AI Tutor emphasizes guiding questions before revealing answers."
+                android:textColor="@color/soft_slate"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Privacy Compliance Actions -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnExportData"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Export My Learning Data (JSON)"
+        android:textColor="@color/crystal_cyan"
+        app:strokeColor="@color/crystal_cyan"
+        app:cornerRadius="10dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeleteAccount"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="Request Permanent Profile Deletion"
+        android:textColor="@color/status_error" />
+
+</LinearLayout>
+

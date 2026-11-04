@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/midnight_navy"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/ivOnboardingEmblem"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_basirah_emblem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOnboardingTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="The Future Isn't Something You Wait For.\nIt's Something You Learn to Build."
+        android:textColor="@color/pearl_white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingEmblem" />
+
+    <TextView
+        android:id="@+id/tvOnboardingSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Explore artificial intelligence, develop practical engineering skills, and transform your curiosity into real-world innovation."
+        android:textColor="@color/soft_slate"
+        android:textSize="14sp"
+        android:lineSpacingExtra="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOnboardingTitle" />
+
+    <!-- Feature Pillars List -->
+    <LinearLayout
+        android:id="@+id/layoutPillars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvOnboardingSubtitle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="• 36 ENGINEERING COURSES (DISCOVER • BUILD • ENGINEER)"
+            android:textColor="@color/crystal_cyan"
+            android:textSize="11sp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="• GROUNDED SOCRATIC AI TUTOR (ZERO HALLUCINATION)"
+            android:textColor="@color/luxury_gold"
+            android:textSize="11sp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="• OFFLINE-FIRST SYNCHRONIZATION WITH CLOUD DATA"
+            android:textColor="@color/electric_blue"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Bottom Actions -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGetStarted"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/crystal_cyan"
+        android:text="Start Learning"
+        android:textColor="@color/midnight_navy"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignInExisting" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignInExisting"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="24dp"
+        android:text="I Already Have an Account"
+        android:textColor="@color/pearl_white"
+        app:strokeColor="@color/soft_slate"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

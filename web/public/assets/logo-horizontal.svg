@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hNavyCobalt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07162F" />
+      <stop offset="100%" stop-color="#145BD7" />
+    </linearGradient>
+    <linearGradient id="hElectricCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#287BFF" />
+      <stop offset="100%" stop-color="#16D9F5" />
+    </linearGradient>
+    <linearGradient id="hChampagneGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D18B" />
+      <stop offset="100%" stop-color="#D9A83F" />
+    </linearGradient>
+  </defs>
+
+  <!-- Scaled Emblem -->
+  <g transform="translate(4, 5) scale(0.42)">
+    <polygon points="60,8 106,34 106,86 60,112 14,86 14,34" fill="#0B2044" stroke="url(#hElectricCyan)" stroke-width="2" />
+    <polygon points="28,24 44,24 44,60 28,60" fill="url(#hNavyCobalt)" />
+    <polygon points="28,60 44,60 44,96 28,96" fill="#07162F" />
+    <polygon points="44,24 76,24 88,38 76,56 44,56" fill="url(#hElectricCyan)" />
+    <polygon points="44,56 78,56 94,72 82,96 44,96" fill="url(#hNavyCobalt)" />
+    <polygon points="44,52 64,44 76,56 64,68 44,60" fill="url(#hChampagneGold)" />
+    <circle cx="60" cy="56" r="3" fill="#FFFFFF" />
+  </g>
+
+  <!-- Wordmark -->
+  <text x="64" y="32" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700" letter-spacing="1" fill="#F4F7FC">
+    BASIRAH
+  </text>
+  <text x="168" y="32" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="400" letter-spacing="1.5" fill="#D9A83F">
+    ACADEMY
+  </text>
+  <text x="65" y="46" font-family="IBM Plex Mono, monospace" font-size="8.5" font-weight="600" letter-spacing="2.2" fill="#91A4C1">
+    LEARN <tspan fill="#16D9F5">•</tspan> BUILD <tspan fill="#D9A83F">•</tspan> INNOVATE
+  </text>
+</svg>

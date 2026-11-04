@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base Material 3 Dark Theme for Basirah Academy -->
+    <style name="Theme.BasirahAcademy" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/crystal_cyan</item>
+        <item name="colorOnPrimary">@color/midnight_navy</item>
+        <item name="colorPrimaryContainer">@color/royal_cobalt</item>
+        <item name="colorOnPrimaryContainer">@color/pearl_white</item>
+
+        <item name="colorSecondary">@color/luxury_gold</item>
+        <item name="colorOnSecondary">@color/midnight_navy</item>
+        <item name="colorSecondaryContainer">@color/deep_space</item>
+        <item name="colorOnSecondaryContainer">@color/champagne_gold</item>
+
+        <item name="colorTertiary">@color/electric_blue</item>
+        <item name="colorOnTertiary">@color/pearl_white</item>
+
+        <item name="android:colorBackground">@color/midnight_navy</item>
+        <item name="colorOnBackground">@color/pearl_white</item>
+        <item name="colorSurface">@color/deep_space</item>
+        <item name="colorOnSurface">@color/pearl_white</item>
+
+        <item name="colorError">@color/status_error</item>
+        <item name="colorOnError">@color/pearl_white</item>
+
+        <!-- System Bars -->
+        <item name="android:statusBarColor">@color/midnight_navy</item>
+        <item name="android:navigationBarColor">@color/midnight_navy</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+</resources>
+

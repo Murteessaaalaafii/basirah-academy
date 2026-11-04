@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07162F" />
+      <stop offset="50%" stop-color="#0B2044" />
+      <stop offset="100%" stop-color="#07162F" />
+    </linearGradient>
+    <linearGradient id="certGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D9A83F" />
+      <stop offset="50%" stop-color="#F2D18B" />
+      <stop offset="100%" stop-color="#D9A83F" />
+    </linearGradient>
+    <linearGradient id="certCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#145BD7" />
+      <stop offset="100%" stop-color="#16D9F5" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Academic Frame -->
+  <rect width="1000" height="700" fill="url(#certBg)" />
+  
+  <!-- Outer Gold Border -->
+  <rect x="30" y="30" width="940" height="640" fill="none" stroke="url(#certGold)" stroke-width="2" />
+  <!-- Inner Cyan Accent Border -->
+  <rect x="42" y="42" width="916" height="616" fill="none" stroke="#16D9F5" stroke-width="0.8" opacity="0.4" stroke-dasharray="6,4" />
+
+  <!-- Corner Geometric Rosettes -->
+  <g fill="none" stroke="url(#certGold)" stroke-width="1.5">
+    <polygon points="30,30 60,30 30,60" />
+    <polygon points="970,30 940,30 970,60" />
+    <polygon points="30,670 60,670 30,640" />
+    <polygon points="970,670 940,670 970,640" />
+  </g>
+
+  <!-- Basirah Emblem at Top -->
+  <g transform="translate(460, 75) scale(0.65)">
+    <polygon points="60,8 106,34 106,86 60,112 14,86 14,34" fill="#0B2044" stroke="#16D9F5" stroke-width="2" />
+    <polygon points="28,24 44,24 44,60 28,60" fill="#145BD7" />
+    <polygon points="44,24 76,24 88,38 76,56 44,56" fill="url(#certCyan)" />
+    <polygon points="44,56 78,56 94,72 82,96 44,96" fill="#145BD7" />
+    <polygon points="44,52 64,44 76,56 64,68 44,60" fill="url(#certGold)" />
+    <circle cx="60" cy="56" r="3.5" fill="#FFFFFF" />
+  </g>
+
+  <!-- Typography Hierarchy -->
+  <text x="500" y="190" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" letter-spacing="4" fill="#16D9F5" font-weight="600">
+    BASIRAH ACADEMY • AI ENGINEERING ECOSYSTEM
+  </text>
+  
+  <text x="500" y="240" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="34" letter-spacing="2" fill="url(#certGold)" font-weight="700">
+    CERTIFICATE OF ENGINEERING MASTERY
+  </text>
+
+  <text x="500" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#91A4C1">
+    This credential formally attests that
+  </text>
+
+  <!-- Recipient Name Placeholder / Variable -->
+  <text x="500" y="340" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="38" font-weight="700" fill="#F4F7FC">
+    [RECIPIENT_FULL_NAME]
+  </text>
+  <line x1="300" y1="358" x2="700" y2="358" stroke="url(#certGold)" stroke-width="1.5" />
+
+  <text x="500" y="395" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" fill="#91A4C1">
+    has thoroughly demonstrated technical competency, practical architecture, and completed:
+  </text>
+
+  <!-- Course Title Placeholder -->
+  <text x="500" y="440" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="600" fill="#16D9F5">
+    [COURSE_TITLE_NAME]
+  </text>
+
+  <text x="500" y="480" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#91A4C1" max-width="600">
+    Verified through rigorous hands-on laboratory exercises, code reviews, and production project deliverables.
+  </text>
+
+  <!-- Signatures and Cryptographic Seal -->
+  <g transform="translate(150, 560)">
+    <line x1="0" y1="0" x2="220" y2="0" stroke="#91A4C1" stroke-width="1" />
+    <text x="110" y="22" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#F4F7FC" font-weight="600">ACADEMIC DIRECTOR</text>
+    <text x="110" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#91A4C1">Basirah Engineering Board</text>
+  </g>
+
+  <!-- Verification Seal & Hash -->
+  <g transform="translate(500, 565)">
+    <circle cx="0" cy="0" r="32" fill="#0B2044" stroke="url(#certGold)" stroke-width="2" />
+    <polygon points="0,-18 16,-8 16,12 0,22 -16,12 -16,-8" fill="none" stroke="#16D9F5" stroke-width="1" />
+    <circle cx="0" cy="0" r="6" fill="url(#certGold)" />
+    <text x="0" y="48" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#16D9F5">VERIFIED CREDENTIAL</text>
+  </g>
+
+  <g transform="translate(630, 560)">
+    <line x1="0" y1="0" x2="220" y2="0" stroke="#91A4C1" stroke-width="1" />
+    <text x="110" y="22" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#F4F7FC" font-weight="600">ISSUANCE DATE</text>
+    <text x="110" y="38" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#91A4C1">[DATE_OF_ISSUANCE]</text>
+  </g>
+
+  <text x="500" y="650" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#91A4C1" opacity="0.6">
+    VERIFICATION ID: BASIRAH-CERT-[HASH_ID] • basirah.academy/verify
+  </text>
+</svg>
+

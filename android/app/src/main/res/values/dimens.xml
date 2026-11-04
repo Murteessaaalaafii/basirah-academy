@@ -1,0 +1,21 @@
+<resources>
+    <!-- 8pt Grid Dimensions -->
+    <dimen name="spacing_2xs">2dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_2xl">48dp</dimen>
+
+    <!-- Corner Radii -->
+    <dimen name="radius_sm">6dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">24dp</dimen>
+
+    <!-- Touch Targets (WCAG 2.2 AA compliant >= 48dp) -->
+    <dimen name="min_touch_target">48dp</dimen>
+    <dimen name="button_height">52dp</dimen>
+</resources>
+

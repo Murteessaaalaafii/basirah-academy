@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Prismatic Intelligence Design System (PIDS) Exact Brand Colors -->
+    <color name="midnight_navy">#07162F</color>
+    <color name="deep_space">#0B2044</color>
+    <color name="royal_cobalt">#145BD7</color>
+    <color name="electric_blue">#287BFF</color>
+    <color name="crystal_cyan">#16D9F5</color>
+    <color name="luxury_gold">#D9A83F</color>
+    <color name="champagne_gold">#F2D18B</color>
+    <color name="pearl_white">#F4F7FC</color>
+    <color name="ice_white">#E7F1FF</color>
+    <color name="soft_slate">#91A4C1</color>
+    
+    <!-- Supporting Semantic Status Colors -->
+    <color name="status_success">#19B887</color>
+    <color name="status_warning">#F3B544</color>
+    <color name="status_error">#EF5D69</color>
+    <color name="status_info">#4BA9F5</color>
+    <color name="status_violet">#8568F5</color>
+
+    <!-- Translucent Overlay Surfaces -->
+    <color name="glass_border">#3316D9F5</color>
+    <color name="gold_border">#40D9A83F</color>
+    <color name="card_surface">#CC0B2044</color>
+</resources>
+

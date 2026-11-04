@@ -1,0 +1,32 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <!-- Base Shield -->
+    <path
+        android:pathData="M60,8 L106,34 L106,86 L60,112 L14,86 L14,34 Z"
+        android:fillColor="#0B2044"
+        android:strokeColor="#16D9F5"
+        android:strokeWidth="1.5" />
+    <!-- Spine Vertical -->
+    <path
+        android:pathData="M28,24 L44,24 L44,60 L28,60 Z"
+        android:fillColor="#145BD7" />
+    <path
+        android:pathData="M28,60 L44,60 L44,96 L28,96 Z"
+        android:fillColor="#07162F" />
+    <!-- Top Loop -->
+    <path
+        android:pathData="M44,24 L76,24 L88,38 L76,56 L44,56 Z"
+        android:fillColor="#16D9F5" />
+    <!-- Bottom Loop -->
+    <path
+        android:pathData="M44,56 L78,56 L94,72 L82,96 L44,96 Z"
+        android:fillColor="#145BD7" />
+    <!-- Central Insight Jewel -->
+    <path
+        android:pathData="M44,52 L64,44 L76,56 L64,68 L44,60 Z"
+        android:fillColor="#D9A83F" />
+</vector>
+

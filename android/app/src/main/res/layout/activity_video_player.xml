@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/midnight_navy"
+    android:orientation="vertical">
+
+    <!-- Mock Video Frame -->
+    <FrameLayout
+        android:id="@+id/videoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@color/deep_space">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_basirah_emblem"
+            app:tint="@color/crystal_cyan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="monospace"
+            android:text="STREAMING COMPACT AI LECTURE (1080P)"
+            android:textColor="@color/soft_slate"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <!-- Video Info & Transcript -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvVideoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lecture 1.1: Intuition Behind High-Dimensional Vector Embeddings"
+                android:textColor="@color/pearl_white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="monospace"
+                android:text="Duration: 18:42 • Speaker: Academic Board"
+                android:textColor="@color/crystal_cyan"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Full Transcript &amp; Mathematical Notes:"
+                android:textColor="@color/luxury_gold"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3dp"
+                android:text="When we map tokens or semantic documents into high-dimensional vector spaces (such as ℝ^{1536}), distance metrics dictate semantic proximity.\n\nCosine similarity calculates the cosine of the angle between two vectors:\ncosine_sim(u, v) = (u · v) / (||u|| ||v||).\n\nNotice that if vectors are normalized to unit length, cosine similarity is equivalent to the dot product."
+                android:textColor="@color/soft_slate"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

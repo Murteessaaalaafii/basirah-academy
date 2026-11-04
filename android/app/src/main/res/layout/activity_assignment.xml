@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/midnight_navy"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="CAPSTONE SUBMISSION WORKSPACE"
+            android:textColor="@color/luxury_gold"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tvAssignmentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="End-to-End Hybrid RAG with Cross-Encoder Reranking"
+            android:textColor="@color/pearl_white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Rubric Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/deep_space"
+            app:cardCornerRadius="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Evaluation Rubric (100 Points)"
+                    android:textColor="@color/luxury_gold"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="• System Architecture &amp; Modularity (35 pts)\n• Technical Execution &amp; Code Quality (35 pts)\n• Empirical Evaluation &amp; Failure Analysis (30 pts)"
+                    android:textColor="@color/soft_slate"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Code Input Box -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
+            android:text="SUBMISSION CODE / GITHUB REPO URL"
+            android:textColor="@color/crystal_cyan"
+            android:textSize="11sp" />
+
+        <EditText
+            android:id="@+id/etSubmissionInput"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_prismatic_card"
+            android:gravity="top|start"
+            android:hint="Paste GitHub repository URL or Python code implementation..."
+            android:padding="14dp"
+            android:textColor="@color/pearl_white"
+            android:textColorHint="@color/soft_slate"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmitAssignment"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/crystal_cyan"
+            android:text="Submit Capstone Deliverable"
+            android:textColor="@color/midnight_navy"
+            android:textStyle="bold"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+</ScrollView>
+
