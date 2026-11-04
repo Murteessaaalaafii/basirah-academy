@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ResponsiveNavbar } from "@/components/global/ResponsiveNavbar";
 import { Footer } from "@/components/global/Footer";
+import { DiamondGlassBackdrop } from "@/components/visual/DiamondGlassBackdrop";
 
 export const metadata: Metadata = {
   title: "Basirah Academy — Learn • Build • Innovate | AI Engineering Ecosystem",
@@ -56,7 +57,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-midnight text-pearl min-h-screen flex flex-col antialiased selection:bg-cyan selection:text-midnight">
+      <body className="bg-transparent text-pearl min-h-screen flex flex-col antialiased selection:bg-cyan selection:text-midnight relative">
+        <DiamondGlassBackdrop />
         <ResponsiveNavbar />
         <main className="flex-1 w-full" id="main-content">
           {children}

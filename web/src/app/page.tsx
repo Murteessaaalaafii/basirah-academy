@@ -15,6 +15,7 @@ import {
 import { PrismaticHeroComposition } from "@/components/visual/PrismaticHeroComposition";
 import { CrystallinePathways } from "@/components/visual/CrystallinePathways";
 import { CourseCard } from "@/components/learning/CourseCard";
+import { CourseCoverVisual } from "@/components/learning/CourseCoverVisual";
 import { ALL_COURSES } from "@/lib/courses";
 
 export default function HomePage() {
@@ -143,9 +144,9 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-9">
             {featuredCourses.map((c) => (
-              <CourseCard key={c.id} course={c} />
+              <CourseCoverVisual key={c.id} course={c} size="card" showAction={true} />
             ))}
           </div>
         </div>

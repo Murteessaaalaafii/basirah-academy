@@ -1,14 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, Filter, BookOpen, Brain, Code2, Bot, CloudLightning, Cpu, Sparkles } from "lucide-react";
+import { 
+  Search, 
+  BookOpen, 
+  Brain, 
+  Code2, 
+  Bot, 
+  CloudLightning, 
+  Cpu, 
+  Sparkles,
+  LayoutGrid,
+  CreditCard,
+  Layers
+} from "lucide-react";
 import { CourseCard } from "@/components/learning/CourseCard";
+import { CourseCoverVisual } from "@/components/learning/CourseCoverVisual";
 import { ALL_COURSES, searchCourses } from "@/lib/courses";
 
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [viewMode, setViewMode] = useState<"visual" | "grid">("visual");
 
   const categoryPills = [
     { id: "all", label: "All Specializations", icon: Sparkles, border: "border-amber-400/40 text-amber-300" },
@@ -25,7 +39,7 @@ export default function CoursesPage() {
     filteredCourses = filteredCourses.filter((c) => {
       const text = `${c.title} ${c.tagline} ${c.overview}`.toLowerCase();
       if (selectedCategory === "ai") return text.includes("intelligence") || text.includes("learning") || text.includes("neural") || text.includes("model");
-      if (selectedCategory === "prog") return text.includes("python") || text.includes("programming") || text.includes("code") || text.includes("developer") || text.includes("pipeline");
+      if (selectedCategory === "prog") return text.includes("python") || text.includes("programming") || text.includes("code") || text.includes("developer") || text.includes("pipeline") || text.includes("dart");
       if (selectedCategory === "agents") return text.includes("agent") || text.includes("prompt") || text.includes("rag") || text.includes("tools") || text.includes("automation");
       if (selectedCategory === "data") return text.includes("data") || text.includes("vector") || text.includes("embeddings") || text.includes("analytics");
       if (selectedCategory === "tech") return text.includes("cloud") || text.includes("deploy") || text.includes("system") || text.includes("enterprise") || text.includes("innovation");
@@ -35,21 +49,21 @@ export default function CoursesPage() {
 
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-      {/* Page Title & Intro with Golden Glass Header */}
+      {/* 1. Page Title & Intro with Big Attractive Golden Glass Header */}
       <div className="space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-deepspace/80 border-2 border-amber-400/40 text-amber-300 text-xs font-mono font-bold shadow-gold-glass">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-deepspace/80 border-2 border-amber-400/50 text-amber-300 text-xs font-mono font-bold shadow-gold-glass">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>CANONICAL CATALOG • 36 COURSES</span>
+          <span>CANONICAL CATALOG • 36 VISUAL COVERS</span>
         </div>
         <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-pearl">
           Explore AI Engineering Courses
         </h1>
         <p className="text-slate-soft text-base sm:text-lg max-w-3xl leading-relaxed">
-          Discover, build, and deploy intelligent applications across 3 comprehensive pathways and 5 specialized engineering disciplines.
+          Tap any course cover to view its full architectural overview, syllabus, duration, tuition details, and initiate enrollment.
         </p>
       </div>
 
-      {/* 5 Specialized Category Pills from Image */}
+      {/* 2. Five Specialized Category Badges */}
       <div className="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none">
         {categoryPills.map((pill) => {
           const Icon = pill.icon;
@@ -61,7 +75,7 @@ export default function CoursesPage() {
               onClick={() => setSelectedCategory(pill.id)}
               className={`btn-touch flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-deepspace/80 backdrop-blur-md text-xs font-heading font-bold whitespace-nowrap transition-all ${
                 pill.border
-              } ${isActive ? "scale-105 brightness-125 bg-amber-400/20" : "hover:brightness-110"}`}
+              } ${isActive ? "scale-105 brightness-125 bg-amber-400/20 shadow-gold-glass" : "hover:brightness-110"}`}
             >
               <Icon className="w-4 h-4 flex-shrink-0" />
               <span>{pill.label}</span>
@@ -70,22 +84,22 @@ export default function CoursesPage() {
         })}
       </div>
 
-      {/* Search & Level Filter Toolbar with Golden Glass Border */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-deepspace/80 border-2 border-amber-400/35 flex flex-col md:flex-row gap-5 items-center justify-between backdrop-blur-xl shadow-gold-glass">
+      {/* 3. Search & Level Filter Toolbar with Big Golden Glass Border & View Switcher */}
+      <div className="p-5 sm:p-6 rounded-3xl bg-deepspace/90 border-2 sm:border-[2.5px] border-amber-400/40 ring-1 ring-inset ring-amber-300/20 flex flex-col lg:flex-row gap-5 items-center justify-between backdrop-blur-xl shadow-gold-glass">
         {/* Search Input */}
-        <div className="relative w-full md:w-96">
+        <div className="relative w-full lg:w-80">
           <Search className="w-4 h-4 text-amber-400 absolute left-4 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by topic, tensor, or architecture..."
-            className="w-full bg-midnight/90 border-2 border-amber-400/30 focus:border-amber-400 rounded-xl pl-11 pr-4 py-3 text-sm text-pearl placeholder-slate-soft focus:outline-none transition-colors"
+            placeholder="Search topic, tensor, or architecture..."
+            className="w-full bg-midnight/90 border-2 border-amber-400/35 focus:border-amber-400 rounded-xl pl-11 pr-4 py-3 text-sm text-pearl placeholder-slate-soft focus:outline-none transition-colors"
           />
         </div>
 
         {/* Level Filter Tabs */}
-        <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+        <div className="flex items-center gap-2 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0">
           {[
             { id: "all", label: "All Levels (36)" },
             { id: "beginner", label: "Beginner (10)" },
@@ -97,7 +111,7 @@ export default function CoursesPage() {
               onClick={() => setSelectedLevel(tab.id)}
               className={`btn-touch px-4 py-2.5 rounded-xl text-xs font-mono font-bold whitespace-nowrap transition-all ${
                 selectedLevel === tab.id
-                  ? "bg-gradient-to-r from-amber-400 to-cyan text-midnight shadow-gold-glass"
+                  ? "bg-gradient-to-r from-amber-400 to-cyan text-midnight shadow-gold-glass font-extrabold"
                   : "bg-midnight/80 text-slate-soft hover:text-pearl border border-amber-400/20 hover:border-amber-400/50"
               }`}
             >
@@ -105,17 +119,47 @@ export default function CoursesPage() {
             </button>
           ))}
         </div>
+
+        {/* View Switcher: Visual Covers vs Compact Grid */}
+        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-midnight/90 border border-amber-400/30">
+          <button
+            onClick={() => setViewMode("visual")}
+            className={`btn-touch flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              viewMode === "visual"
+                ? "bg-amber-400 text-midnight shadow-sm"
+                : "text-slate-soft hover:text-pearl"
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>Visual Covers</span>
+          </button>
+          <button
+            onClick={() => setViewMode("grid")}
+            className={`btn-touch flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+              viewMode === "grid"
+                ? "bg-amber-400 text-midnight shadow-sm"
+                : "text-slate-soft hover:text-pearl"
+            }`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+            <span>Compact</span>
+          </button>
+        </div>
       </div>
 
-      {/* Course Grid with Standard Spacing */}
+      {/* 4. Course Showcase Grid with Big Attractive Spacing */}
       {filteredCourses.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-9">
           {filteredCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+            viewMode === "visual" ? (
+              <CourseCoverVisual key={course.id} course={course} size="card" showAction={true} />
+            ) : (
+              <CourseCard key={course.id} course={course} />
+            )
           ))}
         </div>
       ) : (
-        <div className="py-24 text-center space-y-4 rounded-3xl bg-deepspace/50 border-2 border-amber-400/25">
+        <div className="py-24 text-center space-y-4 rounded-3xl bg-deepspace/50 border-2 sm:border-[2.5px] border-amber-400/30 backdrop-blur-xl">
           <div className="w-14 h-14 rounded-2xl bg-midnight border-2 border-amber-400/40 flex items-center justify-center mx-auto text-amber-400 shadow-gold-glass">
             <BookOpen className="w-7 h-7" />
           </div>

@@ -48,6 +48,13 @@ android/.idea/
 # OS & IDE
 .DS_Store
 Thumbs.db
+.idea/
+.vscode/
+
+# Dart
+.dart_tool/
+dart/.dart_tool/
+
 .vscode/
 .idea/
 *.swp
