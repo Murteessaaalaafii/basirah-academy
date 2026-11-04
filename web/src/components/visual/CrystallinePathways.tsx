@@ -2,20 +2,20 @@
 
 import React from "react";
 import Link from "next/link";
-import { Sparkles, Cpu, Layers, ArrowRight, ShieldCheck, Check } from "lucide-react";
+import { Sparkles, Cpu, Layers, ArrowRight, Check } from "lucide-react";
 import { LEARNING_PATHS } from "@/lib/courses";
 
 export const CrystallinePathways: React.FC = () => {
   const pathwayIcons = {
     beginner: <Sparkles className="w-6 h-6 text-cyan" />,
-    intermediate: <Layers className="w-6 h-6 text-electric" />,
-    advanced: <Cpu className="w-6 h-6 text-gold" />
+    intermediate: <Layers className="w-6 h-6 text-emerald-400" />,
+    advanced: <Cpu className="w-6 h-6 text-amber-400" />
   };
 
   const pathwayAccents = {
-    beginner: "from-cyan/20 to-transparent border-cyan/40 hover:border-cyan",
-    intermediate: "from-cobalt/30 to-transparent border-electric/40 hover:border-electric",
-    advanced: "from-gold/20 to-transparent border-gold/40 hover:border-gold"
+    beginner: "from-cyan/20 via-deepspace/80 to-midnight/90 border-cyan-400/40 hover:border-cyan-300 shadow-cyan-glass",
+    intermediate: "from-emerald-500/20 via-deepspace/80 to-midnight/90 border-emerald-400/40 hover:border-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.2)]",
+    advanced: "from-amber-400/20 via-deepspace/80 to-midnight/90 border-amber-400/50 hover:border-amber-300 shadow-gold-glass"
   };
 
   return (
@@ -27,54 +27,54 @@ export const CrystallinePathways: React.FC = () => {
         return (
           <div
             key={path.id}
-            className={`relative flex flex-col justify-between rounded-2xl bg-gradient-to-b ${accent} bg-deepspace/70 p-8 border backdrop-blur-md shadow-card-elevated hover:-translate-y-1.5 transition-all duration-300 group`}
+            className={`relative flex flex-col justify-between rounded-3xl bg-gradient-to-b ${accent} p-8 border-2 backdrop-blur-xl shadow-card-elevated hover:-translate-y-2 transition-all duration-300 group`}
           >
             <div>
               {/* Header Badge */}
               <div className="flex items-center justify-between mb-6">
-                <div className="p-3 rounded-xl bg-midnight/90 border border-slate-dim/30 shadow-sm">
+                <div className="p-3.5 rounded-2xl bg-midnight/90 border border-amber-400/30 shadow-sm group-hover:scale-105 transition-transform">
                   {icon}
                 </div>
-                <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-midnight border border-slate-dim/40 text-slate-soft">
+                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-midnight/90 border border-amber-400/30 text-amber-400 shadow-sm">
                   {path.level} PATHWAY
                 </span>
               </div>
 
               {/* Pathway Title */}
-              <h3 className="font-heading font-bold text-2xl text-pearl group-hover:text-cyan transition-colors">
+              <h3 className="font-heading font-extrabold text-2xl text-pearl group-hover:text-cyan transition-colors">
                 {path.title}
               </h3>
 
               {/* Tagline */}
-              <p className="mt-2 text-sm text-slate-soft leading-relaxed">
+              <p className="mt-2.5 text-sm text-slate-soft leading-relaxed">
                 {path.tagline}
               </p>
 
-              {/* Key Competencies */}
-              <div className="mt-6 pt-6 border-t border-slate-dim/20 space-y-2.5">
-                <span className="font-mono text-xs text-pearl uppercase tracking-wider block mb-2">
+              {/* Key Competencies with Golden Glass Divider */}
+              <div className="mt-6 pt-6 border-t border-amber-400/20 space-y-3">
+                <span className="font-mono text-xs text-amber-400 font-bold uppercase tracking-wider block mb-2">
                   Key Engineering Milestones
                 </span>
                 {path.competencies.slice(0, 4).map((comp, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-soft">
-                    <Check className="w-3.5 h-3.5 text-cyan mt-0.5 flex-shrink-0" />
+                    <Check className="w-4 h-4 text-cyan mt-0.5 flex-shrink-0" />
                     <span>{comp}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Bottom Details & Link */}
-            <div className="mt-8 pt-6 border-t border-slate-dim/20 flex items-center justify-between">
+            {/* Bottom Details & Touchable Link */}
+            <div className="mt-8 pt-6 border-t border-amber-400/20 flex items-center justify-between">
               <div className="text-xs font-mono text-slate-soft">
-                <span>{path.courseSlugs.length} Courses</span> • <span>{path.estimatedWeeks} Weeks</span>
+                <span className="text-pearl font-bold">{path.courseSlugs.length} Courses</span> • <span>{path.estimatedWeeks} Weeks</span>
               </div>
               <Link
                 href={`/paths/${path.slug}`}
-                className="flex items-center gap-1.5 text-sm font-semibold text-cyan hover:text-pearl transition-colors"
+                className="btn-touch px-4 py-2 rounded-xl bg-deepspace/80 border border-amber-400/40 hover:border-amber-300 text-pearl font-semibold text-xs hover:text-amber-300 shadow-gold-glass"
               >
                 <span>Explore Path</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -83,4 +83,3 @@ export const CrystallinePathways: React.FC = () => {
     </div>
   );
 };
-

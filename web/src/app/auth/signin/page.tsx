@@ -73,13 +73,13 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-md mx-auto space-y-8">
-      {/* Brand Header */}
+    <div className="py-20 px-4 sm:px-6 lg:px-8 max-w-md mx-auto space-y-8">
+      {/* Brand Header with App Icon */}
       <div className="text-center space-y-3">
-        <div className="w-12 h-12 rounded-xl bg-deepspace border border-cyan/40 p-2 mx-auto shadow-cyan-glow flex items-center justify-center">
-          <img src="/assets/emblem.svg" alt="Basirah Emblem" className="w-full h-full object-contain" />
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-deepspace to-midnight border-2 border-amber-400/60 p-1 mx-auto shadow-gold-glow flex items-center justify-center overflow-hidden">
+          <img src="/assets/basirah-app-icon.png" alt="Basirah Emblem" className="w-full h-full object-cover rounded-xl" />
         </div>
-        <h1 className="font-heading font-bold text-2xl text-pearl">
+        <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-pearl">
           Sign In to Basirah Academy
         </h1>
         <p className="text-xs text-slate-soft">
@@ -87,45 +87,45 @@ export default function SignInPage() {
         </p>
       </div>
 
-      {/* Sign In Form */}
-      <div className="p-8 rounded-2xl bg-deepspace/80 border border-slate-dim/30 shadow-card-elevated backdrop-blur-md">
+      {/* Sign In Form with Golden Glass Border */}
+      <div className="p-8 sm:p-9 rounded-3xl bg-deepspace/85 border-2 border-amber-400/40 shadow-gold-glass backdrop-blur-2xl">
         {error && (
-          <div className="mb-4 p-3 rounded-lg bg-status-error/15 border border-status-error text-xs text-status-error">
+          <div className="mb-4 p-3 rounded-xl bg-status-error/15 border border-status-error text-xs text-status-error font-medium">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSignIn} className="space-y-4">
           <div>
-            <label className="block text-xs font-mono text-slate-soft mb-1 uppercase">
+            <label className="block text-xs font-mono text-amber-400 mb-1.5 uppercase font-bold">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-soft absolute left-3 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-slate-soft absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="student@basirah.academy"
-                className="w-full bg-midnight/90 border border-slate-dim/40 focus:border-cyan rounded-lg pl-9 pr-3.5 py-2.5 text-sm text-pearl focus:outline-none transition-colors"
+                className="w-full bg-midnight/90 border-2 border-amber-400/25 focus:border-amber-400 rounded-xl pl-10 pr-3.5 py-3 text-sm text-pearl focus:outline-none transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-mono text-slate-soft mb-1 uppercase">
+            <label className="block text-xs font-mono text-amber-400 mb-1.5 uppercase font-bold">
               Password
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-slate-soft absolute left-3 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-slate-soft absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full bg-midnight/90 border border-slate-dim/40 focus:border-cyan rounded-lg pl-9 pr-3.5 py-2.5 text-sm text-pearl focus:outline-none transition-colors"
+                className="w-full bg-midnight/90 border-2 border-amber-400/25 focus:border-amber-400 rounded-xl pl-10 pr-3.5 py-3 text-sm text-pearl focus:outline-none transition-colors"
               />
             </div>
           </div>
@@ -133,27 +133,27 @@ export default function SignInPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan to-electric text-midnight font-bold text-sm shadow-cyan-glow hover:brightness-110 transition-all"
+            className="btn-touch w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-300 to-cyan text-midnight font-heading font-extrabold text-sm shadow-gold-glass hover:brightness-110"
           >
             {loading ? "Authenticating..." : "Sign In to Academy"}
           </button>
         </form>
 
-        {/* Demo Fast Logins */}
-        <div className="mt-6 pt-6 border-t border-slate-dim/20 space-y-2">
-          <span className="text-[11px] font-mono text-slate-soft uppercase tracking-wider block text-center mb-1">
+        {/* Demo Fast Logins with Touchable Motion */}
+        <div className="mt-8 pt-6 border-t border-amber-400/20 space-y-2.5">
+          <span className="text-[11px] font-mono text-amber-400/90 uppercase tracking-wider block text-center mb-1 font-bold">
             Instant Demo Access
           </span>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2.5">
             <button
               onClick={() => handleDemoSignIn('student')}
-              className="py-2 px-3 rounded-lg bg-midnight border border-cyan/30 text-cyan text-xs font-mono hover:bg-cyan/10 transition-colors"
+              className="btn-touch py-2.5 px-3 rounded-xl bg-midnight border-2 border-cyan-400/40 text-cyan text-xs font-mono font-bold hover:bg-cyan/10 shadow-sm"
             >
               Demo Student
             </button>
             <button
               onClick={() => handleDemoSignIn('admin')}
-              className="py-2 px-3 rounded-lg bg-midnight border border-gold/30 text-gold-champagne text-xs font-mono hover:bg-gold/10 transition-colors"
+              className="btn-touch py-2.5 px-3 rounded-xl bg-midnight border-2 border-amber-400/40 text-amber-300 text-xs font-mono font-bold hover:bg-amber-400/10 shadow-sm"
             >
               Demo Admin
             </button>
@@ -162,7 +162,7 @@ export default function SignInPage() {
 
         <div className="mt-6 text-center text-xs text-slate-soft">
           Don&apos;t have an account yet?{" "}
-          <Link href="/auth/signup" className="text-cyan font-semibold hover:underline">
+          <Link href="/auth/signup" className="btn-touch text-cyan font-bold hover:underline">
             Join the Academy
           </Link>
         </div>
@@ -170,4 +170,3 @@ export default function SignInPage() {
     </div>
   );
 }
-

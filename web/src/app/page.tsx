@@ -27,7 +27,7 @@ export default function HomePage() {
     },
     {
       q: "Do I need prior programming experience to start?",
-      a: "No. The Discover AI (Beginner) pathway starts from foundational mental models, everyday AI literacy, and Python programming fundamentals from scratch before moving into vectors and neural computing."
+      a: "No. The Discover AI (Beginner) pathway starts from foundational mental models, everyday AI literacy, and Python & Dart programming fundamentals from scratch before moving into vectors and neural computing."
     },
     {
       q: "How does the AI Tutor help me during my studies?",
@@ -42,20 +42,20 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* SECTION A: HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-12 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-midnight via-deepspace to-midnight border-b border-cyan-500/15">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,91,215,0.08)_0,transparent_70%)] pointer-events-none" />
+      <section className="relative min-h-[92vh] flex items-center justify-center pt-16 pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-cosmic via-deepspace/90 to-cosmic border-b-2 border-amber-400/25">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,240,255,0.12)_0,rgba(217,168,63,0.08)_50%,transparent_75%)] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center relative z-10">
           {/* Hero Typography */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-deepspace border border-cyan/40 text-cyan text-xs font-mono tracking-wider shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
-              PRISMATIC INTELLIGENCE • ENGINEERING ECOSYSTEM
+          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-deepspace/90 border-2 border-amber-400/50 text-amber-300 text-xs font-mono tracking-wider shadow-gold-glass">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+              <span>PRISMATIC INTELLIGENCE • LEARN • BUILD • INNOVATE</span>
             </div>
 
-            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-pearl leading-[1.1] tracking-tight">
+            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-pearl leading-[1.12] tracking-tight">
               THE FUTURE ISN&apos;T SOMETHING YOU WAIT FOR.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan via-electric to-gold-champagne">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-cyan">
                 IT&apos;S SOMETHING YOU LEARN TO BUILD.
               </span>
             </h1>
@@ -64,40 +64,41 @@ export default function HomePage() {
               Explore artificial intelligence, develop practical engineering skills, and transform your curiosity into real-world innovation. Understand foundational mechanics, build neural architectures, and deploy robust intelligent systems.
             </p>
 
+            {/* Touchable Motion CTA Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
               <Link
                 href="/paths"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-sans font-bold text-sm text-midnight bg-gradient-to-r from-cyan to-electric hover:brightness-110 shadow-cyan-glow flex items-center justify-center gap-2 transition-all"
+                className="btn-touch w-full sm:w-auto px-8 py-4 rounded-2xl font-sans font-bold text-sm text-midnight bg-gradient-to-r from-amber-400 via-amber-300 to-cyan hover:brightness-110 shadow-gold-glass flex items-center justify-center gap-2"
               >
                 <span>Explore Learning Paths</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
               <Link
                 href="/about"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-sans font-medium text-sm text-pearl bg-deepspace/80 border border-slate-dim/40 hover:border-cyan hover:text-cyan flex items-center justify-center gap-2 transition-all"
+                className="btn-touch w-full sm:w-auto px-8 py-4 rounded-2xl font-sans font-bold text-sm text-pearl bg-deepspace/80 border-2 border-amber-400/40 hover:border-amber-300 hover:text-amber-300 shadow-gold-glass flex items-center justify-center gap-2"
               >
                 <span>Discover Basirah</span>
               </Link>
             </div>
 
-            {/* Core Pillars Banner */}
-            <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-dim/20 text-xs font-mono text-slate-soft">
-              <div>
-                <span className="text-pearl font-bold block text-sm">36 COURSES</span>
-                <span>Discover • Build • Engineer</span>
+            {/* Core Pillars Banner with Golden Glass Border */}
+            <div className="pt-6 grid grid-cols-3 gap-4 border-t-2 border-amber-400/20 text-xs font-mono text-slate-soft">
+              <div className="p-3 rounded-xl bg-deepspace/50 border border-amber-400/20">
+                <span className="text-pearl font-extrabold block text-sm">36 COURSES</span>
+                <span className="text-slate-soft">Discover • Build • Engineer</span>
               </div>
-              <div>
-                <span className="text-cyan font-bold block text-sm">SOCRATIC AI</span>
-                <span>Grounded RAG Guidance</span>
+              <div className="p-3 rounded-xl bg-deepspace/50 border border-cyan/20">
+                <span className="text-cyan font-extrabold block text-sm">SOCRATIC AI</span>
+                <span className="text-slate-soft">Grounded RAG Guidance</span>
               </div>
-              <div>
-                <span className="text-gold font-bold block text-sm">0% GIMMICKS</span>
-                <span>Real Engineering Mastery</span>
+              <div className="p-3 rounded-xl bg-deepspace/50 border border-amber-400/20">
+                <span className="text-amber-400 font-extrabold block text-sm">0% GIMMICKS</span>
+                <span className="text-slate-soft">Real Engineering Mastery</span>
               </div>
             </div>
           </div>
 
-          {/* Hero Visual Composition */}
+          {/* Hero Visual Composition with 3D Centerpiece and 5 Pillars */}
           <div className="lg:col-span-5 flex justify-center">
             <PrismaticHeroComposition />
           </div>
@@ -107,10 +108,10 @@ export default function HomePage() {
       {/* SECTION B: LEARNING PATHWAYS */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest bg-cyan/10 border border-cyan/30 text-cyan">
+          <span className="px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest bg-amber-400/10 border-2 border-amber-400/40 text-amber-300 shadow-gold-glass font-bold">
             Structured Progression
           </span>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-pearl">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl">
             Three Progressive Tiers of Mastery
           </h2>
           <p className="text-slate-soft text-base leading-relaxed">
@@ -121,28 +122,28 @@ export default function HomePage() {
         <CrystallinePathways />
       </section>
 
-      {/* SECTION C: FEATURED COURSES */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-deepspace/40 border-y border-slate-dim/20">
+      {/* SECTION C: FEATURED COURSES WITH GOLDEN GLASS */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-deepspace/40 border-y-2 border-amber-400/20">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
             <div>
-              <span className="text-xs font-mono text-gold uppercase tracking-wider block mb-1">
+              <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider block mb-1">
                 Rigorous Curriculum
               </span>
-              <h2 className="font-heading font-bold text-3xl text-pearl">
+              <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl">
                 Featured Engineering Courses
               </h2>
             </div>
             <Link
               href="/courses"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan hover:text-pearl transition-colors"
+              className="btn-touch inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-deepspace/90 border-2 border-amber-400/40 text-sm font-bold text-amber-300 hover:border-amber-300 hover:text-pearl shadow-gold-glass"
             >
               <span>View All 36 Courses</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredCourses.map((c) => (
               <CourseCard key={c.id} course={c} />
             ))}
@@ -154,48 +155,48 @@ export default function HomePage() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-mono text-cyan uppercase tracking-wider">
+            <span className="px-3.5 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-cyan/10 border border-cyan/40 text-cyan font-bold">
               Educational Integrity
             </span>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-pearl leading-tight">
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl leading-tight">
               Why Basirah Academy Rejects Conventional Shortcuts
             </h2>
-            <p className="text-slate-soft leading-relaxed">
+            <p className="text-slate-soft leading-relaxed text-base">
               Most platforms offer either surface-level prompt tutorials or dry academic lectures detached from real software engineering. Basirah bridges theory and practice through deep architectural intuition.
             </p>
 
             <div className="space-y-4 pt-2">
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-deepspace border border-slate-dim/30">
-                <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3.5 p-5 rounded-2xl bg-deepspace/80 border-2 border-amber-400/30 shadow-gold-glass">
+                <ShieldCheck className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-heading font-semibold text-pearl text-sm">
+                  <h4 className="font-heading font-bold text-pearl text-base">
                     No Artificial Competition or Public Rankings
                   </h4>
-                  <p className="text-xs text-slate-soft mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-soft mt-1.5 leading-relaxed">
                     Learning is not a race. We eliminate toxic streaks and competitive scoreboards in favor of genuine mastery and reflective engineering.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-deepspace border border-slate-dim/30">
+              <div className="flex items-start gap-3.5 p-5 rounded-2xl bg-deepspace/80 border-2 border-cyan-400/30 shadow-cyan-glass">
                 <Terminal className="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-heading font-semibold text-pearl text-sm">
+                  <h4 className="font-heading font-bold text-pearl text-base">
                     Grounding in Real Code and Tensors
                   </h4>
-                  <p className="text-xs text-slate-soft mt-1 leading-relaxed">
-                    Every concept is reinforced with actual Python and PyTorch implementations, reproducible test suites, and empirical benchmarking.
+                  <p className="text-xs text-slate-soft mt-1.5 leading-relaxed">
+                    Every concept is reinforced with actual Python 3.12, Dart 3, and PyTorch implementations, reproducible test suites, and empirical benchmarking.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-deepspace border border-slate-dim/30">
-                <Cpu className="w-5 h-5 text-electric flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3.5 p-5 rounded-2xl bg-deepspace/80 border-2 border-amber-400/30 shadow-gold-glass">
+                <Cpu className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-heading font-semibold text-pearl text-sm">
+                  <h4 className="font-heading font-bold text-pearl text-base">
                     Verifiable Source Citations
                   </h4>
-                  <p className="text-xs text-slate-soft mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-soft mt-1.5 leading-relaxed">
                     Our AI Tutor never fabricates answers or fake citations. All guidance is grounded in verified curriculum documentation.
                   </p>
                 </div>
@@ -204,40 +205,40 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-md rounded-2xl bg-midnight border border-cyan/30 p-8 shadow-card-elevated space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-dim/30">
-                <span className="font-mono text-xs text-cyan">PILLARS OF BASIRAH</span>
+            <div className="relative w-full max-w-md rounded-3xl bg-midnight/90 border-2 border-amber-400/45 p-8 sm:p-9 shadow-gold-glass space-y-6 backdrop-blur-2xl">
+              <div className="flex items-center justify-between pb-4 border-b border-amber-400/20">
+                <span className="font-mono text-xs text-amber-400 font-bold">PILLARS OF BASIRAH</span>
                 <span className="text-[10px] font-mono text-slate-soft">AUTHENTICITY_V1</span>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-soft">Public Rankings</span>
-                  <span className="text-status-error font-mono text-xs font-semibold">REJECTED (0%)</span>
+                  <span className="text-slate-soft font-medium">Public Rankings</span>
+                  <span className="text-status-error font-mono text-xs font-bold">REJECTED (0%)</span>
                 </div>
-                <div className="w-full bg-deepspace h-1.5 rounded-full overflow-hidden">
+                <div className="w-full bg-deepspace h-2 rounded-full overflow-hidden">
                   <div className="bg-status-error w-0 h-full" />
                 </div>
 
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-soft">Demonstrated Skill Verification</span>
-                  <span className="text-status-success font-mono text-xs font-semibold">MANDATORY (100%)</span>
+                  <span className="text-slate-soft font-medium">Demonstrated Skill Verification</span>
+                  <span className="text-status-success font-mono text-xs font-bold">MANDATORY (100%)</span>
                 </div>
-                <div className="w-full bg-deepspace h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-status-success w-full h-full" />
+                <div className="w-full bg-deepspace h-2 rounded-full overflow-hidden">
+                  <div className="bg-status-success w-full h-full shadow-[0_0_10px_#19B887]" />
                 </div>
 
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-soft">Real-World Capstone Deliverables</span>
-                  <span className="text-cyan font-mono text-xs font-semibold">REQUIRED (36 Projects)</span>
+                  <span className="text-slate-soft font-medium">Real-World Capstone Deliverables</span>
+                  <span className="text-cyan font-mono text-xs font-bold">REQUIRED (36 Projects)</span>
                 </div>
-                <div className="w-full bg-deepspace h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-cyan w-full h-full" />
+                <div className="w-full bg-deepspace h-2 rounded-full overflow-hidden">
+                  <div className="bg-cyan w-full h-full shadow-[0_0_10px_#16D9F5]" />
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg bg-deepspace/70 border border-gold/30 text-xs text-slate-soft space-y-1">
-                <span className="text-gold font-bold block">Academic Honesty Commitment</span>
+              <div className="p-4 rounded-xl bg-deepspace/80 border border-amber-400/40 text-xs text-slate-soft space-y-1.5 shadow-sm">
+                <span className="text-amber-400 font-bold block">Academic Honesty Commitment</span>
                 <p>
                   We never display fake student counts, fabricated alumni reviews, or simulated institutional partnerships.
                 </p>
@@ -248,12 +249,12 @@ export default function HomePage() {
       </section>
 
       {/* SECTION E: HOW LEARNING WORKS */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-midnight border-t border-slate-dim/20">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-midnight/90 border-t-2 border-amber-400/20">
         <div className="max-w-7xl mx-auto w-full text-center space-y-4 mb-16">
-          <span className="text-xs font-mono text-cyan uppercase tracking-widest">
+          <span className="px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest bg-amber-400/10 border border-amber-400/40 text-amber-300 font-bold">
             Pedagogical Engine
           </span>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-pearl">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl">
             How You Learn at Basirah
           </h2>
           <p className="text-slate-soft text-base max-w-2xl mx-auto">
@@ -262,8 +263,8 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-8 rounded-xl bg-deepspace border border-slate-dim/30 hover:border-cyan/40 transition-colors space-y-4">
-            <div className="w-10 h-10 rounded-lg bg-cyan/15 border border-cyan/40 flex items-center justify-center text-cyan font-mono font-bold">
+          <div className="p-8 rounded-3xl bg-deepspace/80 border-2 border-cyan-400/35 hover:border-cyan-300 transition-all duration-300 hover:shadow-cyan-glass space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-cyan/15 border-2 border-cyan/40 flex items-center justify-center text-cyan font-mono font-bold text-base shadow-sm">
               01
             </div>
             <h3 className="font-heading font-bold text-xl text-pearl">Architectural Intuition</h3>
@@ -272,18 +273,18 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="p-8 rounded-xl bg-deepspace border border-slate-dim/30 hover:border-electric/40 transition-colors space-y-4">
-            <div className="w-10 h-10 rounded-lg bg-electric/15 border border-electric/40 flex items-center justify-center text-electric font-mono font-bold">
+          <div className="p-8 rounded-3xl bg-deepspace/80 border-2 border-emerald-400/35 hover:border-emerald-300 transition-all duration-300 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 border-2 border-emerald-400/40 flex items-center justify-center text-emerald-400 font-mono font-bold text-base shadow-sm">
               02
             </div>
             <h3 className="font-heading font-bold text-xl text-pearl">Hands-On Laboratories</h3>
             <p className="text-sm text-slate-soft leading-relaxed">
-              Implement code directly in Python, PyTorch, and SQL. Diagnose real exceptions, tensor dimension mismatches, and memory bottlenecks.
+              Implement code directly in Python, Dart, PyTorch, and SQL. Diagnose real exceptions, tensor dimension mismatches, and memory bottlenecks.
             </p>
           </div>
 
-          <div className="p-8 rounded-xl bg-deepspace border border-slate-dim/30 hover:border-gold/40 transition-colors space-y-4">
-            <div className="w-10 h-10 rounded-lg bg-gold/15 border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
+          <div className="p-8 rounded-3xl bg-deepspace/80 border-2 border-amber-400/40 hover:border-amber-300 transition-all duration-300 hover:shadow-gold-glass space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-amber-400/15 border-2 border-amber-400/40 flex items-center justify-center text-amber-400 font-mono font-bold text-base shadow-sm">
               03
             </div>
             <h3 className="font-heading font-bold text-xl text-pearl">Capstone Deliverable</h3>
@@ -297,8 +298,10 @@ export default function HomePage() {
       {/* SECTION J: FREQUENTLY ASKED QUESTIONS */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center space-y-4 mb-16">
-          <span className="text-xs font-mono text-gold uppercase tracking-widest">Inquiries</span>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-pearl">
+          <span className="px-3.5 py-1.5 rounded-full text-xs font-mono text-amber-400 border border-amber-400/40 uppercase tracking-widest font-bold">
+            Inquiries
+          </span>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl">
             Frequently Asked Questions
           </h2>
           <p className="text-slate-soft text-base">
@@ -308,12 +311,12 @@ export default function HomePage() {
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="p-6 rounded-xl bg-deepspace/70 border border-slate-dim/30 space-y-2">
-              <h4 className="font-heading font-semibold text-lg text-pearl flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-cyan flex-shrink-0" />
+            <div key={idx} className="p-6 sm:p-7 rounded-2xl bg-deepspace/70 border-2 border-amber-400/30 hover:border-amber-300/60 transition-all shadow-sm space-y-2">
+              <h4 className="font-heading font-bold text-lg text-pearl flex items-center gap-3">
+                <HelpCircle className="w-5 h-5 text-amber-400 flex-shrink-0" />
                 {faq.q}
               </h4>
-              <p className="text-sm text-slate-soft leading-relaxed pl-7">
+              <p className="text-sm text-slate-soft leading-relaxed pl-8">
                 {faq.a}
               </p>
             </div>
@@ -322,25 +325,27 @@ export default function HomePage() {
       </section>
 
       {/* SECTION K: FINAL CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-deepspace via-cobalt/40 to-deepspace border-t border-cyan/30 text-center">
-        <div className="max-w-4xl mx-auto space-y-6">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-deepspace via-cobalt/40 to-cosmic border-t-2 border-amber-400/35 text-center">
+        <div className="max-w-4xl mx-auto space-y-7">
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-pearl">
             Understand Intelligence. <br className="hidden sm:inline" />
-            <span className="text-cyan">Engineer Possibility.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-cyan">
+              Engineer Possibility.
+            </span>
           </h2>
-          <p className="text-slate-soft text-base max-w-xl mx-auto">
+          <p className="text-slate-soft text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             Step beyond passive consumption. Join Basirah Academy and build the next generation of intelligent software systems.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/auth/signup"
-              className="px-8 py-3.5 rounded-xl font-sans font-bold text-sm text-midnight bg-cyan hover:brightness-110 shadow-cyan-glow transition-all"
+              className="btn-touch px-9 py-4 rounded-2xl font-sans font-bold text-sm text-midnight bg-gradient-to-r from-amber-400 via-amber-300 to-cyan hover:brightness-110 shadow-gold-glass"
             >
               Start Learning Now
             </Link>
             <Link
               href="/courses"
-              className="px-8 py-3.5 rounded-xl font-sans font-medium text-sm text-pearl bg-deepspace border border-slate-dim/40 hover:border-cyan transition-all"
+              className="btn-touch px-9 py-4 rounded-2xl font-sans font-bold text-sm text-pearl bg-deepspace/90 border-2 border-amber-400/40 hover:border-amber-300 shadow-gold-glass"
             >
               Browse All Courses
             </Link>
@@ -350,4 +355,3 @@ export default function HomePage() {
     </div>
   );
 }
-

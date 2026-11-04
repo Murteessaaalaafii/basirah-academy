@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/midnight_navy">
 
-    <!-- Crystalline Emblem -->
+    <!-- Crystalline App Icon & Logo -->
     <ImageView
         android:id="@+id/ivEmblem"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:src="@drawable/ic_basirah_emblem"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_basirah_app_icon"
+        android:contentDescription="Basirah Academy"
         app:layout_constraintBottom_toTopOf="@+id/tvBrandName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

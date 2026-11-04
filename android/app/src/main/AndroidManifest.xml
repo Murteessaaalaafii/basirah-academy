@@ -8,9 +8,9 @@
     <application
         android:name=".BasirahApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_basirah_emblem"
+        android:icon="@drawable/ic_basirah_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_basirah_emblem"
+        android:roundIcon="@drawable/ic_basirah_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasirahAcademy">
 

@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Basirah Academy Academic Board" }],
   icons: {
-    icon: "/assets/favicon.svg",
-    shortcut: "/assets/favicon.svg",
-    apple: "/assets/favicon.svg"
+    icon: "/assets/basirah-app-icon.png",
+    shortcut: "/assets/basirah-app-icon.png",
+    apple: "/assets/basirah-app-icon.png"
   },
   openGraph: {
     title: "Basirah Academy — Understand Intelligence. Engineer Possibility.",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     siteName: "Basirah Academy",
     images: [
       {
-        url: "/assets/social-card.svg",
-        width: 1200,
-        height: 630,
+        url: "/assets/basirah-logo-hero.png",
+        width: 1024,
+        height: 1024,
         alt: "Basirah Academy Prismatic Intelligence"
       }
     ],

@@ -19,9 +19,19 @@
     <color name="status_info">#4BA9F5</color>
     <color name="status_violet">#8568F5</color>
 
-    <!-- Translucent Overlay Surfaces -->
+    <!-- Translucent Overlay Surfaces & Golden Glass -->
     <color name="glass_border">#3316D9F5</color>
-    <color name="gold_border">#40D9A83F</color>
+    <color name="gold_border">#66F59E0B</color>
+    <color name="gold_24k">#FFD700</color>
+    <color name="gold_amber">#F59E0B</color>
+    <color name="cosmic_dark">#030914</color>
     <color name="card_surface">#CC0B2044</color>
+    
+    <!-- Neon Category Pillars -->
+    <color name="cat_aiml">#00F0FF</color>
+    <color name="cat_prog">#10B981</color>
+    <color name="cat_agents">#C084FC</color>
+    <color name="cat_data">#F97316</color>
+    <color name="cat_tech">#06B6D4</color>
 </resources>
 

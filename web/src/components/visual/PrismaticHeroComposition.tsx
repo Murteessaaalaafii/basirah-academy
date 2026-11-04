@@ -1,146 +1,141 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import { 
+  Brain, 
+  Code2, 
+  Bot, 
+  CloudLightning, 
+  Cpu, 
+  Sparkles 
+} from "lucide-react";
 
 export const PrismaticHeroComposition: React.FC = () => {
+  const [activeBadge, setActiveBadge] = useState<string | null>(null);
+
+  const pillars = [
+    {
+      id: "aiml",
+      label: "AI & ML",
+      icon: Brain,
+      borderClass: "neon-pill-aiml",
+      textClass: "text-cyan-300",
+      glowColor: "rgba(0, 240, 255, 0.4)",
+      desc: "Neural architectures, backpropagation, and transformer engineering."
+    },
+    {
+      id: "prog",
+      label: "Programming",
+      icon: Code2,
+      borderClass: "neon-pill-prog",
+      textClass: "text-emerald-400",
+      glowColor: "rgba(16, 185, 129, 0.4)",
+      desc: "Python 3.12, Dart 3, PyTorch tensor mechanics, and production clean code."
+    },
+    {
+      id: "agents",
+      label: "AI Tools & Agents",
+      icon: Bot,
+      borderClass: "neon-pill-agents",
+      textClass: "text-purple-300",
+      glowColor: "rgba(192, 132, 252, 0.4)",
+      desc: "Autonomous multi-agent swarms, tool-calling pipelines, and MCP architectures."
+    },
+    {
+      id: "data",
+      label: "Data Science",
+      icon: CloudLightning,
+      borderClass: "neon-pill-data",
+      textClass: "text-amber-400",
+      glowColor: "rgba(249, 115, 22, 0.4)",
+      desc: "High-dimensional vector indexing, embeddings, and statistical learning."
+    },
+    {
+      id: "tech",
+      label: "Tech & Innovation",
+      icon: Cpu,
+      borderClass: "neon-pill-tech",
+      textClass: "text-cyan-400",
+      glowColor: "rgba(6, 182, 212, 0.4)",
+      desc: "End-to-end edge deployment, distributed clusters, and real innovation."
+    }
+  ];
+
   return (
-    <div className="relative w-full max-w-xl mx-auto aspect-square flex items-center justify-center select-none">
-      {/* Background Volumetric Glows */}
-      <div className="absolute inset-0 bg-radial-gradient from-cyan/20 via-cobalt/10 to-transparent blur-3xl rounded-full pointer-events-none" />
-      <div className="absolute w-72 h-72 bg-gold/15 blur-2xl rounded-full pointer-events-none transform translate-x-12 -translate-y-12" />
+    <div className="relative w-full max-w-2xl mx-auto flex flex-col items-center select-none py-4">
+      {/* Dynamic Cosmic Orbital Glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,240,255,0.22)_0,rgba(217,168,63,0.18)_40%,transparent_70%)] blur-3xl pointer-events-none -z-10 animate-pulse duration-1000" />
+      <div className="absolute -top-10 -right-10 w-64 h-64 bg-amber-400/20 blur-3xl rounded-full pointer-events-none -z-10" />
 
-      {/* Main SVG Vector Composition */}
-      <svg
-        viewBox="0 0 500 500"
-        className="w-full h-full relative z-10 drop-shadow-2xl"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient id="heroCyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#145BD7" />
-            <stop offset="50%" stop-color="#287BFF" />
-            <stop offset="100%" stop-color="#16D9F5" />
-          </linearGradient>
+      {/* Centerpiece 3D Emblem Showcase with Golden Glass Beveled Frame */}
+      <div className="relative group w-full max-w-lg aspect-square rounded-3xl p-3 bg-gradient-to-b from-deepspace/80 via-midnight/90 to-cosmic/95 border-2 border-amber-400/50 shadow-gold-glass backdrop-blur-2xl transition-all duration-500 hover:border-amber-300 hover:shadow-gold-glow flex items-center justify-center overflow-hidden">
+        {/* Subtle Orbital Rotating Ring */}
+        <div className="absolute inset-2 rounded-2xl border border-cyan-400/25 pointer-events-none" />
+        <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-400/20 via-cyan-400/20 to-amber-400/20 opacity-40 blur-md pointer-events-none group-hover:opacity-75 transition-opacity" />
 
-          <linearGradient id="heroGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#D9A83F" />
-            <stop offset="50%" stop-color="#F2D18B" />
-            <stop offset="100%" stop-color="#D9A83F" />
-          </linearGradient>
-
-          <linearGradient id="facetGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#16D9F5" stop-opacity="0.35" />
-            <stop offset="100%" stop-color="#0B2044" stop-opacity="0.85" />
-          </linearGradient>
-
-          <radialGradient id="centerIllumination" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
-            <stop offset="30%" stop-color="#16D9F5" stop-opacity="0.6" />
-            <stop offset="100%" stop-color="#07162F" stop-opacity="0" />
-          </radialGradient>
-        </defs>
-
-        {/* Outer Orbital Rings with Stippled Dashes */}
-        <ellipse
-          cx="250"
-          cy="250"
-          rx="210"
-          ry="85"
-          fill="none"
-          stroke="#16D9F5"
-          stroke-width="1.2"
-          stroke-dasharray="6,8"
-          opacity="0.35"
-          transform="rotate(-25 250 250)"
-        />
-        <ellipse
-          cx="250"
-          cy="250"
-          rx="210"
-          ry="85"
-          fill="none"
-          stroke="#D9A83F"
-          stroke-width="1"
-          stroke-dasharray="4,10"
-          opacity="0.3"
-          transform="rotate(40 250 250)"
-        />
-        <ellipse
-          cx="250"
-          cy="250"
-          rx="225"
-          ry="120"
-          fill="none"
-          stroke="#287BFF"
-          stroke-width="0.8"
-          opacity="0.25"
+        {/* High-Resolution 3D Masterpiece Image */}
+        <img
+          src="/assets/basirah-logo-hero.png"
+          alt="Basirah Academy 3D Crystalline Emblem"
+          className="w-full h-full object-contain relative z-10 drop-shadow-[0_20px_35px_rgba(0,0,0,0.8)] transform transition-transform duration-500 group-hover:scale-102"
         />
 
-        {/* Coordinate Reference Cross-Hairs */}
-        <g stroke="#91A4C1" stroke-width="0.75" opacity="0.3">
-          <line x1="50" y1="250" x2="450" y2="250" />
-          <line x1="250" y1="50" x2="250" y2="450" />
-          <circle cx="250" cy="250" r="160" fill="none" stroke-dasharray="3,6" />
-        </g>
-
-        {/* Refracted Photon Light Beams */}
-        <g opacity="0.8">
-          <polygon points="250,250 420,120 440,140" fill="url(#heroCyanGradient)" opacity="0.15" />
-          <polygon points="250,250 430,340 410,360" fill="url(#heroGoldGradient)" opacity="0.15" />
-          <polygon points="250,250 80,330 90,350" fill="url(#heroCyanGradient)" opacity="0.12" />
-        </g>
-
-        {/* Crystalline Core: The Prismatic B Monolith */}
-        <g transform="translate(150, 140) scale(1.65)">
-          {/* Base Prism Shield */}
-          <polygon
-            points="60,8 106,34 106,86 60,112 14,86 14,34"
-            fill="url(#facetGlass)"
-            stroke="url(#heroCyanGradient)"
-            stroke-width="1.8"
-          />
-
-          {/* Spine Facets */}
-          <polygon points="28,24 44,24 44,60 28,60" fill="#07162F" stroke="#16D9F5" stroke-width="0.7" />
-          <polygon points="28,60 44,60 44,96 28,96" fill="#0B2044" stroke="#145BD7" stroke-width="0.7" />
-          <polygon points="28,24 36,16 44,24" fill="url(#heroCyanGradient)" />
-          <polygon points="28,96 36,104 44,96" fill="url(#heroGoldGradient)" />
-
-          {/* Upper Loop */}
-          <polygon points="44,24 76,24 88,38 76,56 44,56" fill="url(#heroCyanGradient)" opacity="0.9" />
-          <polygon points="50,32 72,32 78,40 70,50 50,50" fill="#07162F" />
-
-          {/* Lower Loop */}
-          <polygon points="44,56 78,56 94,72 82,96 44,96" fill="#145BD7" />
-          <polygon points="50,64 74,64 84,74 76,88 50,88" fill="#0B2044" stroke="url(#heroGoldGradient)" stroke-width="1" />
-
-          {/* Central Prismatic Insight Jewel */}
-          <polygon points="44,52 64,44 76,56 64,68 44,60" fill="url(#heroGoldGradient)" />
-          <circle cx="60" cy="56" r="4.5" fill="url(#centerIllumination)" />
-        </g>
-
-        {/* Orbiting Quantum Electrons / Tensor Nodes */}
-        <circle cx="95" cy="180" r="4.5" fill="#16D9F5" />
-        <circle cx="415" cy="190" r="4" fill="#F2D18B" />
-        <circle cx="380" cy="360" r="5" fill="#16D9F5" />
-        <circle cx="130" cy="340" r="3.5" fill="#D9A83F" />
-      </svg>
-
-      {/* Floating Precision Telemetry Chips */}
-      <div className="absolute -top-3 right-6 bg-deepspace/90 border border-cyan/40 px-3 py-1.5 rounded-md shadow-prismatic backdrop-blur-md hidden sm:flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
-        <span className="font-mono text-xs text-pearl tracking-wider">NEURAL_GRAPH::STABLE</span>
+        {/* Corner Golden Crystal Brackets */}
+        <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-amber-400/70 pointer-events-none" />
+        <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-amber-400/70 pointer-events-none" />
+        <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-amber-400/70 pointer-events-none" />
+        <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-amber-400/70 pointer-events-none" />
       </div>
 
-      <div className="absolute bottom-4 -left-4 bg-deepspace/90 border border-gold/40 px-3 py-1.5 rounded-md shadow-prismatic backdrop-blur-md hidden sm:flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-gold" />
-        <span className="font-mono text-xs text-gold-champagne tracking-wider">RAG_CITATION::VERIFIED</span>
+      {/* 5 Interactive Glowing Neon Category Pills with Touchable Micro-Interactions */}
+      <div className="w-full mt-6 grid grid-cols-2 sm:grid-cols-5 gap-2.5 px-2">
+        {pillars.map((pill) => {
+          const Icon = pill.icon;
+          const isSelected = activeBadge === pill.id;
+
+          return (
+            <button
+              key={pill.id}
+              onClick={() => setActiveBadge(isSelected ? null : pill.id)}
+              className={`btn-touch flex flex-col items-center justify-center p-3 rounded-2xl bg-deepspace/85 dark:bg-cosmic/85 backdrop-blur-md transition-all duration-200 ${
+                pill.borderClass
+              } ${isSelected ? "scale-105 brightness-125" : "hover:brightness-110"}`}
+              style={{
+                boxShadow: isSelected ? `0 0 24px ${pill.glowColor}` : undefined
+              }}
+            >
+              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-midnight/90 mb-1.5 shadow-sm">
+                <Icon className={`w-4 h-4 ${pill.textClass}`} />
+              </div>
+              <span className="font-heading font-bold text-[11px] text-pearl text-center tracking-tight leading-tight">
+                {pill.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
-      <div className="absolute -bottom-2 right-12 bg-deepspace/90 border border-slate-dim/40 px-3 py-1.5 rounded-md shadow-prismatic backdrop-blur-md hidden sm:flex items-center gap-2">
-        <span className="font-mono text-[11px] text-slate-soft">LATENCY: 12ms • ZERO_HALLUCINATION</span>
-      </div>
+      {/* Active Pillar Intuition Drawer */}
+      {activeBadge && (
+        <div className="w-full mt-4 p-4 rounded-2xl bg-midnight/90 border border-amber-400/40 shadow-gold-glass text-xs text-slate-soft flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="flex items-center gap-2.5">
+            <Sparkles className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            <p className="text-pearl">
+              <span className="font-bold text-amber-400">
+                {pillars.find((p) => p.id === activeBadge)?.label}:{" "}
+              </span>
+              {pillars.find((p) => p.id === activeBadge)?.desc}
+            </p>
+          </div>
+          <Link
+            href="/courses"
+            className="btn-touch px-3 py-1.5 rounded-xl bg-amber-400/20 border border-amber-400/50 text-amber-300 hover:bg-amber-400/30 font-mono text-[11px] font-bold whitespace-nowrap"
+          >
+            Explore Track →
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
-
