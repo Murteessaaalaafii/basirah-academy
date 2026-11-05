@@ -16,7 +16,6 @@ import { PrismaticHeroComposition } from "@/components/visual/PrismaticHeroCompo
 import { CrystallinePathways } from "@/components/visual/CrystallinePathways";
 import { CourseCard } from "@/components/learning/CourseCard";
 import { CourseCoverVisual } from "@/components/learning/CourseCoverVisual";
-import { HolographicGlassSuite } from "@/components/visual/HolographicGlassSuite";
 import { ALL_COURSES } from "@/lib/courses";
 
 export default function HomePage() {
@@ -105,23 +104,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION: 3D HOLOGRAPHIC GLASS SUITE (100% REPLICA OF IMAGE 2) */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] border-[1.5px] border-white/20 text-[#00F0FF] text-xs font-mono font-bold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#00F0FF]" />
-            <span>DIMENSIONAL HOLOGRAPHIC ENVIRONMENT • SUITE v2.6</span>
-          </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
-            AI Engineering & Creative Suite
-          </h2>
-          <p className="text-cyan-100/70 text-sm sm:text-base max-w-2xl mx-auto font-sans">
-            Interact with live engineering services, tune Socratic hyperparameters, and explore real neural models in an authentic 3D glass tablet interface.
-          </p>
-        </div>
-
-        <HolographicGlassSuite />
-      </section>
 
       {/* SECTION B: LEARNING PATHWAYS */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
