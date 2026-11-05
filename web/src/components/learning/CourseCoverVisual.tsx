@@ -34,7 +34,7 @@ export const CourseCoverVisual: React.FC<CourseCoverVisualProps> = ({
 }) => {
   const isHero = size === "hero";
 
-  // Specialized icon and gradient mapping for all courses (Matching Image 2)
+  // Specialized icon and gradient mapping for all courses
   const getCourseVisualAssets = () => {
     const slug = course.slug.toLowerCase();
     const title = course.title.toLowerCase();
@@ -92,20 +92,20 @@ export const CourseCoverVisual: React.FC<CourseCoverVisualProps> = ({
 
   if (isHero) {
     return (
-      <div className="relative rounded-[32px] sm:rounded-[36px] bg-[#0A1430]/80 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-[#38BDF8]/60 hover:border-[#00F0FF] shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 transition-all duration-300">
+      <div className="relative rounded-[32px] sm:rounded-[36px] bg-white/95 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-slate-300 dark:border-[#38BDF8]/60 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 transition-all duration-300">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
           <div className="flex items-center gap-5">
             <div className={`w-16 h-16 rounded-3xl ${assets.iconBg} p-1 shadow-lg flex items-center justify-center border border-white/40 flex-shrink-0`}>
               {assets.icon}
             </div>
             <div className="space-y-1.5">
-              <span className="px-3 py-1 rounded-full text-[10.5px] font-mono font-extrabold uppercase tracking-wider bg-white/10 border border-white/20 text-[#00F0FF]">
+              <span className="px-3 py-1 rounded-full text-[10.5px] font-mono font-extrabold uppercase tracking-wider bg-slate-100 dark:bg-white/10 border border-slate-300 dark:border-white/20 text-[#0096C7] dark:text-[#00F0FF]">
                 {course.level} TRACK • {assets.badgeText}
               </span>
-              <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-white">
+              <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-slate-900 dark:text-white">
                 {course.title}
               </h1>
-              <p className="text-xs sm:text-sm text-cyan-100/70 max-w-2xl font-sans">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-cyan-100/70 max-w-2xl font-sans">
                 {course.tagline || course.overview}
               </p>
             </div>
@@ -129,7 +129,7 @@ export const CourseCoverVisual: React.FC<CourseCoverVisualProps> = ({
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group relative rounded-[22px] bg-[#0A1430]/70 dark:bg-white/[0.06] hover:bg-white/[0.12] border-[1.5px] border-white/20 hover:border-[#00F0FF] shadow-[0_4px_20px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.25)] p-4 sm:p-5 flex flex-col justify-between gap-4 transition-all duration-200 hover:-translate-y-1.5 hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] backdrop-blur-2xl"
+      className="group relative rounded-[22px] bg-white/95 dark:bg-white/[0.06] hover:bg-slate-50 dark:hover:bg-white/[0.12] border-[1.5px] border-slate-300 dark:border-white/20 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-md dark:shadow-[0_4px_20px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.25)] p-4 sm:p-5 flex flex-col justify-between gap-4 transition-all duration-200 hover:-translate-y-1.5 hover:shadow-lg dark:hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] backdrop-blur-2xl"
     >
       {/* Top Row: Squircle App Icon, Title, and Circular Arrow Button */}
       <div className="flex items-start justify-between gap-3">
@@ -141,35 +141,35 @@ export const CourseCoverVisual: React.FC<CourseCoverVisualProps> = ({
 
           {/* Service/Course Name & Subtitle */}
           <div className="min-w-0">
-            <h4 className="font-heading font-bold text-sm sm:text-base text-white group-hover:text-[#00F0FF] transition-colors truncate">
+            <h4 className="font-heading font-bold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-[#0096C7] dark:group-hover:text-[#00F0FF] transition-colors truncate">
               {course.title}
             </h4>
-            <span className="text-[10px] font-mono text-cyan-300/80 block uppercase tracking-wider font-semibold">
+            <span className="text-[10px] font-mono text-[#0096C7] dark:text-cyan-300/80 block uppercase tracking-wider font-semibold">
               {course.level} • {course.estimatedHours}h
             </span>
           </div>
         </div>
 
-        {/* Circular Pill Arrow Button (Exact from Image) */}
-        <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#00F0FF] border border-white/25 group-hover:border-transparent flex items-center justify-center text-white group-hover:text-[#070D24] shadow-sm transition-all flex-shrink-0">
+        {/* Circular Pill Arrow Button */}
+        <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/10 group-hover:bg-[#0096C7] dark:group-hover:bg-[#00F0FF] border border-slate-300 dark:border-white/25 group-hover:border-transparent flex items-center justify-center text-slate-700 dark:text-white group-hover:text-white dark:group-hover:text-[#070D24] shadow-sm transition-all flex-shrink-0">
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
         </div>
       </div>
 
       {/* Course Tagline */}
-      <p className="text-[11.5px] text-cyan-100/70 font-sans line-clamp-2 leading-relaxed">
+      <p className="text-[11.5px] text-slate-600 dark:text-cyan-100/70 font-sans line-clamp-2 leading-relaxed">
         {course.tagline || course.overview}
       </p>
 
       {/* Bottom Info Bar: Capstone / Price */}
-      <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
-        <div className="flex items-center gap-1.5 text-white/80">
-          <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+      <div className="pt-3 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] font-mono">
+        <div className="flex items-center gap-1.5 text-slate-700 dark:text-white/80">
+          <BookOpen className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
           <span>{course.modules?.length || 3} Modules</span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-amber-400 font-bold">$49 USD</span>
-          <span className="text-emerald-400 text-[10px]">($0 Grant)</span>
+          <span className="text-amber-600 dark:text-amber-400 font-bold">$49 USD</span>
+          <span className="text-emerald-600 dark:text-emerald-400 text-[10px]">($0 Grant)</span>
         </div>
       </div>
     </Link>

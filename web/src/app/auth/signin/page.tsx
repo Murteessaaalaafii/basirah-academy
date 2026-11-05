@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { 
   Sparkles, 
   ArrowRight, 
@@ -12,13 +12,18 @@ import {
   Eye, 
   EyeOff, 
   CheckCircle2, 
-  AlertCircle
+  AlertCircle,
+  KeyRound,
+  UserCheck
 } from "lucide-react";
 import { useBasirahStore } from "@/lib/store";
 import { signInWithEmail, signInWithGoogle, ADMIN_CREDENTIALS } from "@/lib/firebase";
 
 export default function SignInPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTarget = searchParams.get("redirect");
+
   const { login } = useBasirahStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +33,7 @@ export default function SignInPage() {
   const [error, setError] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
-  // Email & Password Authentication Handler
+  // Email & Password Unified Authentication Handler
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -37,9 +42,21 @@ export default function SignInPage() {
     try {
       const user = await signInWithEmail(email, password);
       login(user);
-      setSuccessMsg(`Welcome back, ${user.displayName}! Access granted.`);
+      
+      const isAdmin = user.role === "admin" || user.email.toLowerCase() === ADMIN_CREDENTIALS.email.toLowerCase();
+      
+      if (isAdmin) {
+        setSuccessMsg(`Welcome Executive Administrator, ${user.displayName}! Elevating session to Governance Console...`);
+      } else {
+        setSuccessMsg(`Welcome back, Scholar ${user.displayName}! Access granted.`);
+      }
+
       setTimeout(() => {
-        router.push(user.role === "admin" ? "/admin" : "/dashboard");
+        if (redirectTarget) {
+          router.push(redirectTarget);
+        } else {
+          router.push(isAdmin ? "/admin" : "/dashboard");
+        }
       }, 700);
     } catch (err: any) {
       setError(err?.message || "Failed to sign in. Please verify your credentials.");
@@ -55,9 +72,16 @@ export default function SignInPage() {
     try {
       const user = await signInWithGoogle();
       login(user);
+      
+      const isAdmin = user.role === "admin" || user.email.toLowerCase() === ADMIN_CREDENTIALS.email.toLowerCase();
       setSuccessMsg(`Signed in with Google as ${user.displayName}`);
+      
       setTimeout(() => {
-        router.push(user.role === "admin" ? "/admin" : "/dashboard");
+        if (redirectTarget) {
+          router.push(redirectTarget);
+        } else {
+          router.push(isAdmin ? "/admin" : "/dashboard");
+        }
       }, 700);
     } catch (err: any) {
       setError(err?.message || "Google sign-in could not be completed.");
@@ -72,17 +96,19 @@ export default function SignInPage() {
     setError(null);
   };
 
+  const isAdminInput = email.trim().toLowerCase() === ADMIN_CREDENTIALS.email.toLowerCase();
+
   return (
     <div className="min-h-[85vh] py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      {/* 3D Floating Holographic Glass Tablet Container (Template 2) */}
-      <div className="w-full max-w-lg rounded-[32px] sm:rounded-[36px] bg-[#0A1430]/75 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-[#38BDF8]/60 hover:border-[#00F0FF] shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 space-y-7 relative overflow-hidden transition-all duration-300">
+      {/* 3D Floating Holographic Glass Tablet Container */}
+      <div className="w-full max-w-lg rounded-[32px] sm:rounded-[36px] bg-white/95 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-slate-300 dark:border-[#38BDF8]/60 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 space-y-7 relative overflow-hidden transition-all duration-300">
         
         {/* Upper glass highlight */}
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/15 to-transparent rounded-t-[32px] pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/20 to-transparent rounded-t-[32px] pointer-events-none" />
 
-        {/* Header with 3D Basirah Emblem */}
+        {/* Unified Portal Header with 3D Basirah Emblem */}
         <div className="text-center space-y-3 relative z-10">
-          <div className="w-16 h-16 rounded-2xl bg-[#070D24] border-2 border-[#38BDF8]/60 p-1 mx-auto shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center overflow-hidden">
+          <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#070D24] border-2 border-[#38BDF8]/60 p-1 mx-auto shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center overflow-hidden">
             <img 
               src="/assets/basirah-app-icon.png" 
               alt="Basirah Emblem" 
@@ -90,26 +116,38 @@ export default function SignInPage() {
             />
           </div>
           <div>
-            <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 dark:bg-white/[0.08] border border-slate-300 dark:border-white/20 text-[#0096C7] dark:text-[#00F0FF] text-[11px] font-mono font-bold mb-2">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0096C7] dark:text-[#00F0FF]" />
+              <span>UNIFIED PORTAL • STUDENTS & ADMINISTRATORS</span>
+            </div>
+            <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
               Sign In to Basirah Academy
             </h1>
-            <p className="text-xs text-cyan-200/70 mt-1 font-sans">
-              Prismatic Intelligence • Learn • Build • Innovate
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-cyan-200/70 mt-1 font-sans">
+              Single secure entrance for Scholars, Researchers & Academy Administrators
             </p>
           </div>
         </div>
 
+        {/* Dynamic Admin Indicator Pill */}
+        {isAdminInput && (
+          <div className="p-3 rounded-2xl bg-amber-500/15 border border-amber-500/40 text-xs text-amber-800 dark:text-amber-300 font-mono font-bold flex items-center gap-2 animate-in fade-in duration-200">
+            <KeyRound className="w-4 h-4 text-amber-500 flex-shrink-0" />
+            <span>Executive Governance Mode Detected • Elevated Route Ready</span>
+          </div>
+        )}
+
         {/* Notifications: Error or Success */}
         {error && (
-          <div className="p-3.5 rounded-[18px] bg-rose-500/15 border border-rose-500/40 text-xs text-rose-300 font-medium flex items-start gap-2.5 shadow-sm animate-in fade-in duration-200">
-            <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-rose-400" />
+          <div className="p-3.5 rounded-[18px] bg-rose-500/15 border border-rose-500/40 text-xs text-rose-800 dark:text-rose-300 font-medium flex items-start gap-2.5 shadow-sm animate-in fade-in duration-200">
+            <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-rose-500" />
             <div className="flex-1">{error}</div>
           </div>
         )}
 
         {successMsg && (
-          <div className="p-3.5 rounded-[18px] bg-emerald-500/15 border border-emerald-500/40 text-xs text-emerald-300 font-medium flex items-center gap-2.5 shadow-sm animate-in fade-in duration-200">
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-400" />
+          <div className="p-3.5 rounded-[18px] bg-emerald-500/15 border border-emerald-500/40 text-xs text-emerald-800 dark:text-emerald-300 font-medium flex items-center gap-2.5 shadow-sm animate-in fade-in duration-200">
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-500" />
             <div className="flex-1">{successMsg}</div>
           </div>
         )}
@@ -120,11 +158,11 @@ export default function SignInPage() {
             type="button"
             onClick={handleGoogleSignIn}
             disabled={googleLoading || loading}
-            className="btn-touch w-full py-3 px-4 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border-[1.5px] border-white/20 hover:border-[#00F0FF] shadow-sm flex items-center justify-center gap-3 text-xs font-heading font-bold text-white transition-all"
+            className="btn-touch w-full py-3 px-4 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.08] dark:hover:bg-white/[0.12] border-[1.5px] border-slate-300 dark:border-white/20 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-sm flex items-center justify-center gap-3 text-xs font-heading font-bold text-slate-900 dark:text-white transition-all"
           >
             {googleLoading ? (
-              <span className="flex items-center gap-2 font-mono text-xs text-cyan-300">
-                <span className="w-3.5 h-3.5 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin" />
+              <span className="flex items-center gap-2 font-mono text-xs text-cyan-600 dark:text-cyan-300">
+                <span className="w-3.5 h-3.5 rounded-full border-2 border-cyan-500 border-t-transparent animate-spin" />
                 Connecting with Google...
               </span>
             ) : (
@@ -142,57 +180,57 @@ export default function SignInPage() {
 
           {/* Divider */}
           <div className="flex items-center gap-3">
-            <div className="flex-1 h-[1px] bg-white/15" />
-            <span className="text-[10px] font-mono text-cyan-200/50 uppercase tracking-wider">
-              or use academic email
+            <div className="flex-1 h-[1px] bg-slate-200 dark:bg-white/15" />
+            <span className="text-[10px] font-mono text-slate-500 dark:text-cyan-200/50 uppercase tracking-wider">
+              or sign in with email
             </span>
-            <div className="flex-1 h-[1px] bg-white/15" />
+            <div className="flex-1 h-[1px] bg-slate-200 dark:bg-white/15" />
           </div>
 
           {/* Email / Password Form */}
           <form onSubmit={handleSignIn} className="space-y-3.5">
             <div>
-              <label className="block text-[11px] font-mono text-cyan-300 mb-1 uppercase font-bold tracking-wider">
+              <label className="block text-[11px] font-mono text-slate-700 dark:text-cyan-300 mb-1 uppercase font-bold tracking-wider">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-white/50 absolute left-4 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-slate-400 dark:text-white/50 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="scholar@basirah.academy or basirahinfinity@gmail.com"
-                  className="w-full bg-white/[0.08] dark:bg-black/30 border-[1.5px] border-white/20 focus:border-[#00F0FF] rounded-full pl-11 pr-4 py-2.5 text-xs text-white placeholder-white/35 focus:outline-none transition-colors"
+                  className="w-full bg-slate-50 dark:bg-black/30 border-[1.5px] border-slate-300 dark:border-white/20 focus:border-[#0096C7] dark:focus:border-[#00F0FF] rounded-full pl-11 pr-4 py-2.5 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/35 focus:outline-none transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-cyan-300 mb-1 uppercase font-bold tracking-wider">
+              <label className="block text-[11px] font-mono text-slate-700 dark:text-cyan-300 mb-1 uppercase font-bold tracking-wider">
                 Password
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-white/50 absolute left-4 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-slate-400 dark:text-white/50 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   type={showPassword ? "text" : "password"}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full bg-white/[0.08] dark:bg-black/30 border-[1.5px] border-white/20 focus:border-[#00F0FF] rounded-full pl-11 pr-11 py-2.5 text-xs text-white placeholder-white/35 focus:outline-none transition-colors font-mono"
+                  className="w-full bg-slate-50 dark:bg-black/30 border-[1.5px] border-slate-300 dark:border-white/20 focus:border-[#0096C7] dark:focus:border-[#00F0FF] rounded-full pl-11 pr-11 py-2.5 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/35 focus:outline-none transition-colors font-mono"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-800 dark:text-white/40 dark:hover:text-white"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
             </div>
 
-            {/* Submit Button (Image 2 Gradient Pill Button Style) */}
+            {/* Submit Button (Glowing Neon Gradient Pill Button) */}
             <button
               type="submit"
               disabled={loading || googleLoading}
@@ -205,19 +243,19 @@ export default function SignInPage() {
                 </span>
               ) : (
                 <>
-                  <span>Sign In to Academy</span>
+                  <span>Sign In to Unified Portal</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
             </button>
           </form>
 
-          {/* Quick Authorized Administrator Access Box */}
-          <div className="p-3.5 rounded-[20px] bg-white/[0.05] border border-white/15 space-y-1.5">
+          {/* Quick Authorized Administrator Credentials Box */}
+          <div className="p-3.5 rounded-[20px] bg-slate-100/90 dark:bg-white/[0.05] border border-slate-300 dark:border-white/15 space-y-1.5">
             <div className="flex items-center justify-between text-xs font-mono">
-              <span className="text-amber-300 font-extrabold flex items-center gap-1.5 uppercase text-[10.5px]">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                Executive Governance Access
+              <span className="text-amber-700 dark:text-amber-300 font-extrabold flex items-center gap-1.5 uppercase text-[10.5px]">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-500" />
+                Executive Governance Credentials
               </span>
               <button
                 type="button"
@@ -227,20 +265,20 @@ export default function SignInPage() {
                 Auto-Fill Admin
               </button>
             </div>
-            <p className="text-[10px] font-mono text-cyan-100/70">
-              Admin Login: <span className="text-white font-bold">basirahinfinity@gmail.com</span> • <span className="text-amber-300 font-bold">basirah@admin123</span>
+            <p className="text-[10.5px] font-mono text-slate-600 dark:text-cyan-100/70">
+              Admin Login: <span className="text-slate-900 dark:text-white font-bold">basirahinfinity@gmail.com</span> • <span className="text-amber-600 dark:text-amber-300 font-bold">basirah@admin123</span>
             </p>
           </div>
         </div>
 
         {/* Footer Navigation */}
-        <div className="pt-2 text-center text-xs text-cyan-200/70 relative z-10 border-t border-white/10 font-sans">
+        <div className="pt-2 text-center text-xs text-slate-600 dark:text-cyan-200/70 relative z-10 border-t border-slate-200 dark:border-white/10 font-sans">
           <span>Don&apos;t have an account yet? </span>
           <Link 
             href="/auth/signup" 
-            className="text-[#00F0FF] font-bold hover:underline ml-1"
+            className="text-[#0096C7] dark:text-[#00F0FF] font-bold hover:underline ml-1"
           >
-            Create Scholar Account
+            Create Scholar Account (Start from Zero)
           </Link>
         </div>
       </div>

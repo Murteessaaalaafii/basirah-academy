@@ -6,10 +6,10 @@
   :root {
     --bg-primary: #F0F6FC;
     --bg-surface: #FFFFFF;
-    --bg-card: rgba(255, 255, 255, 0.90);
-    --border-card: rgba(217, 168, 63, 0.50);
-    --text-primary: #07162F;
-    --text-secondary: #334E68;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --border-card: rgba(56, 189, 248, 0.50);
+    --text-primary: #0A0F1D;
+    --text-secondary: #334155;
     --accent-cyan: #0096C7;
     --accent-gold: #D9A83F;
   }
@@ -17,10 +17,10 @@
   .dark {
     --bg-primary: #030914;
     --bg-surface: #07162F;
-    --bg-card: rgba(11, 32, 68, 0.82);
-    --border-card: rgba(245, 158, 11, 0.45);
-    --text-primary: #F4F7FC;
-    --text-secondary: #91A4C1;
+    --bg-card: rgba(11, 32, 68, 0.85);
+    --border-card: rgba(56, 189, 248, 0.60);
+    --text-primary: #FFFFFF;
+    --text-secondary: #CBD5E1;
     --accent-cyan: #00F0FF;
     --accent-gold: #FFD700;
   }
@@ -30,13 +30,28 @@
     color: var(--text-primary);
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   *:focus-visible {
     outline: 2px solid #00F0FF;
     outline-offset: 2px;
   }
+}
+
+/* Dynamic Footer Running Marquee Animation */
+@keyframes footerTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-footer-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: footerTicker 30s linear infinite;
+}
+.animate-footer-ticker:hover {
+  animation-play-state: paused;
 }
 
 /* Custom Crystalline Scrollbar */

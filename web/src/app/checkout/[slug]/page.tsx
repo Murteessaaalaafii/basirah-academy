@@ -3,16 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { 
-  ShieldCheck, 
-  CreditCard, 
-  Smartphone, 
-  Wallet, 
-  Sparkles, 
-  CheckCircle2, 
-  ArrowRight, 
-  Clock, 
-  BookOpen, 
+import {
+  ShieldCheck,
+  CreditCard,
+  Smartphone,
+  Wallet,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  Clock,
+  BookOpen,
   Award,
   Lock,
   Receipt
@@ -64,49 +64,49 @@ export default function CheckoutPage() {
 
   return (
     <div className="py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-10">
-      
+
       {/* Header Badge */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] border-[1.5px] border-white/20 text-[#00F0FF] text-xs font-mono font-bold shadow-sm">
-          <ShieldCheck className="w-4 h-4 text-[#00F0FF]" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.08] border-[1.5px] border-slate-300 dark:border-white/20 text-[#0096C7] dark:text-[#00F0FF] text-xs font-mono font-bold shadow-sm">
+          <ShieldCheck className="w-4 h-4 text-[#0096C7] dark:text-[#00F0FF]" />
           <span>SECURE ACADEMY CHECKOUT & ENROLLMENT</span>
         </div>
-        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white tracking-tight">
           Enrollment & Tuition Settlement
         </h1>
-        <p className="text-cyan-100/70 text-sm sm:text-base max-w-xl mx-auto font-sans">
+        <p className="text-slate-600 dark:text-cyan-100/70 text-sm sm:text-base max-w-xl mx-auto font-sans">
           Complete your enrollment to unlock verified workspace access, code laboratory environments, and Socratic AI guidance.
         </p>
       </div>
 
       {isComplete ? (
         /* Settlement Confirmation Receipt View in 3D Glass Tablet */
-        <div className="relative rounded-[32px] sm:rounded-[36px] bg-[#0A1430]/80 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-[#38BDF8]/60 shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 text-center space-y-8 animate-in zoom-in-95 duration-300">
+        <div className="relative rounded-[32px] sm:rounded-[36px] bg-white/95 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-slate-300 dark:border-[#38BDF8]/60 shadow-md dark:shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 text-center space-y-8 animate-in zoom-in-95 duration-300">
           <div className="w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(16,185,129,0.5)]">
-            <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+            <CheckCircle2 className="w-10 h-10 text-emerald-500" />
           </div>
 
           <div className="space-y-3">
-            <span className="font-mono text-xs text-amber-300 uppercase tracking-widest font-extrabold">
+            <span className="font-mono text-xs text-amber-600 dark:text-amber-300 uppercase tracking-widest font-extrabold">
               OFFICIAL ENROLLMENT CONFIRMATION
             </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">
               Welcome to {course.title}
             </h2>
-            <p className="text-cyan-100/70 text-sm sm:text-base max-w-md mx-auto font-sans">
+            <p className="text-slate-600 dark:text-cyan-100/70 text-sm sm:text-base max-w-md mx-auto font-sans">
               Your credentials and lifetime workspace have been provisioned. You can immediately begin your first engineering lesson.
             </p>
           </div>
 
           {/* Receipt Details Box */}
-          <div className="max-w-md mx-auto p-6 rounded-[22px] bg-white/[0.06] border-[1.5px] border-white/20 font-mono text-xs text-left space-y-3 shadow-md">
-            <div className="flex justify-between border-b border-white/10 pb-2.5">
-              <span className="text-white/60">Transaction ID:</span>
-              <span className="text-amber-300 font-bold">{transactionId}</span>
+          <div className="max-w-md mx-auto p-6 rounded-[22px] bg-slate-50 dark:bg-white/[0.06] border-[1.5px] border-slate-200 dark:border-white/20 font-mono text-xs text-left space-y-3 shadow-md">
+            <div className="flex justify-between border-b border-slate-200 dark:border-white/10 pb-2.5">
+              <span className="text-slate-600 dark:text-white/60">Transaction ID:</span>
+              <span className="text-amber-600 dark:text-amber-300 font-bold">{transactionId}</span>
             </div>
-            <div className="flex justify-between border-b border-white/10 pb-2.5">
-              <span className="text-white/60">Course:</span>
-              <span className="text-white font-bold truncate max-w-[220px]">{course.title}</span>
+            <div className="flex justify-between border-b border-slate-200 dark:border-white/10 pb-2.5">
+              <span className="text-slate-600 dark:text-white/60">Course:</span>
+              <span className="text-slate-900 dark:text-white font-bold truncate max-w-[220px]">{course.title}</span>
             </div>
             <div className="flex justify-between border-b border-white/10 pb-2.5">
               <span className="text-white/60">Settlement Mode:</span>
@@ -137,7 +137,7 @@ export default function CheckoutPage() {
       ) : (
         /* Checkout Form Grid inside 3D Glass Tablet Container */
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Left Column: Settlement Method Selection */}
           <div className="lg:col-span-7 space-y-6">
             <div className="rounded-[28px] bg-white/[0.06] border-[1.5px] border-white/20 p-6 sm:p-8 space-y-6 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
@@ -155,11 +155,10 @@ export default function CheckoutPage() {
                     setPaymentMethod('scholarship');
                     setScholarshipApplied(true);
                   }}
-                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${
-                    paymentMethod === 'scholarship'
+                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${paymentMethod === 'scholarship'
                       ? "bg-white/[0.12] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]"
                       : "bg-white/[0.04] border-white/15 hover:border-white/30"
-                  }`}
+                    }`}
                 >
                   <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#EC4899] to-[#A855F7] text-white flex-shrink-0 mt-0.5 shadow-sm">
                     <Sparkles className="w-5 h-5" />
@@ -182,11 +181,10 @@ export default function CheckoutPage() {
                     setPaymentMethod('telebirr');
                     setScholarshipApplied(false);
                   }}
-                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${
-                    paymentMethod === 'telebirr'
+                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${paymentMethod === 'telebirr'
                       ? "bg-white/[0.12] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]"
                       : "bg-white/[0.04] border-white/15 hover:border-white/30"
-                  }`}
+                    }`}
                 >
                   <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#00F0FF] to-[#0284C7] text-white flex-shrink-0 mt-0.5 shadow-sm">
                     <Smartphone className="w-5 h-5" />
@@ -209,11 +207,10 @@ export default function CheckoutPage() {
                     setPaymentMethod('card');
                     setScholarshipApplied(false);
                   }}
-                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${
-                    paymentMethod === 'card'
+                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${paymentMethod === 'card'
                       ? "bg-white/[0.12] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]"
                       : "bg-white/[0.04] border-white/15 hover:border-white/30"
-                  }`}
+                    }`}
                 >
                   <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#A855F7] to-[#6366F1] text-white flex-shrink-0 mt-0.5 shadow-sm">
                     <CreditCard className="w-5 h-5" />

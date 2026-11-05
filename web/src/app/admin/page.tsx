@@ -190,34 +190,52 @@ export default function AdminPage() {
   if (!isAdminAuthenticated) {
     return (
       <div className="min-h-[85vh] py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <div className="w-full max-w-lg rounded-[32px] sm:rounded-[36px] bg-[#0A1430]/75 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-[#38BDF8]/60 hover:border-[#00F0FF] shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 space-y-7 relative overflow-hidden transition-all duration-300">
+        <div className="w-full max-w-lg rounded-[32px] sm:rounded-[36px] bg-white/95 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-slate-300 dark:border-[#38BDF8]/60 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 space-y-7 relative overflow-hidden transition-all duration-300">
           
-          <div className="w-16 h-16 rounded-2xl bg-[#070D24] border-2 border-[#38BDF8]/60 p-1 mx-auto shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center">
-            <Lock className="w-8 h-8 text-[#00F0FF]" />
+          <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#070D24] border-2 border-[#38BDF8]/60 p-1 mx-auto shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center">
+            <Lock className="w-8 h-8 text-[#0096C7] dark:text-[#00F0FF]" />
           </div>
 
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.08] border border-white/20 text-[#00F0FF] text-xs font-mono font-bold">
-              <ShieldCheck className="w-4 h-4 text-[#00F0FF]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 dark:bg-white/[0.08] border border-slate-300 dark:border-white/20 text-[#0096C7] dark:text-[#00F0FF] text-xs font-mono font-bold">
+              <ShieldCheck className="w-4 h-4 text-[#0096C7] dark:text-[#00F0FF]" />
               <span>EXECUTIVE GOVERNANCE SECURITY GATE</span>
             </div>
-            <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+            <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
               Admin Authentication Required
             </h1>
-            <p className="text-xs text-cyan-200/70 max-w-md mx-auto font-sans">
-              This private portal requires executive administrator credentials to inspect platform telemetry, curriculum pipelines, and financial ledger data.
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-cyan-200/70 max-w-md mx-auto font-sans leading-relaxed">
+              Basirah Academy uses a single Unified Authentication Portal for both Scholars and Administrators.
             </p>
           </div>
 
+          {/* Unified Sign In Redirection Action */}
+          <Link
+            href="/auth/signin?redirect=/admin"
+            className="btn-touch w-full py-3.5 rounded-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 text-white flex items-center justify-center gap-2 text-xs font-heading font-extrabold shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:shadow-[0_0_35px_rgba(168,85,247,0.8)] hover:scale-[1.02] transition-all"
+          >
+            <KeyRound className="w-4 h-4" />
+            <span>Sign In via Unified Portal (/auth/signin)</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <div className="flex-1 h-[1px] bg-slate-200 dark:bg-white/15" />
+            <span className="text-[10px] font-mono text-slate-500 dark:text-cyan-200/50 uppercase tracking-wider">
+              or authenticate directly below
+            </span>
+            <div className="flex-1 h-[1px] bg-slate-200 dark:bg-white/15" />
+          </div>
+
           {gateError && (
-            <div className="p-3.5 rounded-[18px] bg-rose-500/15 border border-rose-500/40 text-xs text-rose-300 font-medium">
+            <div className="p-3.5 rounded-[18px] bg-rose-500/15 border border-rose-500/40 text-xs text-rose-800 dark:text-rose-300 font-medium">
               {gateError}
             </div>
           )}
 
           <form onSubmit={handleGateAuthenticate} className="space-y-4">
             <div>
-              <label className="block text-[11px] font-mono text-cyan-300 mb-1 uppercase font-bold tracking-wider">
+              <label className="block text-[11px] font-mono text-slate-700 dark:text-cyan-300 mb-1 uppercase font-bold tracking-wider">
                 Admin Email
               </label>
               <input
@@ -225,12 +243,12 @@ export default function AdminPage() {
                 required
                 value={gateEmail}
                 onChange={(e) => setGateEmail(e.target.value)}
-                className="w-full bg-white/[0.08] dark:bg-black/30 border-[1.5px] border-white/20 focus:border-[#00F0FF] rounded-full px-5 py-2.5 text-xs text-white placeholder-white/35 focus:outline-none transition-colors"
+                className="w-full bg-slate-50 dark:bg-black/30 border-[1.5px] border-slate-300 dark:border-white/20 focus:border-[#0096C7] dark:focus:border-[#00F0FF] rounded-full px-5 py-2.5 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/35 focus:outline-none transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-cyan-300 mb-1 uppercase font-bold tracking-wider">
+              <label className="block text-[11px] font-mono text-slate-700 dark:text-cyan-300 mb-1 uppercase font-bold tracking-wider">
                 Admin Passphrase
               </label>
               <input
@@ -238,29 +256,29 @@ export default function AdminPage() {
                 required
                 value={gatePassword}
                 onChange={(e) => setGatePassword(e.target.value)}
-                className="w-full bg-white/[0.08] dark:bg-black/30 border-[1.5px] border-white/20 focus:border-[#00F0FF] rounded-full px-5 py-2.5 text-xs text-white placeholder-white/35 focus:outline-none transition-colors font-mono"
+                className="w-full bg-slate-50 dark:bg-black/30 border-[1.5px] border-slate-300 dark:border-white/20 focus:border-[#0096C7] dark:focus:border-[#00F0FF] rounded-full px-5 py-2.5 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/35 focus:outline-none transition-colors font-mono"
               />
             </div>
 
             <button
               type="submit"
               disabled={isVerifying}
-              className="btn-touch w-full py-3.5 rounded-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 text-white flex items-center justify-center gap-2 text-xs font-heading font-extrabold shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:shadow-[0_0_35px_rgba(168,85,247,0.8)] hover:scale-[1.02] transition-all"
+              className="btn-touch w-full py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/15 border border-slate-300 dark:border-white/25 text-slate-900 dark:text-white flex items-center justify-center gap-2 text-xs font-heading font-bold transition-all"
             >
               {isVerifying ? (
                 <span>Verifying Cryptographic Credentials...</span>
               ) : (
                 <>
-                  <KeyRound className="w-4 h-4" />
-                  <span>Authenticate as Super Administrator</span>
+                  <KeyRound className="w-4 h-4 text-amber-500" />
+                  <span>Authenticate Session in Place</span>
                 </>
               )}
             </button>
           </form>
 
-          <div className="pt-2 text-center text-xs text-cyan-200/70 font-sans">
+          <div className="pt-2 text-center text-xs text-slate-600 dark:text-cyan-200/70 font-sans">
             <span>Official Admin Identity: </span>
-            <span className="font-mono text-amber-300 font-bold">basirahinfinity@gmail.com</span>
+            <span className="font-mono text-amber-600 dark:text-amber-300 font-bold">basirahinfinity@gmail.com</span>
           </div>
         </div>
       </div>
@@ -276,43 +294,43 @@ export default function AdminPage() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
       {/* 3D Floating Glass Tablet Master Frame (Template 2) */}
-      <div className="relative rounded-[32px] sm:rounded-[36px] bg-[#0A1430]/75 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-[#38BDF8]/60 hover:border-[#00F0FF] shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-6 sm:p-10 space-y-8 relative overflow-hidden transition-all duration-300">
+      <div className="relative rounded-[32px] sm:rounded-[36px] bg-white/95 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-slate-300 dark:border-[#38BDF8]/60 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-6 sm:p-10 space-y-8 relative overflow-hidden transition-all duration-300">
         
         {/* Upper glass highlight */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-white/15 to-transparent rounded-t-[32px] pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-white/20 to-transparent rounded-t-[32px] pointer-events-none" />
 
         {/* 1. Top Tablet Bar: Search Bar, Status Pill, Action Pill */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-5 relative z-10 pb-6 border-b border-white/10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-5 relative z-10 pb-6 border-b border-slate-200 dark:border-white/10">
           {/* Brand & Suite Title */}
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-[#070D24] border-2 border-[#38BDF8]/60 p-0.5 shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center">
+            <div className="w-12 h-12 rounded-2xl bg-white dark:bg-[#070D24] border-2 border-[#38BDF8]/60 p-0.5 shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center">
               <img src="/assets/basirah-app-icon.png" alt="Basirah" className="w-full h-full object-cover rounded-xl" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                <h2 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white">
                   Basirah Governance Suite
                 </h2>
-                <span className="px-2.5 py-0.5 rounded-full bg-white/10 border border-[#00F0FF]/40 text-[10px] font-mono text-[#00F0FF] font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 border border-[#0096C7]/30 dark:border-[#00F0FF]/40 text-[10px] font-mono text-[#0096C7] dark:text-[#00F0FF] font-bold">
                   v2.6 LIVE
                 </span>
               </div>
-              <p className="text-xs text-cyan-200/70 font-sans">
-                Authorized Executive: <span className="text-amber-300 font-bold">{user?.email}</span>
+              <p className="text-xs text-slate-600 dark:text-cyan-200/70 font-sans">
+                Authorized Executive: <span className="text-amber-600 dark:text-amber-300 font-bold">{user?.email}</span>
               </p>
             </div>
           </div>
 
           {/* Capsule Search Bar */}
           <div className="relative w-full lg:w-72">
-            <div className="flex items-center px-4 py-2.5 rounded-full bg-white/[0.08] dark:bg-black/30 border border-white/20 focus-within:border-[#00F0FF] transition-all">
-              <Search className="w-4 h-4 text-white/50 mr-2.5 flex-shrink-0" />
+            <div className="flex items-center px-4 py-2.5 rounded-full bg-slate-100 dark:bg-black/30 border border-slate-300 dark:border-white/20 focus-within:border-[#0096C7] dark:focus-within:border-[#00F0FF] transition-all">
+              <Search className="w-4 h-4 text-slate-400 dark:text-white/50 mr-2.5 flex-shrink-0" />
               <input
                 type="text"
                 placeholder="Search telemetry or courses..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-transparent text-xs text-white placeholder-white/40 focus:outline-none"
+                className="w-full bg-transparent text-xs text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none"
               />
             </div>
           </div>

@@ -98,17 +98,17 @@ export const PrismaticHeroComposition: React.FC = () => {
             <button
               key={pill.id}
               onClick={() => setActiveBadge(isSelected ? null : pill.id)}
-              className={`btn-touch flex flex-col items-center justify-center p-3 rounded-2xl bg-deepspace/85 dark:bg-cosmic/85 backdrop-blur-md transition-all duration-200 ${
+              className={`btn-touch flex flex-col items-center justify-center p-3 rounded-2xl bg-white/95 dark:bg-cosmic/85 backdrop-blur-md transition-all duration-200 border-2 ${
                 pill.borderClass
-              } ${isSelected ? "scale-105 brightness-125" : "hover:brightness-110"}`}
+              } ${isSelected ? "scale-105 brightness-110" : "hover:brightness-105"}`}
               style={{
                 boxShadow: isSelected ? `0 0 24px ${pill.glowColor}` : undefined
               }}
             >
-              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-midnight/90 mb-1.5 shadow-sm">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 dark:bg-midnight/90 mb-1.5 shadow-sm">
                 <Icon className={`w-4 h-4 ${pill.textClass}`} />
               </div>
-              <span className="font-heading font-bold text-[11px] text-pearl text-center tracking-tight leading-tight">
+              <span className="font-heading font-bold text-[11px] text-slate-900 dark:text-pearl text-center tracking-tight leading-tight">
                 {pill.label}
               </span>
             </button>
@@ -118,11 +118,11 @@ export const PrismaticHeroComposition: React.FC = () => {
 
       {/* Active Pillar Intuition Drawer */}
       {activeBadge && (
-        <div className="w-full mt-4 p-4 rounded-2xl bg-midnight/90 border border-amber-400/40 shadow-gold-glass text-xs text-slate-soft flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="w-full mt-4 p-4 rounded-2xl bg-white/95 dark:bg-midnight/90 border border-slate-300 dark:border-amber-400/40 shadow-md dark:shadow-gold-glass text-xs text-slate-700 dark:text-slate-soft flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="flex items-center gap-2.5">
-            <Sparkles className="w-4 h-4 text-amber-400 flex-shrink-0" />
-            <p className="text-pearl">
-              <span className="font-bold text-amber-400">
+            <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400 flex-shrink-0" />
+            <p className="text-slate-800 dark:text-pearl">
+              <span className="font-bold text-amber-600 dark:text-amber-400">
                 {pillars.find((p) => p.id === activeBadge)?.label}:{" "}
               </span>
               {pillars.find((p) => p.id === activeBadge)?.desc}
@@ -130,7 +130,7 @@ export const PrismaticHeroComposition: React.FC = () => {
           </div>
           <Link
             href="/courses"
-            className="btn-touch px-3 py-1.5 rounded-xl bg-amber-400/20 border border-amber-400/50 text-amber-300 hover:bg-amber-400/30 font-mono text-[11px] font-bold whitespace-nowrap"
+            className="btn-touch px-3 py-1.5 rounded-xl bg-amber-500/10 dark:bg-amber-400/20 border border-amber-500/40 dark:border-amber-400/50 text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 font-mono text-[11px] font-bold whitespace-nowrap"
           >
             Explore Track →
           </Link>

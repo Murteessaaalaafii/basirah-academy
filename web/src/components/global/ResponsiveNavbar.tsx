@@ -63,8 +63,8 @@ export const ResponsiveNavbar: React.FC = () => {
               href={link.href}
               className={`btn-touch px-4 py-2 rounded-full font-sans text-xs font-semibold transition-all duration-200 border ${
                 isActive(link.href)
-                  ? "text-[#00F0FF] bg-white/10 dark:bg-white/[0.08] border-[#00F0FF]/40 shadow-[0_0_15px_rgba(0,240,255,0.25)] font-bold"
-                  : "text-[#334E68] dark:text-cyan-100/70 hover:text-white hover:bg-white/10 border-transparent hover:border-white/20"
+                  ? "text-[#0096C7] dark:text-[#00F0FF] bg-slate-100/90 dark:bg-white/[0.08] border-slate-300 dark:border-[#00F0FF]/40 shadow-sm dark:shadow-[0_0_15px_rgba(0,240,255,0.25)] font-bold"
+                  : "text-slate-700 dark:text-cyan-100/70 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 border-transparent hover:border-slate-300 dark:hover:border-white/20"
               }`}
             >
               {link.label}
@@ -79,7 +79,7 @@ export const ResponsiveNavbar: React.FC = () => {
             onClick={toggleTheme}
             aria-label="Toggle Dark / Bright Theme"
             title={theme === "dark" ? "Switch to Relaxing Bright Mode" : "Switch to Deep Cosmic Dark Mode"}
-            className="btn-touch p-2.5 rounded-full bg-white/90 dark:bg-white/10 border border-white/20 text-[#07162F] dark:text-[#00F0FF] hover:border-[#00F0FF] shadow-sm transition-all"
+            className="btn-touch p-2.5 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-300 dark:border-white/20 text-slate-800 dark:text-[#00F0FF] hover:border-[#00F0FF] shadow-sm transition-all"
           >
             {theme === "dark" ? (
               <Sun className="w-4 h-4 text-amber-300 transition-transform duration-300 hover:rotate-45" />
@@ -93,9 +93,9 @@ export const ResponsiveNavbar: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <Link
                 href="/dashboard"
-                className="btn-touch flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 dark:bg-white/10 border border-white/25 hover:border-[#00F0FF] text-[#07162F] dark:text-white text-xs font-bold shadow-sm transition-all"
+                className="btn-touch flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-300 dark:border-white/25 hover:border-[#00F0FF] text-slate-900 dark:text-white text-xs font-bold shadow-sm transition-all"
               >
-                <div className="w-5 h-5 rounded-full bg-[#00F0FF]/20 border border-[#00F0FF] flex items-center justify-center text-[10px] text-[#00F0FF] font-bold">
+                <div className="w-5 h-5 rounded-full bg-[#00F0FF]/20 border border-[#00F0FF] flex items-center justify-center text-[10px] text-[#0096C7] dark:text-[#00F0FF] font-bold">
                   {user.displayName.charAt(0)}
                 </div>
                 <span>Dashboard</span>
@@ -113,7 +113,7 @@ export const ResponsiveNavbar: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <Link
                 href="/auth/signin"
-                className="btn-touch px-4 py-2 rounded-full font-heading text-xs font-bold text-white bg-white/10 hover:bg-white/15 border border-white/25 transition-all"
+                className="btn-touch px-4 py-2 rounded-full font-heading text-xs font-bold text-slate-900 dark:text-white bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/15 border border-slate-300 dark:border-white/25 transition-all"
               >
                 Sign In
               </Link>
@@ -132,14 +132,14 @@ export const ResponsiveNavbar: React.FC = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="btn-touch p-2.5 rounded-full bg-white/10 border border-white/20 text-white"
+            className="btn-touch p-2.5 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-300 dark:border-white/20 text-slate-800 dark:text-white"
           >
             {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className="btn-touch p-2.5 rounded-full bg-white/10 border border-white/20 text-white"
+            className="btn-touch p-2.5 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-300 dark:border-white/20 text-slate-800 dark:text-white"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

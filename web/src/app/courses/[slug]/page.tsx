@@ -52,30 +52,30 @@ export default function CourseDetailPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
         
         {/* Metric 1: WHAT THIS COURSE IS */}
-        <div className="rounded-[22px] bg-white/[0.06] hover:bg-white/[0.1] border-[1.5px] border-white/20 hover:border-[#00F0FF] shadow-[0_4px_20px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.25)] p-6 sm:p-7 space-y-3 backdrop-blur-2xl transition-all">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#00F0FF] font-extrabold uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 text-[#00F0FF]" />
+        <div className="rounded-[22px] bg-white/95 dark:bg-white/[0.06] hover:bg-slate-50 dark:hover:bg-white/[0.1] border-[1.5px] border-slate-300 dark:border-white/20 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-md dark:shadow-[0_4px_20px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.25)] p-6 sm:p-7 space-y-3 backdrop-blur-2xl transition-all">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#0096C7] dark:text-[#00F0FF] font-extrabold uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-[#0096C7] dark:text-[#00F0FF]" />
             <span>WHAT THIS COURSE IS</span>
           </div>
-          <div className="font-heading font-extrabold text-xl sm:text-2xl text-white leading-snug">
+          <div className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white leading-snug">
             {course.tagline || course.title}
           </div>
-          <p className="text-xs sm:text-sm text-cyan-100/70 leading-relaxed line-clamp-3">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-cyan-100/70 leading-relaxed line-clamp-3">
             {course.overview}
           </p>
         </div>
 
         {/* Metric 2: HOW LONG IT TAKES */}
-        <div className="rounded-[22px] bg-white/[0.06] hover:bg-white/[0.1] border-[1.5px] border-white/20 hover:border-[#00F0FF] shadow-[0_4px_20px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.25)] p-6 sm:p-7 space-y-3 backdrop-blur-2xl transition-all">
-          <div className="flex items-center gap-2 text-xs font-mono text-amber-300 font-extrabold uppercase tracking-wider">
-            <Clock className="w-4 h-4 text-amber-300" />
+        <div className="rounded-[22px] bg-white/95 dark:bg-white/[0.06] hover:bg-slate-50 dark:hover:bg-white/[0.1] border-[1.5px] border-slate-300 dark:border-white/20 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-md dark:shadow-[0_4px_20px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.25)] p-6 sm:p-7 space-y-3 backdrop-blur-2xl transition-all">
+          <div className="flex items-center gap-2 text-xs font-mono text-amber-600 dark:text-amber-300 font-extrabold uppercase tracking-wider">
+            <Clock className="w-4 h-4 text-amber-500 dark:text-amber-300" />
             <span>HOW LONG IT TAKES</span>
           </div>
-          <div className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+          <div className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
             {course.estimatedHours} Hours
           </div>
-          <div className="space-y-1 text-xs text-cyan-100/70 leading-relaxed">
-            <div className="text-white font-semibold">
+          <div className="space-y-1 text-xs text-slate-600 dark:text-cyan-100/70 leading-relaxed">
+            <div className="text-slate-800 dark:text-white font-semibold">
               {course.modules?.length || 3} Comprehensive Modules • Practical Labs
             </div>
             <p>
@@ -85,24 +85,24 @@ export default function CourseDetailPage() {
         </div>
 
         {/* Metric 3: HOW MUCH IT COSTS & ENROLL TO PAY */}
-        <div className="rounded-[22px] bg-[#0A1430]/80 dark:bg-white/[0.08] hover:bg-white/[0.12] border-[1.5px] border-white/25 hover:border-[#00F0FF] shadow-[0_4px_20px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.3)] p-6 sm:p-7 space-y-3 backdrop-blur-2xl flex flex-col justify-between transition-all">
+        <div className="rounded-[22px] bg-white/95 dark:bg-white/[0.08] hover:bg-slate-50 dark:hover:bg-white/[0.12] border-[1.5px] border-slate-300 dark:border-white/25 hover:border-[#0096C7] dark:hover:border-[#00F0FF] shadow-md dark:shadow-[0_4px_20px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.3)] p-6 sm:p-7 space-y-3 backdrop-blur-2xl flex flex-col justify-between transition-all">
           <div>
             <div className="flex items-center justify-between text-xs font-mono">
-              <span className="text-amber-300 font-extrabold uppercase flex items-center gap-1.5 tracking-wider">
-                <DollarSign className="w-4 h-4 text-amber-300" />
+              <span className="text-amber-600 dark:text-amber-300 font-extrabold flex items-center gap-1.5 tracking-wider">
+                <DollarSign className="w-4 h-4 text-amber-500 dark:text-amber-300" />
                 HOW MUCH IT COSTS
               </span>
-              <span className="text-emerald-400 font-extrabold text-[10.5px] bg-emerald-500/20 border border-emerald-400/40 px-2.5 py-0.5 rounded-full">
+              <span className="text-emerald-700 dark:text-emerald-400 font-extrabold text-[10.5px] bg-emerald-500/20 border border-emerald-400/40 px-2.5 py-0.5 rounded-full">
                 100% AID READY
               </span>
             </div>
-            <div className="font-heading font-extrabold text-2xl sm:text-3xl text-white mt-2">
+            <div className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white mt-2">
               $49 USD{" "}
-              <span className="text-xs text-emerald-400 font-mono font-bold block sm:inline">
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-mono font-bold block sm:inline">
                 ($0 with Merit Grant)
               </span>
             </div>
-            <div className="text-[11px] font-mono text-cyan-200/70 mt-1">
+            <div className="text-[11px] font-mono text-slate-600 dark:text-cyan-200/70 mt-1">
               Local: 2,800 ETB (Telebirr / CBE Birr)
             </div>
           </div>

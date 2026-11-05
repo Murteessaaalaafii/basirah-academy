@@ -57,13 +57,21 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-transparent text-pearl min-h-screen flex flex-col antialiased selection:bg-cyan selection:text-midnight relative">
+      <body className="bg-[#F0F6FC] dark:bg-[#030914] text-slate-900 dark:text-white min-h-screen flex flex-col antialiased selection:bg-[#00F0FF] selection:text-[#07162F] relative transition-colors duration-300">
         <DiamondGlassBackdrop />
-        <ResponsiveNavbar />
-        <main className="flex-1 w-full" id="main-content">
-          {children}
-        </main>
-        <Footer />
+        
+        {/* Master Holographic Floating App Frame with Big Border, Margin & Spacing */}
+        <div className="flex-1 flex flex-col w-auto m-2 sm:m-4 md:m-6 lg:m-8 p-1 sm:p-2 md:p-3 rounded-[28px] sm:rounded-[36px] md:rounded-[44px] lg:rounded-[48px] border-[3px] sm:border-[4px] border-[#38BDF8]/60 dark:border-[#38BDF8]/60 shadow-[0_0_50px_rgba(56,189,248,0.22),0_25px_80px_rgba(4,8,24,0.12)] dark:shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.8)] bg-white/75 dark:bg-[#070D24]/75 backdrop-blur-3xl relative overflow-hidden transition-all duration-300">
+          
+          {/* Subtle perimeter light refraction border highlight */}
+          <div className="absolute inset-0 pointer-events-none rounded-[28px] sm:rounded-[36px] md:rounded-[44px] lg:rounded-[48px] border border-white/60 dark:border-white/20" />
+          
+          <ResponsiveNavbar />
+          <main className="flex-1 w-full px-1 sm:px-3 md:px-5 py-3 sm:py-5" id="main-content">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

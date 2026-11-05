@@ -35,7 +35,7 @@ export const IntelligentProgressRing: React.FC<ProgressRingProps> = ({
 
           {/* Track background */}
           <circle
-            stroke="#0B2044"
+            className="stroke-slate-200 dark:stroke-[#0B2044]"
             fill="transparent"
             strokeWidth={strokeWidth}
             r={normalizedRadius}
@@ -59,11 +59,11 @@ export const IntelligentProgressRing: React.FC<ProgressRingProps> = ({
 
         {/* Center Text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-          <span className="font-heading font-bold text-2xl text-pearl">{progress}%</span>
-          <span className="font-mono text-[10px] text-cyan uppercase tracking-wider">{label}</span>
+          <span className="font-heading font-bold text-2xl text-slate-900 dark:text-pearl">{progress}%</span>
+          <span className="font-mono text-[10px] text-[#0096C7] dark:text-cyan uppercase tracking-wider font-bold">{label}</span>
         </div>
       </div>
-      {subtext && <span className="mt-2 text-xs text-slate-soft text-center">{subtext}</span>}
+      {subtext && <span className="mt-2 text-xs text-slate-600 dark:text-slate-soft text-center font-medium">{subtext}</span>}
     </div>
   );
 };

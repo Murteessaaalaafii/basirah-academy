@@ -72,17 +72,17 @@ export default function LessonLearnPage() {
         <div className="flex items-center gap-3">
           <Link
             href={`/courses/${course.slug}`}
-            className="flex items-center gap-1.5 text-slate-soft hover:text-pearl transition-colors"
+            className="flex items-center gap-1.5 text-slate-600 dark:text-slate-soft hover:text-slate-900 dark:hover:text-pearl transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Back to Syllabus</span>
           </Link>
-          <span className="text-slate-dim">/</span>
-          <span className="text-pearl font-medium truncate max-w-[200px] sm:max-w-xs">
+          <span className="text-slate-400 dark:text-slate-dim">/</span>
+          <span className="text-slate-900 dark:text-pearl font-medium truncate max-w-[200px] sm:max-w-xs">
             {course.title}
           </span>
-          <span className="text-slate-dim hidden sm:inline">/</span>
-          <span className="text-cyan truncate max-w-[180px] hidden sm:inline">
+          <span className="text-slate-400 dark:text-slate-dim hidden sm:inline">/</span>
+          <span className="text-[#0096C7] dark:text-cyan truncate max-w-[180px] hidden sm:inline font-bold">
             {activeLesson?.title}
           </span>
         </div>
@@ -172,7 +172,7 @@ export default function LessonLearnPage() {
               <span>•</span>
               <span>{activeLesson?.durationMinutes} min study</span>
             </div>
-            <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-pearl">
+            <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-slate-900 dark:text-pearl">
               {activeLesson?.title}
             </h1>
           </div>
