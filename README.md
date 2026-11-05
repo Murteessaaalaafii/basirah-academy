@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Basirah Academy — AI Engineering Education Ecosystem
 **Project Codename:** PRISMATIC INTELLIGENCE  
 **Tagline:** Learn • Build • Innovate.  
@@ -121,3 +122,6 @@ Open `android/` in Android Studio and run on emulator or connected device.
 * **Data Sovereignty:** Compliant with the Ethiopian Data Protection Directive, INSA standards, and international GDPR privacy rights.
 * **Authenticity Guarantee:** Zero fake student reviews, fake institutional badges, or simulated accreditation.
 
+=======
+# basirah-academy
+>>>>>>> origin/main
