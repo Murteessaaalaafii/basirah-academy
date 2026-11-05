@@ -1,30 +1,25 @@
 # Basirah Academy — AI Engineering Education Ecosystem
 
 **Project Codename:** PRISMATIC INTELLIGENCE  
-**Tagline:** Learn • Build • Innovate.  
-**Mission:** Make artificial intelligence understandable, accessible, practical, and buildable for everyone.
+**Tagline:** Learn • Build • Innovate.
 
----
+**Mission:** Make artificial intelligence understandable, accessible, practical, and buildable for everyone.
 
 ## 1. Executive Overview
 
-Basirah Academy is a premium AI engineering educational ecosystem designed to deliver interconnected web and native Android learning experiences.
+Basirah Academy is a premium AI engineering educational ecosystem delivering interconnected web and native Android learning experiences.
 
 ### Educational Philosophy
 
-- **Zero Unhealthy Competition:** No public student rankings or shaming leaderboards.
-- **Zero Intimidation:** Complex mathematical concepts explained from first principles.
-- **Zero Artificial Pressure:** No manipulative countdown timers or daily streaks.
-- **Zero Superficial Gamification:** Motivation comes from building real software.
-- **Demonstrated Mastery:** Progress is verified through practical laboratories and authentic capstone projects.
+- Zero unhealthy competition: No public student rankings or shaming leaderboards.
+- Zero intimidation: Complex mathematical concepts explained from first principles.
+- Zero artificial pressure: No manipulative countdown timers or daily streaks.
+- Zero superficial gamification: Motivation comes from building real software.
+- Demonstrated mastery: Progress is verified through practical laboratories and authentic capstone projects.
 
----
-
-## 2. Prismatic Intelligence Design System (PIDS)
+## 2. Prismatic Intelligence Design System
 
 PIDS combines academic sophistication with technological futurism through crystalline glass materials, controlled gradients, and refined typography.
-
-### Brand Color Tokens
 
 | Color | Hex | Purpose |
 |---|---|---|
@@ -37,8 +32,6 @@ PIDS combines academic sophistication with technological futurism through crysta
 | Champagne Gold | `#F2D18B` | Highlights |
 | Pearl White | `#F4F7FC` | Reading typography |
 | Soft Slate | `#91A4C1` | Technical labels |
-
----
 
 ## 3. System Architecture
 
@@ -53,7 +46,7 @@ Basirah Academy/
 
 ### 3.1 Web Application
 
-**Technology:** Next.js 14 App Router, TypeScript, Tailwind CSS.
+**Technology:** Next.js 14 App Router, TypeScript and Tailwind CSS.
 
 Public pages:
 
@@ -76,7 +69,7 @@ Public pages:
 17. Privacy Policy
 18. Terms of Service
 
-Authenticated portal routes:
+Authenticated routes:
 
 - Student Dashboard
 - Interactive Lesson and AI Tutor Workspace
@@ -109,8 +102,6 @@ Planned capabilities:
 - Quizzes and assignments.
 - Projects and certificates.
 - Notifications and profile management.
-
----
 
 ## 4. The Three-Level, 36-Course Curriculum
 
@@ -159,15 +150,13 @@ Planned capabilities:
 12. GPU Computing Fundamentals
 13. Production AI Architecture
 
----
-
 ## 5. Running Instructions
 
 ### Python AI Backend
 
 ```powershell
 cd api-backend
-python tests/test_backend.py
+python -m pip install -r requirements.txt
 python -m uvicorn app.main:app --port 8000 --reload
 ```
 
@@ -184,15 +173,11 @@ npm run start
 
 Open the `android/` directory in Android Studio and run the application on an emulator or connected Android device.
 
----
-
 ## 6. Compliance and Accessibility
 
-- **Accessibility:** Target WCAG 2.2 AA compliance.
-- **Data Protection:** Design for applicable Ethiopian data protection requirements and relevant international privacy standards.
-- **Authenticity:** No fabricated student reviews, institutional badges or accreditation claims.
-
----
+- Accessibility: Target WCAG 2.2 AA compliance.
+- Data protection: Design for applicable Ethiopian data protection requirements and relevant international privacy standards.
+- Authenticity: No fabricated student reviews, institutional badges or accreditation claims.
 
 ## 7. Project Vision
 
@@ -201,3 +186,4 @@ Basirah Academy aims to develop a new generation of AI engineers, builders, rese
 **Learn. Build. Innovate.**
 
 *Basirah Academy — Engineering Intelligence for the Future.*
+
