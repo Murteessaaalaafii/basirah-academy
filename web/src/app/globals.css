@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --bg-primary: #F4F7FC;
+    --bg-primary: #F0F6FC;
     --bg-surface: #FFFFFF;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --border-card: rgba(217, 168, 63, 0.35);
+    --bg-card: rgba(255, 255, 255, 0.90);
+    --border-card: rgba(217, 168, 63, 0.50);
     --text-primary: #07162F;
-    --text-secondary: #475569;
-    --accent-cyan: #00B4D8;
+    --text-secondary: #334E68;
+    --accent-cyan: #0096C7;
     --accent-gold: #D9A83F;
   }
 
   .dark {
     --bg-primary: #030914;
     --bg-surface: #07162F;
-    --bg-card: rgba(11, 32, 68, 0.75);
-    --border-card: rgba(245, 158, 11, 0.35);
+    --bg-card: rgba(11, 32, 68, 0.82);
+    --border-card: rgba(245, 158, 11, 0.45);
     --text-primary: #F4F7FC;
     --text-secondary: #91A4C1;
     --accent-cyan: #00F0FF;
@@ -30,7 +30,7 @@
     color: var(--text-primary);
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   *:focus-visible {
@@ -41,54 +41,109 @@
 
 /* Custom Crystalline Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030914;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
+  background: #145BD7;
+  border-radius: 5px;
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb {
   background: #0B2044;
-  border-radius: 4px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #D9A83F;
 }
 
-/* Golden Glass Cards & Panels */
-.gold-glass-card {
-  background: rgba(11, 32, 68, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(245, 158, 11, 0.4);
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  border-radius: 1.25rem;
+/* 4-Sided Golden Box-Style Border Utility */
+.box-border-gold {
+  border: 2.5px solid rgba(217, 168, 63, 0.5);
+  box-shadow: 0 0 20px rgba(217, 168, 63, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .box-border-gold {
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.box-border-gold:hover {
+  border-color: #F59E0B;
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.35);
+}
+
+/* 4-Sided Cyan Water Glass Box-Style Border Utility */
+.box-border-cyan {
+  border: 2.5px solid rgba(0, 150, 199, 0.5);
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .box-border-cyan {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.box-border-cyan:hover {
+  border-color: #00F0FF;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.35);
+}
+
+/* Dual-Mode Golden Glass Cards with Box-Style Borders */
+.gold-glass-card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2.5px solid rgba(217, 168, 63, 0.45);
+  box-shadow: 0 10px 30px rgba(7, 22, 47, 0.08), 0 0 20px rgba(217, 168, 63, 0.15);
+  border-radius: 1.5rem;
+  color: #07162F;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .gold-glass-card {
+  background: rgba(11, 32, 68, 0.85);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #F4F7FC;
 }
 
 .gold-glass-card:hover {
-  border-color: rgba(255, 215, 0, 0.75);
-  box-shadow: 0 0 35px rgba(245, 158, 11, 0.3), 0 12px 30px -5px rgba(3, 9, 20, 0.8);
+  border-color: #F59E0B;
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.35), 0 12px 30px -5px rgba(7, 22, 47, 0.3);
   transform: translateY(-3px);
 }
 
+/* Dual-Mode Cyan Water Glass Cards with Box-Style Borders */
 .cyan-glass-card {
-  background: rgba(11, 32, 68, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(0, 240, 255, 0.35);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2.5px solid rgba(0, 150, 199, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 180, 216, 0.1), 0 0 20px rgba(0, 180, 216, 0.15);
+  border-radius: 1.5rem;
+  color: #07162F;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.dark .cyan-glass-card {
+  background: rgba(11, 32, 68, 0.85);
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #F4F7FC;
+}
+
 .cyan-glass-card:hover {
-  border-color: rgba(0, 240, 255, 0.7);
-  box-shadow: 0 0 35px rgba(0, 240, 255, 0.35), 0 12px 30px -5px rgba(3, 9, 20, 0.8);
+  border-color: #00F0FF;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.35), 0 12px 30px -5px rgba(7, 22, 47, 0.3);
   transform: translateY(-3px);
 }
 
@@ -112,49 +167,200 @@
   transform: translateY(1px) scale(0.96);
 }
 
-/* Category Neon Pills from Image */
+/* Category Neon Pills from Image (Responsive in Both Themes) */
 .neon-pill-aiml {
-  border: 1.5px solid rgba(0, 240, 255, 0.6);
+  border: 2px solid rgba(0, 180, 216, 0.7);
+  box-shadow: 0 0 14px rgba(0, 180, 216, 0.25);
+  background: rgba(0, 180, 216, 0.08);
+}
+.dark .neon-pill-aiml {
+  border: 2px solid rgba(0, 240, 255, 0.65);
   box-shadow: 0 0 16px rgba(0, 240, 255, 0.3), inset 0 0 12px rgba(0, 240, 255, 0.15);
+  background: rgba(0, 240, 255, 0.12);
 }
+
 .neon-pill-prog {
-  border: 1.5px solid rgba(16, 185, 129, 0.6);
+  border: 2px solid rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.08);
+}
+.dark .neon-pill-prog {
+  border: 2px solid rgba(16, 185, 129, 0.65);
   box-shadow: 0 0 16px rgba(16, 185, 129, 0.3), inset 0 0 12px rgba(16, 185, 129, 0.15);
+  background: rgba(16, 185, 129, 0.12);
 }
+
 .neon-pill-agents {
-  border: 1.5px solid rgba(192, 132, 252, 0.6);
+  border: 2px solid rgba(147, 51, 234, 0.7);
+  box-shadow: 0 0 14px rgba(147, 51, 234, 0.25);
+  background: rgba(147, 51, 234, 0.08);
+}
+.dark .neon-pill-agents {
+  border: 2px solid rgba(192, 132, 252, 0.65);
   box-shadow: 0 0 16px rgba(192, 132, 252, 0.3), inset 0 0 12px rgba(192, 132, 252, 0.15);
+  background: rgba(192, 132, 252, 0.12);
 }
+
 .neon-pill-data {
-  border: 1.5px solid rgba(249, 115, 22, 0.6);
+  border: 2px solid rgba(234, 88, 12, 0.7);
+  box-shadow: 0 0 14px rgba(234, 88, 12, 0.25);
+  background: rgba(234, 88, 12, 0.08);
+}
+.dark .neon-pill-data {
+  border: 2px solid rgba(249, 115, 22, 0.65);
   box-shadow: 0 0 16px rgba(249, 115, 22, 0.3), inset 0 0 12px rgba(249, 115, 22, 0.15);
+  background: rgba(249, 115, 22, 0.12);
 }
+
 .neon-pill-tech {
-  border: 1.5px solid rgba(6, 182, 212, 0.6);
+  border: 2px solid rgba(13, 148, 136, 0.7);
+  box-shadow: 0 0 14px rgba(13, 148, 136, 0.25);
+  background: rgba(13, 148, 136, 0.08);
+}
+.dark .neon-pill-tech {
+  border: 2px solid rgba(6, 182, 212, 0.65);
   box-shadow: 0 0 16px rgba(6, 182, 212, 0.3), inset 0 0 12px rgba(6, 182, 212, 0.15);
+  background: rgba(6, 182, 212, 0.12);
 }
 
-/* Responsive Containers */
-.pids-container {
-  max-width: 80rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* Box Style Surface Class for General Containers */
+.box-surface {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2.5px solid rgba(217, 168, 63, 0.45);
+  box-shadow: 0 8px 24px rgba(7, 22, 47, 0.06);
+  border-radius: 1.5rem;
+  color: #07162F;
 }
 
-@media (min-width: 640px) {
-  .pids-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+.dark .box-surface {
+  background: rgba(11, 32, 68, 0.85);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: #F4F7FC;
 }
 
-@media (min-width: 1024px) {
-  .pids-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+/* -------------------------------------------------------------
+   TEMPLATE 2: 3D HOLOGRAPHIC FLOATING GLASS TABLET SYSTEM (Image 2)
+   ------------------------------------------------------------- */
+
+/* 1. Dimensional 3D Floating Glass Tablet Outer Frame */
+.glass-tablet-frame {
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 3px solid rgba(0, 180, 216, 0.6);
+  box-shadow: 
+    0 0 45px rgba(0, 180, 216, 0.22),
+    0 25px 60px rgba(7, 22, 47, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px rgba(0, 180, 216, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .glass-tablet-frame {
+  background: rgba(11, 32, 68, 0.72);
+  border: 3px solid rgba(0, 240, 255, 0.55);
+  box-shadow: 
+    0 0 50px rgba(0, 240, 255, 0.28),
+    0 25px 60px rgba(3, 9, 20, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 2px rgba(0, 240, 255, 0.2);
+}
+
+/* 2. Frosted Holographic Service / Course Box Card */
+.glass-service-box {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(0, 180, 216, 0.45);
+  box-shadow: 
+    0 8px 24px rgba(7, 22, 47, 0.06),
+    0 0 18px rgba(0, 180, 216, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .glass-service-box {
+  background: rgba(7, 22, 47, 0.68);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.15),
+    0 8px 30px rgba(3, 9, 20, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-service-box:hover {
+  transform: translateY(-2.5px);
+  border-color: rgba(0, 240, 255, 0.85);
+  box-shadow: 
+    0 0 35px rgba(0, 240, 255, 0.35),
+    0 15px 35px rgba(3, 9, 20, 0.45);
+}
+
+/* 3. Glowing Neon Pill Button (Image 2 "New Project" Style) */
+.glass-pill-button {
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #A855F7 0%, #6366F1 50%, #06B6D4 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 
+    0 0 24px rgba(168, 85, 247, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill-button:hover {
+  transform: translateY(-1.5px) scale(1.02);
+  box-shadow: 
+    0 0 35px rgba(168, 85, 247, 0.6),
+    0 10px 25px rgba(99, 102, 241, 0.4);
+  filter: brightness(1.1);
+}
+
+.glass-pill-button:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* 4. Translucent Floating Vertical Pill Dock */
+.glass-dock {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(0, 180, 216, 0.45);
+  box-shadow: 0 0 25px rgba(0, 180, 216, 0.15);
+}
+
+.dark .glass-dock {
+  background: rgba(7, 22, 47, 0.75);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* 5. Translucent Pill Search Bar */
+.glass-search-bar {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid rgba(0, 180, 216, 0.35);
+  box-shadow: inset 0 2px 4px rgba(7, 22, 47, 0.04);
+}
+
+.dark .glass-search-bar {
+  background: rgba(7, 22, 47, 0.7);
+  border: 2px solid rgba(0, 240, 255, 0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.glass-search-bar:focus-within {
+  border-color: #00F0FF;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
 }
 
 /* Reduced Motion Safety */

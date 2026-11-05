@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "758497591479",
+    "project_id": "basirah-academy",
+    "storage_bucket": "basirah-academy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758497591479:android:ba7281f9a0c14b2d",
+        "android_client_info": {
+          "package_name": "academy.basirah.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758497591479-android.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "academy.basirah.app",
+            "certificate_hash": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYX7WytH5tUhJxOnX4cwnSdSUbM6MQoUI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

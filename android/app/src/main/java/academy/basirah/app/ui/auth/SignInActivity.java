@@ -14,6 +14,9 @@ import academy.basirah.app.ui.main.MainActivity;
 public class SignInActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
 
+    public static final String ADMIN_EMAIL = "basirahinfinity@gmail.com";
+    public static final String ADMIN_PASS = "basirah@admin123";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +28,13 @@ public class SignInActivity extends AppCompatActivity {
         Button btnDemo = findViewById(R.id.btnDemoStudent);
         TextView tvGoToSignUp = findViewById(R.id.tvGoToSignUp);
 
-        btnSubmit.setOnClickListener(v -> performLogin(etEmail.getText().toString().trim()));
+        btnSubmit.setOnClickListener(v -> {
+            String email = etEmail.getText().toString().trim();
+            String pass = etPassword.getText().toString().trim();
+            performLogin(email, pass);
+        });
 
-        btnDemo.setOnClickListener(v -> performLogin("student@basirah.academy"));
+        btnDemo.setOnClickListener(v -> performLogin("student@basirah.academy", "student123"));
 
         tvGoToSignUp.setOnClickListener(v -> {
             startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
@@ -35,17 +42,19 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
 
-    private void performLogin(String email) {
+    private void performLogin(String email, String pass) {
+        boolean isAdmin = ADMIN_EMAIL.equalsIgnoreCase(email) && ADMIN_PASS.equals(pass);
         SharedPreferences prefs = getSharedPreferences("basirah_prefs", MODE_PRIVATE);
         prefs.edit()
                 .putString("user_email", email.isEmpty() ? "student@basirah.academy" : email)
-                .putString("user_name", "Amina Al-Mansoor")
-                .putString("user_level", "intermediate")
+                .putString("user_name", isAdmin ? "Basirah Executive Admin" : "Amina Al-Mansoor")
+                .putString("user_role", isAdmin ? "admin" : "student")
+                .putString("user_level", isAdmin ? "advanced" : "intermediate")
                 .apply();
 
-        Toast.makeText(this, "Welcome to Basirah Academy", Toast.LENGTH_SHORT).show();
+        String welcomeMsg = isAdmin ? "Welcome Administrator" : "Welcome to Basirah Academy";
+        Toast.makeText(this, welcomeMsg, Toast.LENGTH_SHORT).show();
         startActivity(new Intent(SignInActivity.this, MainActivity.class));
         finish();
     }
 }
-
