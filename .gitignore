@@ -65,3 +65,6 @@ dart/.dart_tool/
 .env.local
 .env.*.local
 
+
+# Local backup files
+*.backup
