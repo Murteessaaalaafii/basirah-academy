@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -55,7 +55,7 @@ export default function CoursesPage() {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.08] border-[1.5px] border-slate-300 dark:border-white/20 text-[#0096C7] dark:text-[#00F0FF] text-xs font-mono font-bold shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#0096C7] dark:text-[#00F0FF] animate-pulse" />
-              <span>CANONICAL CURRICULUM • 36 ARCHITECTURAL COVERS</span>
+              <span>CANONICAL CURRICULUM â€¢ 36 ARCHITECTURAL COVERS</span>
             </div>
             <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
               AI Engineering Catalog
@@ -70,7 +70,7 @@ export default function CoursesPage() {
             className="btn-touch self-start md:self-auto px-6 py-3 rounded-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 shadow-[0_0_25px_rgba(168,85,247,0.5)] text-white font-heading font-bold text-xs hover:scale-105 transition-all flex items-center gap-2.5 flex-shrink-0"
           >
             <span>Explore Pathways</span>
-            <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">›</span>
+            <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">â€º</span>
           </Link>
         </div>
       </div>
@@ -139,17 +139,9 @@ export default function CoursesPage() {
           })}
         </div>
       </div>
-              >
-      <Icon className="w-3.5 h-3.5 flex-shrink-0" />
-      <span>{pill.label}</span>
-    </button>
-  );
-})}
-        </div >
-      </div >
 
   {/* 3. Course Grid: 36 Cards with Exact 22px Rounded Beveled Glass Border */ }
-  < div className = "space-y-4" >
+      <div className="space-y-4">
         <div className="flex items-center justify-between text-xs font-mono text-cyan-200/70 px-1">
           <span>Showing {filteredCourses.length} of {ALL_COURSES.length} Specializations</span>
           <span>100% Academic Merit Aid Eligible</span>
