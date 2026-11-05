@@ -2,7 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
-import { Clock, BookOpen, Bookmark, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { 
+  Clock, 
+  BookOpen, 
+  Bookmark, 
+  ArrowRight, 
+  CheckCircle2, 
+  Sparkles,
+  Brain,
+  Code2,
+  Bot,
+  Database,
+  Eye,
+  Network,
+  Workflow
+} from "lucide-react";
 import { Course } from "../../../../shared/curriculum";
 import { useBasirahStore } from "@/lib/store";
 
@@ -15,77 +29,117 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   const isBookmarked = bookmarks.includes(course.slug);
   const enrolled = enrollments.find((e) => e.slug === course.slug);
 
-  const getLevelBadgeStyles = (lvl: string) => {
-    switch (lvl.toLowerCase()) {
-      case "beginner":
-        return "bg-cyan/15 border-cyan-400 text-cyan shadow-[0_0_12px_rgba(0,240,255,0.25)]";
-      case "intermediate":
-        return "bg-emerald-500/15 border-emerald-400 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.25)]";
-      case "advanced":
-        return "bg-amber-400/15 border-amber-400 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.25)]";
-      default:
-        return "bg-slate-dim/20 border-slate-dim/40 text-slate-soft";
+  // Dynamic icon and gradient mapping for all courses
+  const getCourseVisual = () => {
+    const slug = course.slug.toLowerCase();
+    const title = course.title.toLowerCase();
+
+    if (slug.includes("rag") || slug.includes("retrieval") || title.includes("retrieval")) {
+      return {
+        iconBg: "bg-gradient-to-tr from-[#1A73E8] via-[#4285F4] to-[#8AB4F8]",
+        icon: <Database className="w-5 h-5 text-white" />
+      };
     }
+    if (slug.includes("agent") || slug.includes("multi-agent") || title.includes("agent")) {
+      return {
+        iconBg: "bg-gradient-to-tr from-[#6D28D9] via-[#8B5CF6] to-[#A78BFA]",
+        icon: <Workflow className="w-5 h-5 text-white" />
+      };
+    }
+    if (slug.includes("vision") || slug.includes("image") || title.includes("vision")) {
+      return {
+        iconBg: "bg-gradient-to-tr from-[#7B2CBF] via-[#9D4EDD] to-[#C77DFF]",
+        icon: <Eye className="w-5 h-5 text-white" />
+      };
+    }
+    if (slug.includes("python") || slug.includes("code") || slug.includes("programming")) {
+      return {
+        iconBg: "bg-gradient-to-tr from-[#E11D48] via-[#F43F5E] to-[#FB7185]",
+        icon: <Code2 className="w-5 h-5 text-white" />
+      };
+    }
+    if (slug.includes("neural") || slug.includes("deep-learning")) {
+      return {
+        iconBg: "bg-gradient-to-tr from-[#10A37F] via-[#1DAF89] to-[#25D366]",
+        icon: <Network className="w-5 h-5 text-white" />
+      };
+    }
+    if (slug.includes("prompt") || slug.includes("tools")) {
+      return {
+        iconBg: "bg-gradient-to-tr from-[#0078D4] via-[#00A4EF] to-[#00C7FF]",
+        icon: <Bot className="w-5 h-5 text-white" />
+      };
+    }
+    return {
+      iconBg: "bg-gradient-to-tr from-[#00C4CC] via-[#00B4D8] to-[#0077B6]",
+      icon: <Sparkles className="w-5 h-5 text-white" />
+    };
   };
 
+  const visual = getCourseVisual();
+
   return (
-    <div className="group relative flex flex-col justify-between rounded-2xl bg-gradient-to-b from-deepspace/80 to-midnight/90 border-2 border-amber-400/35 hover:border-amber-300/80 p-6 sm:p-7 transition-all duration-300 hover:shadow-gold-glass hover:-translate-y-1.5 backdrop-blur-xl">
-      {/* Top Meta Bar with standard margins */}
+    <div className="group relative rounded-[22px] bg-white/[0.06] hover:bg-white/[0.1] border-[1.5px] border-white/20 hover:border-[#00F0FF] shadow-[0_4px_20px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.25)] p-5 flex flex-col justify-between gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] backdrop-blur-2xl">
+      {/* Top Header Row: Squircle App Icon, Title & Meta, Bookmark */}
       <div>
-        <div className="flex items-center justify-between gap-3 mb-4">
-          <span
-            className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase font-bold tracking-wider border ${getLevelBadgeStyles(
-              course.level
-            )}`}
-          >
-            {course.level}
-          </span>
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div className="flex items-center gap-3.5 min-w-0">
+            {/* Specialized Squircle App Icon */}
+            <div className={`w-11 h-11 rounded-2xl ${visual.iconBg} p-0.5 shadow-md flex items-center justify-center flex-shrink-0 border border-white/30 group-hover:scale-105 transition-transform`}>
+              {visual.icon}
+            </div>
+
+            <div className="min-w-0">
+              <span className="px-2.5 py-0.5 rounded-full text-[9.5px] font-mono uppercase font-bold tracking-wider bg-white/10 border border-white/20 text-[#00F0FF]">
+                {course.level}
+              </span>
+              <Link href={`/courses/${course.slug}`}>
+                <h3 className="font-heading font-bold text-sm sm:text-base text-white group-hover:text-[#00F0FF] transition-colors truncate mt-1">
+                  {course.title}
+                </h3>
+              </Link>
+            </div>
+          </div>
+
           <button
             onClick={() => toggleBookmark(course.slug)}
             aria-label="Bookmark course"
-            className={`btn-touch p-2 rounded-xl border transition-all ${
+            className={`btn-touch w-8 h-8 rounded-full border transition-all flex items-center justify-center flex-shrink-0 ${
               isBookmarked
-                ? "bg-amber-400/25 border-amber-400 text-amber-400 shadow-gold-glass"
-                : "border-slate-dim/30 text-slate-soft hover:text-pearl hover:border-cyan-400/50 hover:bg-white/5"
+                ? "bg-[#00F0FF]/20 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                : "border-white/20 text-white/50 hover:text-white hover:bg-white/10"
             }`}
           >
-            <Bookmark className="w-4 h-4 fill-current" />
+            <Bookmark className="w-3.5 h-3.5 fill-current" />
           </button>
         </div>
 
-        {/* Course Title with standard heading margins */}
-        <Link href={`/courses/${course.slug}`} className="group/title">
-          <h3 className="font-heading font-extrabold text-lg sm:text-xl text-pearl group-hover/title:text-cyan transition-colors line-clamp-1">
-            {course.title}
-          </h3>
-        </Link>
-
-        {/* Tagline / Overview */}
-        <p className="mt-2.5 text-sm text-slate-soft line-clamp-2 leading-relaxed">
+        {/* Course Description */}
+        <p className="text-[11px] text-cyan-100/70 font-sans line-clamp-2 leading-relaxed mt-2">
           {course.tagline || course.overview}
         </p>
 
-        {/* Real World Project Pill with golden glass styling */}
+        {/* Real World Capstone Pill */}
         {course.realWorldProject && (
-          <div className="mt-4 py-2 px-3 rounded-xl bg-midnight/90 border border-amber-400/30 text-[11px] font-mono text-slate-soft flex items-center gap-2 shadow-sm">
-            <span className="text-amber-400 font-bold flex-shrink-0 flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-amber-400" />
-              CAPSTONE:
+          <div className="mt-3 py-1.5 px-3 rounded-full bg-white/[0.05] border border-white/15 text-[10.5px] font-mono text-white/80 flex items-center gap-2">
+            <span className="text-[#00F0FF] font-bold flex-shrink-0 flex items-center gap-1">
+              <Sparkles className="w-3 h-3 text-[#00F0FF]" />
+              PROJECT:
             </span>
-            <span className="truncate text-pearl font-medium">{course.realWorldProject.title}</span>
+            <span className="truncate text-white font-medium">{course.realWorldProject.title}</span>
           </div>
         )}
       </div>
 
-      {/* Bottom Metrics & Actions with standard top margin and golden border */}
-      <div className="mt-6 pt-5 border-t border-amber-400/20">
-        <div className="flex items-center justify-between text-xs text-slate-soft font-mono mb-4">
+      {/* Bottom Metrics Bar & Actions */}
+      <div className="pt-3 border-t border-white/10 space-y-3">
+        <div className="flex items-center justify-between text-[11px] font-mono text-white/70">
           <div className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-cyan" />
+            <Clock className="w-3.5 h-3.5 text-[#00F0FF]" />
             <span>{course.estimatedHours}h estimated</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+            <BookOpen className="w-3.5 h-3.5 text-amber-300" />
             <span>{course.modulesCount || 3} modules</span>
           </div>
         </div>
@@ -93,19 +147,24 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         {enrolled ? (
           <Link
             href={`/learn/${course.slug}/${course.modules?.[0]?.lessons?.[0]?.slug || 'intro'}`}
-            className="btn-touch w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-cyan/15 border border-cyan/40 text-cyan text-sm font-bold hover:bg-cyan/25 shadow-cyan-glass"
+            className="btn-touch w-full flex items-center justify-center gap-2 py-2 px-4 rounded-full bg-white/10 hover:bg-[#00F0FF] border border-white/25 hover:border-transparent text-white hover:text-[#070D24] text-xs font-bold transition-all shadow-sm"
           >
-            <CheckCircle2 className="w-4 h-4 text-cyan" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF] group-hover:text-[#070D24]" />
             <span>Continue ({enrolled.progressPercent}%)</span>
           </Link>
         ) : (
-          <Link
-            href={`/courses/${course.slug}`}
-            className="btn-touch w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-deepspace/90 border border-amber-400/40 hover:border-amber-300 text-pearl text-sm font-semibold hover:text-amber-300 shadow-gold-glass"
-          >
-            <span>Explore Course</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex items-center justify-between gap-3 pt-1">
+            <div className="text-xs font-mono font-bold text-amber-300">
+              $49 <span className="text-[10px] text-emerald-400 font-normal">($0 Grant)</span>
+            </div>
+            <Link
+              href={`/courses/${course.slug}`}
+              className="btn-touch px-4 py-2 rounded-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 text-white font-heading font-bold text-xs shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] hover:scale-105 transition-all flex items-center gap-2"
+            >
+              <span>Explore</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         )}
       </div>
     </div>

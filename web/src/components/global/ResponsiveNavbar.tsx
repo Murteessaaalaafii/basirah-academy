@@ -31,11 +31,11 @@ export const ResponsiveNavbar: React.FC = () => {
   const isActive = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-2xl bg-white/85 dark:bg-[#07162F]/90 border-b-2 border-amber-500/40 dark:border-amber-400/30 transition-all duration-300 shadow-[0_4px_25px_rgba(7,22,47,0.06)] dark:shadow-prismatic">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-3xl bg-white/90 dark:bg-[#0A1430]/85 border-b border-white/15 dark:border-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.15)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo & Emblem with 4-Sided Golden Glass Box Frame */}
+        {/* Brand Logo & Emblem with Beveled Frame */}
         <Link href="/" className="flex items-center gap-3.5 group btn-touch">
-          <div className="relative w-12 h-12 flex items-center justify-center rounded-2xl bg-white dark:bg-gradient-to-br dark:from-deepspace dark:to-midnight border-[2.5px] border-amber-500/60 dark:border-amber-400/60 p-0.5 shadow-gold-glow group-hover:scale-105 group-hover:border-amber-400 transition-all duration-300 overflow-hidden ring-1 ring-cyan-400/40">
+          <div className="relative w-11 h-11 flex items-center justify-center rounded-2xl bg-white dark:bg-gradient-to-br dark:from-deepspace dark:to-midnight border-2 border-[#38BDF8]/60 p-0.5 shadow-[0_0_20px_rgba(0,240,255,0.3)] group-hover:scale-105 group-hover:border-[#00F0FF] transition-all duration-300 overflow-hidden">
             <img 
               src="/assets/basirah-app-icon.png" 
               alt="Basirah Academy App Icon" 
@@ -45,26 +45,26 @@ export const ResponsiveNavbar: React.FC = () => {
           <div className="flex flex-col">
             <div className="flex items-center gap-2 font-heading font-extrabold text-xl sm:text-2xl tracking-wider text-[#07162F] dark:text-pearl">
               BASIRAH
-              <span className="font-heading font-bold text-amber-700 dark:text-amber-400 text-xs tracking-widest px-2.5 py-0.5 rounded-full border-2 border-amber-500/50 dark:border-amber-400/40 bg-amber-400/15 shadow-gold-glass">
+              <span className="font-heading font-bold text-white text-[10px] tracking-widest px-2.5 py-0.5 rounded-full border border-white/30 bg-gradient-to-r from-[#EC4899] to-[#A855F7] shadow-sm">
                 ACADEMY
               </span>
             </div>
-            <span className="font-mono text-[9.5px] tracking-[0.25em] text-cyan-700 dark:text-cyan-400 uppercase font-bold">
+            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0096C7] dark:text-[#00F0FF] uppercase font-bold">
               Learn • Build • Innovate
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Links with Box-Style Borders */}
+        {/* Desktop Navigation Links with Exact Capsule Style */}
         <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`btn-touch px-3.5 py-2 rounded-xl font-sans text-sm font-semibold transition-all duration-200 border-2 ${
+              className={`btn-touch px-4 py-2 rounded-full font-sans text-xs font-semibold transition-all duration-200 border ${
                 isActive(link.href)
-                  ? "text-cyan-900 dark:text-cyan bg-cyan-100/80 dark:bg-cyan/15 border-cyan-500/60 dark:border-cyan/40 shadow-cyan-glass"
-                  : "text-[#334E68] dark:text-slate-soft hover:text-[#07162F] dark:hover:text-pearl hover:bg-slate-200/60 dark:hover:bg-white/5 border-transparent hover:border-slate-300 dark:hover:border-slate-700"
+                  ? "text-[#00F0FF] bg-white/10 dark:bg-white/[0.08] border-[#00F0FF]/40 shadow-[0_0_15px_rgba(0,240,255,0.25)] font-bold"
+                  : "text-[#334E68] dark:text-cyan-100/70 hover:text-white hover:bg-white/10 border-transparent hover:border-white/20"
               }`}
             >
               {link.label}
@@ -72,17 +72,17 @@ export const ResponsiveNavbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Action Controls & User Section with 4-Sided Box Borders */}
+        {/* Action Controls & User Section */}
         <div className="hidden md:flex items-center gap-3">
           {/* Real Dark/Bright Mode Theme Switcher */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Dark / Bright Theme"
             title={theme === "dark" ? "Switch to Relaxing Bright Mode" : "Switch to Deep Cosmic Dark Mode"}
-            className="btn-touch p-2.5 rounded-xl bg-white/95 dark:bg-deepspace/80 border-[2.5px] border-amber-500/50 dark:border-amber-400/40 text-amber-600 dark:text-amber-400 hover:border-amber-500 dark:hover:border-amber-300 shadow-gold-glass transition-all"
+            className="btn-touch p-2.5 rounded-full bg-white/90 dark:bg-white/10 border border-white/20 text-[#07162F] dark:text-[#00F0FF] hover:border-[#00F0FF] shadow-sm transition-all"
           >
             {theme === "dark" ? (
-              <Sun className="w-4 h-4 text-amber-400 transition-transform duration-300 hover:rotate-45" />
+              <Sun className="w-4 h-4 text-amber-300 transition-transform duration-300 hover:rotate-45" />
             ) : (
               <Moon className="w-4 h-4 text-cyan-600 transition-transform duration-300 hover:-rotate-12" />
             )}
@@ -93,9 +93,9 @@ export const ResponsiveNavbar: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <Link
                 href="/dashboard"
-                className="btn-touch flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/90 dark:bg-deepspace/90 border-[2.5px] border-cyan-500/50 dark:border-cyan/40 hover:border-cyan text-[#07162F] dark:text-pearl text-sm font-semibold shadow-cyan-glass transition-all"
+                className="btn-touch flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 dark:bg-white/10 border border-white/25 hover:border-[#00F0FF] text-[#07162F] dark:text-white text-xs font-bold shadow-sm transition-all"
               >
-                <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-500 flex items-center justify-center text-[10px] text-cyan-800 dark:text-cyan font-bold">
+                <div className="w-5 h-5 rounded-full bg-[#00F0FF]/20 border border-[#00F0FF] flex items-center justify-center text-[10px] text-[#00F0FF] font-bold">
                   {user.displayName.charAt(0)}
                 </div>
                 <span>Dashboard</span>
@@ -103,7 +103,7 @@ export const ResponsiveNavbar: React.FC = () => {
               {user.role === "admin" && (
                 <Link
                   href="/admin"
-                  className="btn-touch px-3 py-2 rounded-xl bg-amber-400/20 border-2 border-amber-500/50 dark:border-amber-400/50 text-amber-800 dark:text-amber-300 hover:bg-amber-400/30 text-xs font-mono font-bold shadow-gold-glass"
+                  className="btn-touch px-3 py-1.5 rounded-full bg-gradient-to-r from-[#EC4899] to-[#A855F7] border border-white/30 text-white text-xs font-mono font-bold shadow-sm"
                 >
                   Admin
                 </Link>
@@ -113,13 +113,13 @@ export const ResponsiveNavbar: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <Link
                 href="/auth/signin"
-                className="btn-touch px-4 py-2 rounded-xl font-sans text-sm font-semibold text-[#334E68] dark:text-slate-soft hover:text-[#07162F] dark:hover:text-pearl bg-white/70 dark:bg-white/5 border-2 border-slate-300 dark:border-slate-dim/30 hover:border-cyan-500/50 transition-all"
+                className="btn-touch px-4 py-2 rounded-full font-heading text-xs font-bold text-white bg-white/10 hover:bg-white/15 border border-white/25 transition-all"
               >
                 Sign In
               </Link>
               <Link
                 href="/auth/signup"
-                className="btn-touch px-5 py-2 rounded-xl font-sans text-sm font-bold text-midnight bg-gradient-to-r from-amber-400 via-amber-300 to-cyan hover:brightness-110 shadow-gold-glass border-2 border-amber-400 transition-all"
+                className="btn-touch px-5 py-2.5 rounded-full font-heading text-xs font-extrabold text-white bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] hover:scale-105 transition-all"
               >
                 Join Academy
               </Link>
@@ -132,14 +132,14 @@ export const ResponsiveNavbar: React.FC = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="btn-touch p-2.5 rounded-xl bg-white/95 dark:bg-deepspace/80 border-2 border-amber-500/40 dark:border-amber-400/40 text-amber-600 dark:text-amber-400"
+            className="btn-touch p-2.5 rounded-full bg-white/10 border border-white/20 text-white"
           >
             {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className="btn-touch p-2.5 rounded-xl bg-white/95 dark:bg-deepspace/80 border-2 border-amber-500/40 dark:border-amber-400/40 text-[#07162F] dark:text-pearl"
+            className="btn-touch p-2.5 rounded-full bg-white/10 border border-white/20 text-white"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

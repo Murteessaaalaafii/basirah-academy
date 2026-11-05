@@ -247,115 +247,144 @@
 
 /* 1. Dimensional 3D Floating Glass Tablet Outer Frame */
 .glass-tablet-frame {
-  border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.88);
+  border-radius: 2.25rem;
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  border: 3px solid rgba(0, 180, 216, 0.6);
+  border: 3px solid rgba(56, 189, 248, 0.6);
   box-shadow: 
-    0 0 45px rgba(0, 180, 216, 0.22),
-    0 25px 60px rgba(7, 22, 47, 0.1),
-    inset 0 2px 4px rgba(255, 255, 255, 0.85),
-    inset 0 -2px 4px rgba(0, 180, 216, 0.15);
+    0 0 55px rgba(56, 189, 248, 0.25),
+    0 25px 70px rgba(7, 22, 47, 0.12),
+    inset 0 1px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px rgba(56, 189, 248, 0.2);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .glass-tablet-frame {
-  background: rgba(11, 32, 68, 0.72);
-  border: 3px solid rgba(0, 240, 255, 0.55);
+  background: rgba(10, 20, 48, 0.78);
+  border: 3px solid rgba(56, 189, 248, 0.6);
   box-shadow: 
-    0 0 50px rgba(0, 240, 255, 0.28),
-    0 25px 60px rgba(3, 9, 20, 0.65),
-    inset 0 1px 2px rgba(255, 255, 255, 0.35),
-    inset 0 -1px 2px rgba(0, 240, 255, 0.2);
+    0 0 60px rgba(0, 240, 255, 0.25),
+    0 30px 90px rgba(4, 8, 24, 0.7),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 240, 255, 0.2);
 }
 
-/* 2. Frosted Holographic Service / Course Box Card */
+.glass-tablet-frame:hover {
+  border-color: #00F0FF;
+  box-shadow: 
+    0 0 75px rgba(0, 240, 255, 0.35),
+    0 30px 90px rgba(4, 8, 24, 0.75);
+}
+
+/* 2. Frosted Holographic Service / Course Box Card (Exact 22px Radius & 1.5px Border) */
 .glass-service-box {
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.85);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 2px solid rgba(0, 180, 216, 0.45);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
   box-shadow: 
-    0 8px 24px rgba(7, 22, 47, 0.06),
-    0 0 18px rgba(0, 180, 216, 0.12),
+    0 4px 20px rgba(7, 22, 47, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .glass-service-box {
-  background: rgba(7, 22, 47, 0.68);
-  border: 2px solid rgba(0, 240, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.20);
   box-shadow: 
-    0 0 20px rgba(0, 240, 255, 0.15),
-    0 8px 30px rgba(3, 9, 20, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .glass-service-box:hover {
   transform: translateY(-2.5px);
-  border-color: rgba(0, 240, 255, 0.85);
+  border-color: #00F0FF;
   box-shadow: 
-    0 0 35px rgba(0, 240, 255, 0.35),
-    0 15px 35px rgba(3, 9, 20, 0.45);
+    0 0 25px rgba(0, 240, 255, 0.3),
+    0 12px 30px rgba(3, 9, 20, 0.45);
 }
 
-/* 3. Glowing Neon Pill Button (Image 2 "New Project" Style) */
+/* 3. Glowing Neon Pill Button (Image 2 "✨ New Project ›" Style) */
 .glass-pill-button {
   border-radius: 9999px;
-  background: linear-gradient(135deg, #A855F7 0%, #6366F1 50%, #06B6D4 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #EC4899 0%, #A855F7 50%, #00F0FF 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   color: #FFFFFF;
   font-weight: 700;
   box-shadow: 
-    0 0 24px rgba(168, 85, 247, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 0 25px rgba(168, 85, 247, 0.5),
+    0 0 10px rgba(0, 240, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-pill-button:hover {
-  transform: translateY(-1.5px) scale(1.02);
+  transform: translateY(-1.5px) scale(1.03);
   box-shadow: 
-    0 0 35px rgba(168, 85, 247, 0.6),
-    0 10px 25px rgba(99, 102, 241, 0.4);
-  filter: brightness(1.1);
+    0 0 35px rgba(168, 85, 247, 0.75),
+    0 0 15px rgba(0, 240, 255, 0.5);
+  filter: brightness(1.08);
 }
 
 .glass-pill-button:active {
   transform: translateY(1px) scale(0.97);
 }
 
-/* 4. Translucent Floating Vertical Pill Dock */
+/* 4. Circular Pill Action Arrow Button (Exact from Image 2) */
+.glass-circle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.glass-circle-btn:hover {
+  background: #00F0FF;
+  border-color: transparent;
+  color: #070D24;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.7);
+  transform: scale(1.08);
+}
+
+/* 5. Translucent Floating Vertical Pill Dock */
 .glass-dock {
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 2px solid rgba(0, 180, 216, 0.45);
-  box-shadow: 0 0 25px rgba(0, 180, 216, 0.15);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 32px rgba(7, 22, 47, 0.12);
 }
 
 .dark .glass-dock {
-  background: rgba(7, 22, 47, 0.75);
-  border: 2px solid rgba(0, 240, 255, 0.4);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* 5. Translucent Pill Search Bar */
+/* 6. Translucent Pill Search Bar */
 .glass-search-bar {
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 2px solid rgba(0, 180, 216, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
   box-shadow: inset 0 2px 4px rgba(7, 22, 47, 0.04);
 }
 
 .dark .glass-search-bar {
-  background: rgba(7, 22, 47, 0.7);
-  border: 2px solid rgba(0, 240, 255, 0.3);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.20);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .glass-search-bar:focus-within {

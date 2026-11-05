@@ -37,8 +37,8 @@ export default function CheckoutPage() {
   if (!course) {
     return (
       <div className="py-24 text-center space-y-4">
-        <h1 className="font-heading font-extrabold text-2xl text-pearl">Course Not Found</h1>
-        <Link href="/courses" className="btn-touch px-5 py-2.5 rounded-xl bg-cyan text-midnight font-bold text-xs">
+        <h1 className="font-heading font-extrabold text-2xl text-white">Course Not Found</h1>
+        <Link href="/courses" className="btn-touch px-5 py-2.5 rounded-full bg-gradient-to-r from-[#00F0FF] to-[#38BDF8] text-[#070D24] font-bold text-xs">
           Return to Course Catalog
         </Link>
       </div>
@@ -63,88 +63,90 @@ export default function CheckoutPage() {
   const firstLessonSlug = course.modules?.[0]?.lessons?.[0]?.slug || "intro";
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12">
-      {/* Header */}
+    <div className="py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-10">
+      
+      {/* Header Badge */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border-2 border-amber-400/40 text-amber-300 text-xs font-mono font-bold shadow-gold-glass">
-          <ShieldCheck className="w-4 h-4 text-amber-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] border-[1.5px] border-white/20 text-[#00F0FF] text-xs font-mono font-bold shadow-sm">
+          <ShieldCheck className="w-4 h-4 text-[#00F0FF]" />
           <span>SECURE ACADEMY CHECKOUT & ENROLLMENT</span>
         </div>
-        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl">
+        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
           Enrollment & Tuition Settlement
         </h1>
-        <p className="text-slate-soft text-sm sm:text-base max-w-xl mx-auto">
+        <p className="text-cyan-100/70 text-sm sm:text-base max-w-xl mx-auto font-sans">
           Complete your enrollment to unlock verified workspace access, code laboratory environments, and Socratic AI guidance.
         </p>
       </div>
 
       {isComplete ? (
-        /* Settlement Confirmation Receipt View */
-        <div className="p-8 sm:p-12 rounded-3xl bg-midnight/95 border-[3px] border-amber-400/60 ring-1 ring-inset ring-amber-300/30 shadow-[0_0_40px_rgba(245,158,11,0.3)] text-center space-y-8 backdrop-blur-2xl animate-in zoom-in-95 duration-300">
-          <div className="w-20 h-20 rounded-full bg-status-success/20 border-2 border-status-success flex items-center justify-center mx-auto shadow-[0_0_30px_#19B887]">
-            <CheckCircle2 className="w-10 h-10 text-status-success" />
+        /* Settlement Confirmation Receipt View in 3D Glass Tablet */
+        <div className="relative rounded-[32px] sm:rounded-[36px] bg-[#0A1430]/80 dark:bg-[#070D24]/85 backdrop-blur-3xl border-[3px] border-[#38BDF8]/60 shadow-[0_0_60px_rgba(0,240,255,0.25),0_30px_90px_rgba(4,8,24,0.7),inset_0_1px_3px_rgba(255,255,255,0.4)] p-8 sm:p-12 text-center space-y-8 animate-in zoom-in-95 duration-300">
+          <div className="w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+            <CheckCircle2 className="w-10 h-10 text-emerald-400" />
           </div>
 
           <div className="space-y-3">
-            <span className="font-mono text-xs text-amber-400 uppercase tracking-widest font-extrabold">
+            <span className="font-mono text-xs text-amber-300 uppercase tracking-widest font-extrabold">
               OFFICIAL ENROLLMENT CONFIRMATION
             </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-pearl">
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white">
               Welcome to {course.title}
             </h2>
-            <p className="text-slate-soft text-sm sm:text-base max-w-md mx-auto">
+            <p className="text-cyan-100/70 text-sm sm:text-base max-w-md mx-auto font-sans">
               Your credentials and lifetime workspace have been provisioned. You can immediately begin your first engineering lesson.
             </p>
           </div>
 
           {/* Receipt Details Box */}
-          <div className="max-w-md mx-auto p-6 rounded-2xl bg-deepspace/90 border-2 border-amber-400/40 font-mono text-xs text-left space-y-3 shadow-gold-glass">
-            <div className="flex justify-between border-b border-amber-400/20 pb-2.5">
-              <span className="text-slate-soft">Transaction ID:</span>
-              <span className="text-amber-400 font-bold">{transactionId}</span>
+          <div className="max-w-md mx-auto p-6 rounded-[22px] bg-white/[0.06] border-[1.5px] border-white/20 font-mono text-xs text-left space-y-3 shadow-md">
+            <div className="flex justify-between border-b border-white/10 pb-2.5">
+              <span className="text-white/60">Transaction ID:</span>
+              <span className="text-amber-300 font-bold">{transactionId}</span>
             </div>
-            <div className="flex justify-between border-b border-amber-400/20 pb-2.5">
-              <span className="text-slate-soft">Course:</span>
-              <span className="text-pearl font-bold truncate max-w-[220px]">{course.title}</span>
+            <div className="flex justify-between border-b border-white/10 pb-2.5">
+              <span className="text-white/60">Course:</span>
+              <span className="text-white font-bold truncate max-w-[220px]">{course.title}</span>
             </div>
-            <div className="flex justify-between border-b border-amber-400/20 pb-2.5">
-              <span className="text-slate-soft">Payment Method:</span>
-              <span className="text-cyan font-bold uppercase">{paymentMethod}</span>
+            <div className="flex justify-between border-b border-white/10 pb-2.5">
+              <span className="text-white/60">Settlement Mode:</span>
+              <span className="text-[#00F0FF] font-bold uppercase">{paymentMethod}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-soft">Tuition Paid:</span>
-              <span className="text-status-success font-bold">${finalPrice}.00 USD</span>
+              <span className="text-white/60">Tuition Settled:</span>
+              <span className="text-emerald-400 font-bold">${finalPrice}.00 USD</span>
             </div>
           </div>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={`/learn/${course.slug}/${firstLessonSlug}`}
-              className="btn-touch w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-cyan text-midnight font-heading font-extrabold text-sm shadow-gold-glass hover:brightness-110 flex items-center justify-center gap-2"
+              className="btn-touch w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 text-white font-heading font-extrabold text-xs shadow-[0_0_25px_rgba(168,85,247,0.5)] flex items-center justify-center gap-2 hover:scale-105 transition-all"
             >
-              <span>Launch Course Workspace & Begin</span>
+              <span>Launch Workspace & Begin</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/dashboard"
-              className="btn-touch w-full sm:w-auto px-8 py-4 rounded-2xl bg-deepspace/80 border-2 border-amber-400/50 text-pearl font-bold text-sm shadow-gold-glass hover:border-amber-300"
+              className="btn-touch w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 border border-white/25 text-white font-bold text-xs hover:bg-white/20 transition-all"
             >
               Go to Dashboard
             </Link>
           </div>
         </div>
       ) : (
-        /* Checkout Form Grid */
+        /* Checkout Form Grid inside 3D Glass Tablet Container */
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Payment Method Selection */}
+          
+          {/* Left Column: Settlement Method Selection */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="p-7 sm:p-8 rounded-3xl bg-deepspace/90 border-[3px] border-amber-400/45 hover:border-amber-300 ring-1 ring-inset ring-amber-300/20 shadow-gold-glass space-y-6 backdrop-blur-xl">
-              <h3 className="font-heading font-extrabold text-xl text-pearl flex items-center gap-2.5">
-                <Wallet className="w-5 h-5 text-amber-400" />
+            <div className="rounded-[28px] bg-white/[0.06] border-[1.5px] border-white/20 p-6 sm:p-8 space-y-6 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+              <h3 className="font-heading font-extrabold text-xl text-white flex items-center gap-2.5">
+                <Wallet className="w-5 h-5 text-[#00F0FF]" />
                 <span>Select Settlement Option</span>
               </h3>
 
-              {/* Payment Methods Tabs */}
+              {/* Settlement Methods */}
               <div className="space-y-3">
                 {/* Option 1: Academic Merit Scholarship (Default 100% Free Access) */}
                 <button
@@ -153,48 +155,48 @@ export default function CheckoutPage() {
                     setPaymentMethod('scholarship');
                     setScholarshipApplied(true);
                   }}
-                  className={`btn-touch w-full p-4 rounded-2xl border-2 text-left flex items-start gap-4 transition-all ${
+                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${
                     paymentMethod === 'scholarship'
-                      ? "bg-amber-400/15 border-amber-400 shadow-gold-glass"
-                      : "bg-midnight/70 border-slate-dim/30 hover:border-amber-400/40"
+                      ? "bg-white/[0.12] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]"
+                      : "bg-white/[0.04] border-white/15 hover:border-white/30"
                   }`}
                 >
-                  <div className="p-2.5 rounded-xl bg-amber-400/20 text-amber-400 flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#EC4899] to-[#A855F7] text-white flex-shrink-0 mt-0.5 shadow-sm">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-heading font-bold text-pearl text-sm">Full Academic Merit Scholarship</span>
-                      <span className="px-2 py-0.5 rounded-full bg-status-success/20 text-status-success text-[10px] font-mono font-bold">100% GRANT</span>
+                      <span className="font-heading font-bold text-white text-sm">Full Academic Merit Scholarship</span>
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[9.5px] font-mono font-bold">100% GRANT</span>
                     </div>
-                    <p className="text-xs text-slate-soft leading-relaxed">
-                      Instant 100% tuition grant sponsored by the Basirah Engineering Foundation. No credit card required.
+                    <p className="text-xs text-cyan-100/70 leading-relaxed font-sans">
+                      Instant 100% tuition grant sponsored by the Basirah Engineering Foundation. No card required.
                     </p>
                   </div>
                 </button>
 
-                {/* Option 2: Mobile Money (Telebirr & Regional) */}
+                {/* Option 2: Mobile Money (Telebirr & CBE Birr) */}
                 <button
                   type="button"
                   onClick={() => {
                     setPaymentMethod('telebirr');
                     setScholarshipApplied(false);
                   }}
-                  className={`btn-touch w-full p-4 rounded-2xl border-2 text-left flex items-start gap-4 transition-all ${
+                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${
                     paymentMethod === 'telebirr'
-                      ? "bg-cyan/15 border-cyan shadow-cyan-glass"
-                      : "bg-midnight/70 border-slate-dim/30 hover:border-cyan/40"
+                      ? "bg-white/[0.12] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]"
+                      : "bg-white/[0.04] border-white/15 hover:border-white/30"
                   }`}
                 >
-                  <div className="p-2.5 rounded-xl bg-cyan/20 text-cyan flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#00F0FF] to-[#0284C7] text-white flex-shrink-0 mt-0.5 shadow-sm">
                     <Smartphone className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-heading font-bold text-pearl text-sm">Telebirr / CBE Birr (Ethiopia)</span>
-                      <span className="px-2 py-0.5 rounded-full bg-cyan/20 text-cyan text-[10px] font-mono font-bold">2,800 ETB</span>
+                      <span className="font-heading font-bold text-white text-sm">Telebirr / CBE Birr (Ethiopia)</span>
+                      <span className="px-2 py-0.5 rounded-full bg-[#00F0FF]/20 text-[#00F0FF] text-[9.5px] font-mono font-bold">2,800 ETB</span>
                     </div>
-                    <p className="text-xs text-slate-soft leading-relaxed">
+                    <p className="text-xs text-cyan-100/70 leading-relaxed font-sans">
                       Instant local settlement via mobile wallet or Commercial Bank of Ethiopia.
                     </p>
                   </div>
@@ -207,31 +209,31 @@ export default function CheckoutPage() {
                     setPaymentMethod('card');
                     setScholarshipApplied(false);
                   }}
-                  className={`btn-touch w-full p-4 rounded-2xl border-2 text-left flex items-start gap-4 transition-all ${
+                  className={`btn-touch w-full p-4 rounded-[20px] border-[1.5px] text-left flex items-start gap-4 transition-all ${
                     paymentMethod === 'card'
-                      ? "bg-amber-400/15 border-amber-400 shadow-gold-glass"
-                      : "bg-midnight/70 border-slate-dim/30 hover:border-amber-400/40"
+                      ? "bg-white/[0.12] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]"
+                      : "bg-white/[0.04] border-white/15 hover:border-white/30"
                   }`}
                 >
-                  <div className="p-2.5 rounded-xl bg-amber-400/20 text-amber-400 flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#A855F7] to-[#6366F1] text-white flex-shrink-0 mt-0.5 shadow-sm">
                     <CreditCard className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-heading font-bold text-pearl text-sm">Credit / Debit Card (Global)</span>
-                      <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-400 text-[10px] font-mono font-bold">$49 USD</span>
+                      <span className="font-heading font-bold text-white text-sm">Credit / Debit Card (Global)</span>
+                      <span className="px-2 py-0.5 rounded-full bg-white/15 text-white text-[9.5px] font-mono font-bold">$49 USD</span>
                     </div>
-                    <p className="text-xs text-slate-soft leading-relaxed">
+                    <p className="text-xs text-cyan-100/70 leading-relaxed font-sans">
                       Visa, MasterCard, and American Express processed with 256-bit encryption.
                     </p>
                   </div>
                 </button>
               </div>
 
-              {/* Conditional Form Inputs */}
+              {/* Conditional Voucher Input */}
               {paymentMethod === 'scholarship' && (
-                <div className="p-4 rounded-2xl bg-midnight/90 border border-amber-400/30 space-y-2">
-                  <label className="block text-xs font-mono text-amber-400 font-bold uppercase">
+                <div className="p-4 rounded-[20px] bg-white/[0.04] border border-white/15 space-y-2">
+                  <label className="block text-xs font-mono text-amber-300 font-bold uppercase">
                     Scholarship Voucher Code
                   </label>
                   <div className="flex gap-2">
@@ -239,161 +241,85 @@ export default function CheckoutPage() {
                       type="text"
                       value={scholarshipCode}
                       onChange={(e) => setScholarshipCode(e.target.value)}
-                      className="flex-1 bg-deepspace border-2 border-amber-400/30 rounded-xl px-3.5 py-2 text-sm text-pearl font-mono uppercase focus:outline-none"
+                      className="flex-1 bg-white/[0.08] border border-white/20 rounded-full px-4 py-2 text-xs text-white font-mono uppercase focus:outline-none focus:border-[#00F0FF]"
                     />
                     <button
                       type="button"
                       onClick={() => setScholarshipApplied(true)}
-                      className="btn-touch px-4 py-2 rounded-xl bg-amber-400 text-midnight text-xs font-bold"
+                      className="btn-touch px-5 py-2 rounded-full bg-gradient-to-r from-[#00F0FF] to-[#38BDF8] text-[#070D24] text-xs font-bold"
                     >
                       Applied
                     </button>
                   </div>
-                  <span className="text-[11px] text-status-success flex items-center gap-1 font-mono">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> 100% Tuition Grant Active (Fee: $0.00)
-                  </span>
                 </div>
               )}
+            </div>
+          </div>
 
-              {paymentMethod === 'telebirr' && (
-                <div className="p-4 rounded-2xl bg-midnight/90 border border-cyan/30 space-y-2 font-mono text-xs">
-                  <span className="text-cyan font-bold block">Telebirr Merchant Code: 884210</span>
-                  <p className="text-slate-soft">Enter your phone number to receive a direct push authorization:</p>
-                  <input
-                    type="tel"
-                    placeholder="+251 911 234 567"
-                    defaultValue="+251 9"
-                    className="w-full bg-deepspace border-2 border-cyan/40 rounded-xl px-3.5 py-2 text-sm text-pearl focus:outline-none"
-                  />
+          {/* Right Column: Order Summary & Pay Button */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="rounded-[28px] bg-white/[0.06] border-[1.5px] border-white/20 p-6 sm:p-8 space-y-6 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+              <h3 className="font-heading font-extrabold text-xl text-white flex items-center gap-2">
+                <Receipt className="w-5 h-5 text-amber-300" />
+                <span>Tuition Summary</span>
+              </h3>
+
+              <div className="space-y-3 font-mono text-xs">
+                <div className="flex justify-between text-white/70">
+                  <span>Course Specialization:</span>
+                  <span className="text-white font-bold truncate max-w-[180px]">{course.title}</span>
                 </div>
-              )}
-
-              {paymentMethod === 'card' && (
-                <div className="p-4 rounded-2xl bg-midnight/90 border border-amber-400/30 space-y-3 font-mono text-xs">
-                  <div>
-                    <label className="block text-slate-soft mb-1">Card Number</label>
-                    <input
-                      type="text"
-                      placeholder="4242 •••• •••• 4242"
-                      className="w-full bg-deepspace border border-slate-dim/40 rounded-xl px-3.5 py-2 text-pearl focus:outline-none"
-                    />
+                <div className="flex justify-between text-white/70">
+                  <span>Track Level:</span>
+                  <span className="text-[#00F0FF] uppercase">{course.level}</span>
+                </div>
+                <div className="flex justify-between text-white/70">
+                  <span>Lifetime Access:</span>
+                  <span className="text-emerald-400">Included</span>
+                </div>
+                <div className="flex justify-between text-white/70">
+                  <span>Catalog Base Price:</span>
+                  <span className="text-white font-bold">${basePrice}.00 USD</span>
+                </div>
+                {scholarshipApplied && (
+                  <div className="flex justify-between text-emerald-400">
+                    <span>Academic Grant Discount:</span>
+                    <span>-${discount}.00 USD</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-slate-soft mb-1">Expiry</label>
-                      <input
-                        type="text"
-                        placeholder="MM / YY"
-                        className="w-full bg-deepspace border border-slate-dim/40 rounded-xl px-3.5 py-2 text-pearl focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-slate-soft mb-1">CVC</label>
-                      <input
-                        type="text"
-                        placeholder="CVC"
-                        className="w-full bg-deepspace border border-slate-dim/40 rounded-xl px-3.5 py-2 text-pearl focus:outline-none"
-                      />
-                    </div>
-                  </div>
+                )}
+                <div className="pt-3 border-t border-white/10 flex justify-between text-sm font-heading font-bold text-white">
+                  <span>Total Due Today:</span>
+                  <span className="text-[#00F0FF] font-extrabold text-base">${finalPrice}.00 USD</span>
                 </div>
-              )}
+              </div>
 
-              {/* Complete Enrollment Action Button */}
+              {/* Exact Glowing Pill Button for Pay & Complete */}
               <button
                 type="button"
                 onClick={handlePayAndEnroll}
                 disabled={isProcessing}
-                className="btn-touch w-full py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-cyan text-midnight font-heading font-extrabold text-base shadow-gold-glass hover:brightness-110 flex items-center justify-center gap-2"
+                className="btn-touch w-full py-3.5 rounded-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#00F0FF] border-[1.5px] border-white/50 text-white font-heading font-extrabold text-xs shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:shadow-[0_0_35px_rgba(168,85,247,0.8)] hover:scale-[1.02] flex items-center justify-center gap-2 transition-all disabled:opacity-50"
               >
                 {isProcessing ? (
-                  <span>Processing Settlement...</span>
+                  <span>Provisioning Workspace...</span>
                 ) : (
                   <>
-                    <Lock className="w-4 h-4" />
-                    <span>Confirm Enrollment • ${finalPrice}.00 USD</span>
+                    <Lock className="w-4 h-4 text-white" />
+                    <span>Confirm & Launch Workspace</span>
+                    <ArrowRight className="w-4 h-4" />
                   </>
                 )}
               </button>
-            </div>
-          </div>
 
-          {/* Right Column: Order Summary & Course Card */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-7 sm:p-8 rounded-3xl bg-deepspace/90 border-[3px] border-amber-400/45 hover:border-amber-300 ring-1 ring-inset ring-amber-300/20 shadow-gold-glass space-y-6 backdrop-blur-xl">
-              <h3 className="font-heading font-extrabold text-xl text-pearl flex items-center gap-2">
-                <Receipt className="w-5 h-5 text-amber-400" />
-                <span>Order Summary</span>
-              </h3>
-
-              {/* Course Mini Overview */}
-              <div className="space-y-3 pb-5 border-b border-amber-400/20">
-                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-amber-400/10 border border-amber-400/40 text-amber-300">
-                  {course.level} TRACK
-                </span>
-                <h4 className="font-heading font-extrabold text-lg text-pearl">
-                  {course.title}
-                </h4>
-                <div className="flex items-center gap-4 text-xs font-mono text-slate-soft">
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-cyan" />
-                    {course.estimatedHours}h
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-                    {course.modules?.length || 3} Modules
-                  </span>
-                </div>
-              </div>
-
-              {/* What's Included */}
-              <div className="space-y-2.5 text-xs text-slate-soft">
-                <span className="font-mono text-pearl font-bold uppercase tracking-wider block mb-2">
-                  What You Receive:
-                </span>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-status-success flex-shrink-0" />
-                  <span>Full Lifetime Course & Lab Access</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-status-success flex-shrink-0" />
-                  <span>Interactive Socratic AI Tutor Access</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-status-success flex-shrink-0" />
-                  <span>Cryptographically Verified Certificate</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-status-success flex-shrink-0" />
-                  <span>Verified Capstone Architecture Review</span>
-                </div>
-              </div>
-
-              {/* Price Calculation */}
-              <div className="pt-4 border-t border-amber-400/20 space-y-2 text-sm font-mono">
-                <div className="flex justify-between text-slate-soft">
-                  <span>Standard Tuition:</span>
-                  <span>${basePrice}.00</span>
-                </div>
-                {scholarshipApplied && (
-                  <div className="flex justify-between text-status-success">
-                    <span>Merit Scholarship Grant:</span>
-                    <span>-${discount}.00</span>
-                  </div>
-                )}
-                <div className="flex justify-between text-slate-soft">
-                  <span>Institutional Taxes:</span>
-                  <span>$0.00</span>
-                </div>
-                <div className="flex justify-between text-pearl font-bold text-lg pt-3 border-t border-amber-400/25">
-                  <span>Total Due:</span>
-                  <span className="text-amber-400 font-heading font-extrabold">${finalPrice}.00 USD</span>
-                </div>
+              <div className="text-center text-[10.5px] font-mono text-cyan-200/60">
+                Basirah Academy Socratic Pledge • No Unhealthy Competition
               </div>
             </div>
           </div>
+
         </div>
       )}
+
     </div>
   );
 }

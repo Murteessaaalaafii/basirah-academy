@@ -4,36 +4,36 @@ import { Shield, Sparkles, Terminal, BookOpen, Layers } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-cosmic border-t-2 border-amber-400/25 text-slate-soft text-sm">
+    <footer className="w-full bg-[#070D24]/90 border-t border-white/10 text-cyan-100/70 text-sm backdrop-blur-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3.5 group btn-touch">
-              <div className="relative w-11 h-11 rounded-2xl bg-deepspace border-2 border-amber-400/60 p-0.5 shadow-gold-glow flex items-center justify-center overflow-hidden">
+              <div className="relative w-11 h-11 rounded-2xl bg-[#070D24] border-2 border-[#38BDF8]/60 p-0.5 shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center overflow-hidden">
                 <img src="/assets/basirah-app-icon.png" alt="Basirah Logo" className="w-full h-full object-cover rounded-xl" />
               </div>
               <div className="flex flex-col">
-                <div className="font-heading font-extrabold text-xl text-pearl tracking-wider">
+                <div className="font-heading font-extrabold text-xl text-white tracking-wider">
                   BASIRAH{" "}
-                  <span className="font-heading font-bold text-amber-400 text-xs px-2 py-0.5 rounded-full border border-amber-400/40 bg-amber-400/10 shadow-sm">
+                  <span className="font-heading font-bold text-white text-[10px] px-2.5 py-0.5 rounded-full border border-white/30 bg-gradient-to-r from-[#EC4899] to-[#A855F7] shadow-sm">
                     ACADEMY
                   </span>
                 </div>
-                <span className="font-mono text-[9px] tracking-[0.25em] text-cyan-400 uppercase font-semibold">
+                <span className="font-mono text-[9px] tracking-[0.25em] text-[#00F0FF] uppercase font-bold">
                   Learn • Build • Innovate
                 </span>
               </div>
             </Link>
-            <p className="font-sans text-sm text-slate-soft leading-relaxed max-w-sm">
+            <p className="font-sans text-xs sm:text-sm text-cyan-100/70 leading-relaxed max-w-sm">
               An advanced AI engineering ecosystem dedicated to making machine intelligence understandable, practical, and buildable for everyone.
             </p>
-            <div className="pt-2 font-mono text-xs text-amber-400 tracking-wider">
-              LEARN <span className="text-pearl">•</span> BUILD <span className="text-cyan">•</span> INNOVATE
+            <div className="pt-1 font-mono text-xs text-[#00F0FF] tracking-wider font-bold">
+              LEARN <span className="text-white">•</span> BUILD <span className="text-[#A855F7]">•</span> INNOVATE
             </div>
-            <div className="p-4 rounded-2xl bg-deepspace/70 border-2 border-amber-400/30 text-xs text-slate-soft space-y-1.5 shadow-gold-glass">
-              <div className="flex items-center gap-2 text-pearl font-bold">
-                <Shield className="w-4 h-4 text-amber-400" />
+            <div className="p-4 rounded-[20px] bg-white/[0.05] border-[1.5px] border-white/15 text-xs text-cyan-100/70 space-y-1.5 shadow-sm">
+              <div className="flex items-center gap-2 text-white font-bold">
+                <Shield className="w-4 h-4 text-[#00F0FF]" />
                 Ethical Pedagogy Guarantee
               </div>
               <p className="leading-relaxed">
